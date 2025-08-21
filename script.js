@@ -171,33 +171,40 @@ document.addEventListener('DOMContentLoaded', function() {
     // Contact Form Enhancement
     const contactForm = document.getElementById('contactForm');
     
+    // Check if page loaded with success parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('success') === 'true') {
+        // Show success message
+        const successMessage = document.createElement('div');
+        successMessage.innerHTML = `
+            <div style="background: #d4edda; border: 1px solid #c3e6cb; color: #155724; padding: 1rem; border-radius: 4px; margin: 1rem 0; text-align: center;">
+                <h4>✅ Message Sent Successfully!</h4>
+                <p>Thank you for your consultation request. Aleksandre Kharatishvili will respond to you within 24 hours.</p>
+            </div>
+        `;
+        
+        const formContainer = document.querySelector('.contact-form-container');
+        if (formContainer) {
+            formContainer.insertBefore(successMessage, contactForm);
+        }
+        
+        // Clear the URL parameter
+        window.history.replaceState({}, document.title, window.location.pathname);
+    }
+    
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
             const submitButton = this.querySelector('button[type="submit"]');
             const originalText = submitButton.textContent;
             
-            // Animate button
+            // Animate button during submission
             submitButton.textContent = 'Sending...';
             submitButton.style.transform = 'scale(0.95)';
             submitButton.style.opacity = '0.7';
             submitButton.disabled = true;
             
-            // Simulate form submission
-            setTimeout(() => {
-                submitButton.textContent = 'Message Sent!';
-                submitButton.style.background = '#28a745';
-                submitButton.style.transform = 'scale(1)';
-                submitButton.style.opacity = '1';
-                
-                setTimeout(() => {
-                    submitButton.textContent = originalText;
-                    submitButton.style.background = '';
-                    submitButton.disabled = false;
-                    contactForm.reset();
-                }, 2000);
-            }, 1500);
+            // The form will be submitted to Formspree
+            // Formspree will handle the redirect back with success parameter
         });
     }
     
