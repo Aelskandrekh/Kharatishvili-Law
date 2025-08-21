@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# XML Sitemap
+Sitemap: https://kharatishvili-law.com/sitemap.xml
+
+# Important pages for crawling
+Allow: /index.html
+Allow: /about.html  
+Allow: /services.html
+Allow: /team.html
+Allow: /resources.html
+Allow: /contact.html
