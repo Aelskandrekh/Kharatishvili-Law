@@ -280,6 +280,7 @@ p {
 /* Sections */
 .content-section,
 .practice-areas,
+.attorney-profile,
 .why-choose,
 .values-section,
 .experience-section,
@@ -311,6 +312,86 @@ p {
     color: #666;
     max-width: 600px;
     margin: 0 auto;
+}
+
+/* Attorney Profile Section */
+.attorney-profile {
+    background: linear-gradient(135deg, rgba(248,248,248,0.4) 0%, rgba(252,252,252,0.6) 100%);
+}
+
+.profile-content {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.profile-image {
+    position: relative;
+}
+
+.attorney-photo {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.attorney-photo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.profile-text h3 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: #1a1a1a;
+}
+
+.profile-text h4 {
+    font-size: 1.3rem;
+    color: #666;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.profile-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    color: #4a4a4a;
+}
+
+.credentials {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.credential-item {
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 4px;
+    border-left: 3px solid #1a1a1a;
+}
+
+.credential-item h5 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+.credential-item p {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 0;
+    line-height: 1.6;
 }
 
 /* Service Cards */
@@ -817,6 +898,23 @@ p {
     
     .footer-contact {
         text-align: center;
+    }
+    
+    .profile-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .attorney-photo {
+        max-width: 300px;
+        height: 300px;
+        margin: 0 auto;
+    }
+    
+    .credentials {
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
 }
 
