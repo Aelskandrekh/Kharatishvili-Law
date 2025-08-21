@@ -187,6 +187,15 @@ p {
     line-height: 1.1;
 }
 
+.hero-tagline {
+    font-size: 2rem;
+    color: #1a1a1a;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    line-height: 1.3;
+    text-align: center;
+}
+
 .hero-subtitle {
     font-size: 1.3rem;
     color: #555;
