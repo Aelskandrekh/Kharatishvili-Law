@@ -411,9 +411,12 @@ p {
 /* Team Section */
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: 1fr;
     gap: 2.5rem;
     margin: 3rem 0;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .team-member {
@@ -426,6 +429,41 @@ p {
 .team-member:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.team-member.featured-member {
+    padding: 3.5rem;
+    background: rgba(255, 255, 255, 0.6);
+    border: 2px solid rgba(26, 26, 26, 0.1);
+    text-align: center;
+}
+
+.team-member.featured-member h4 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #1a1a1a;
+}
+
+.team-member.featured-member h5 {
+    font-size: 1.3rem;
+    color: #666;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.founding-vision, .founder-qualifications {
+    margin-top: 4rem;
+    padding: 3rem;
+    background: rgba(248, 248, 248, 0.6);
+    border-radius: 4px;
+}
+
+.vision-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
 }
 
 .expertise-areas {
