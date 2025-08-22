@@ -83,11 +83,13 @@ p {
     align-items: center;
 }
 
-.logo h1 {
+.logo h1,
+.logo .logo-text {
     font-size: 1.75rem;
     margin: 0;
     color: #1a1a1a;
     font-weight: 400;
+    font-family: 'Crimson Text', Georgia, serif;
 }
 
 .nav-menu {
