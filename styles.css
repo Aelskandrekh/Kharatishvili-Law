@@ -99,7 +99,8 @@ p {
     letter-spacing: -0.02em;
 }
 
-/* Language Switcher */
+/* Language Switcher - DISABLED */
+/*
 .language-switcher {
     display: flex;
     align-items: center;
@@ -138,6 +139,7 @@ p {
     font-weight: 300;
     user-select: none;
 }
+*/
 
 .nav-menu {
     display: flex;
@@ -1150,7 +1152,8 @@ body {
         z-index: 1001;
     }
     
-    /* Mobile Language Switcher */
+    /* Mobile Language Switcher - DISABLED */
+    /*
     .language-switcher {
         position: absolute;
         top: 50%;
@@ -1164,6 +1167,7 @@ body {
         padding: 0.2rem 0.4rem;
         font-size: 0.8rem;
     }
+    */
     
     .nav-menu {
         position: fixed;

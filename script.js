@@ -336,7 +336,8 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.classList.remove('using-keyboard');
     });
     
-    // Language Switcher Enhancement
+    // Language Switcher Enhancement - DISABLED
+    /*
     const languageSwitcher = document.querySelector('.language-switcher');
     
     if (languageSwitcher) {
@@ -378,6 +379,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     }
+    */
     
     // Performance optimization: Debounce scroll events
     let scrollTimeout;
