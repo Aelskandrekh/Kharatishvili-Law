@@ -336,6 +336,49 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.classList.remove('using-keyboard');
     });
     
+    // Language Switcher Enhancement
+    const languageSwitcher = document.querySelector('.language-switcher');
+    
+    if (languageSwitcher) {
+        const langLinks = languageSwitcher.querySelectorAll('.lang-link');
+        
+        langLinks.forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px) scale(1.05)';
+                this.style.transition = 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)';
+            });
+            
+            link.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+            
+            link.addEventListener('click', function(e) {
+                // Add click animation
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 100);
+                
+                // Optional: Store language preference in localStorage
+                const isGeorgian = this.getAttribute('href').includes('-ka.html');
+                localStorage.setItem('preferredLanguage', isGeorgian ? 'ka' : 'en');
+            });
+        });
+    }
+    
+    // Auto-redirect based on stored language preference (optional)
+    function checkLanguagePreference() {
+        const preferredLang = localStorage.getItem('preferredLanguage');
+        const currentPath = window.location.pathname;
+        
+        // Only redirect on the home page to avoid confusion
+        if (preferredLang && (currentPath === '/' || currentPath === '/index.html')) {
+            if (preferredLang === 'ka' && !currentPath.includes('-ka')) {
+                window.location.href = 'index-ka.html';
+            }
+        }
+    }
+    
     // Performance optimization: Debounce scroll events
     let scrollTimeout;
     

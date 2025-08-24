@@ -113,3 +113,5 @@ Uses **Formspree** service (https://formspree.io/f/xwpqgkka) for form submission
 - **LLM instructions**: `llms.txt` for AI crawling guidelines  
 - **Package.json**: Minimal configuration, primarily for repository metadata
 - **No build tools**: Direct file editing and deployment model
+
+always ensure mobile responsiveness when updating the code
