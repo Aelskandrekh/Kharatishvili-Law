@@ -15,6 +15,10 @@ body {
     background-size: 20px 20px;
     font-weight: 300;
     letter-spacing: 0.01em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
 }
 
 /* Typography */
@@ -713,6 +717,39 @@ p {
     margin: 0 auto;
 }
 
+/* Mobile Touch and Interaction Improvements */
+@media (hover: none) and (pointer: coarse) {
+    /* Touch device specific styles */
+    .service-card:hover,
+    .team-member:hover,
+    .benefit-item:hover,
+    .resource-item:hover {
+        transform: none;
+        box-shadow: inherit;
+    }
+    
+    .cta-button:hover {
+        transform: none;
+        box-shadow: inherit;
+    }
+    
+    .nav-link:hover {
+        transform: none;
+    }
+}
+
+/* Prevent horizontal scroll */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* Better text rendering on mobile */
+body {
+    text-rendering: optimizeLegibility;
+    -webkit-tap-highlight-color: rgba(26, 26, 26, 0.1);
+}
+
 .achievement-list {
     list-style: none;
     padding: 0;
@@ -759,55 +796,310 @@ p {
     margin-bottom: 0;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .nav-container {
-        padding: 0 1rem;
-    }
-    
-    .nav-menu {
-        gap: 1.5rem;
-        flex-wrap: wrap;
-    }
-    
+/* Mobile Menu Styles */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    gap: 0.25rem;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+}
+
+.hamburger-line {
+    width: 24px;
+    height: 2px;
+    background: #1a1a1a;
+    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-menu-toggle.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.mobile-menu-toggle.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Mobile-First Responsive Design */
+@media (max-width: 480px) {
+    /* Ultra small screens */
     .hero-title {
-        font-size: 3rem;
+        font-size: 2.2rem;
+        line-height: 1.2;
     }
     
     .page-hero h2 {
-        font-size: 2.5rem;
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 2.2rem;
     }
     
     h3 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
+    }
+    
+    .nav-container {
+        padding: 0 1rem;
     }
     
     .content-container {
         padding: 0 1rem;
     }
     
+    .hero-content {
+        padding: 0 1rem;
+    }
+    
+    .service-card {
+        padding: 1.5rem;
+    }
+    
+    .cta-button {
+        padding: 0.875rem 1.5rem;
+        font-size: 0.95rem;
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Mobile Navigation */
+    .mobile-menu-toggle {
+        display: flex;
+        z-index: 1001;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background: rgba(254, 254, 254, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        gap: 0;
+        z-index: 1000;
+    }
+    
+    .nav-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .nav-menu li {
+        width: 100%;
+        text-align: center;
+        padding: 0;
+    }
+    
+    .nav-link {
+        display: block;
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+        min-height: 44px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+    }
+    
+    .nav-link:hover,
+    .nav-link.active {
+        background: rgba(26, 26, 26, 0.05);
+    }
+    
+    .nav-link::after {
+        display: none;
+    }
+    
+    /* Typography */
+    .hero-title {
+        font-size: 2.8rem;
+        line-height: 1.2;
+    }
+    
+    .page-hero h2 {
+        font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 2.8rem;
+    }
+    
+    h3 {
+        font-size: 1.8rem;
+    }
+    
+    h4 {
+        font-size: 1.3rem;
+    }
+    
+    p {
+        font-size: 1.05rem;
+        line-height: 1.7;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.15rem;
+        margin-bottom: 2rem;
+    }
+    
+    /* Layout adjustments */
+    .nav-container {
+        padding: 0 1rem;
+    }
+    
+    .content-container {
+        padding: 0 1rem;
+    }
+    
+    .hero-content {
+        padding: 0 1rem;
+    }
+    
+    .page-hero-content {
+        padding: 0 1rem;
+    }
+    
+    /* Grids and Cards */
     .services-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
     
-    .hero-actions {
-        flex-direction: column;
-        align-items: center;
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
     
+    .values-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .qualifications-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .expectation-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .service-card {
+        padding: 2rem;
+    }
+    
+    .benefit-item {
+        padding: 1.5rem;
+        text-align: left;
+    }
+    
+    /* Buttons and CTAs */
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+    
+    .cta-button {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        min-height: 48px;
+        width: 100%;
+        text-align: center;
+    }
+    
+    /* Contact */
     .contact-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
     
+    .contact-form {
+        padding: 2rem;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 1rem;
+        font-size: 1rem;
+        min-height: 44px;
+    }
+    
+    /* Footer */
     .footer-content {
         grid-template-columns: 1fr;
         text-align: center;
+        gap: 1.5rem;
     }
     
     .footer-contact {
         text-align: center;
+    }
+    
+    /* Sections padding */
+    .content-section,
+    .practice-areas,
+    .why-choose,
+    .values-section,
+    .experience-section,
+    .services-detailed,
+    .team-section,
+    .resources-section,
+    .contact-section {
+        padding: 3rem 0;
+    }
+    
+    .page-hero {
+        padding: 4rem 0 3rem;
+    }
+    
+    .hero {
+        min-height: 75vh;
+        padding: 2rem 0;
+    }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+    /* Tablet styles */
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    
+    .content-container {
+        padding: 0 1.5rem;
     }
 }
 

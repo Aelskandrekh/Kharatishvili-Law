@@ -265,23 +265,65 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 100);
     });
     
-    // Mobile menu toggle (if needed)
+    // Mobile menu functionality
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
     const navContainer = document.querySelector('.nav-container');
     
-    // Add mobile responsiveness
-    function handleResize() {
-        if (window.innerWidth <= 768) {
-            navMenu.style.flexDirection = 'column';
-            navMenu.style.gap = '1rem';
-        } else {
-            navMenu.style.flexDirection = 'row';
-            navMenu.style.gap = '2.5rem';
+    if (mobileMenuToggle && navMenu) {
+        // Toggle mobile menu
+        mobileMenuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            
+            // Prevent body scroll when menu is open
+            if (navMenu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Close mobile menu when clicking on a nav link
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!navContainer.contains(e.target)) {
+                mobileMenuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Close mobile menu on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                mobileMenuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Handle window resize
+        function handleResize() {
+            if (window.innerWidth > 768) {
+                // Reset mobile menu state on larger screens
+                mobileMenuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
         }
+        
+        window.addEventListener('resize', handleResize);
     }
-    
-    window.addEventListener('resize', handleResize);
-    handleResize(); // Call on initial load
     
     // Add keyboard navigation support
     document.addEventListener('keydown', function(e) {
