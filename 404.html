@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | Kharatishvili Law</title>
+    <meta name="description" content="The requested page was not found. Redirecting to the correct page.">
+    <link rel="canonical" href="https://kharatishvili-law.com/">
+    <script>
+        // Handle redirects for common issues
+        const path = window.location.pathname;
+        const domain = window.location.hostname;
+        
+        // Redirect www to non-www
+        if (domain === 'www.kharatishvili-law.com') {
+            window.location.replace('https://kharatishvili-law.com' + path);
+        }
+        
+        // Redirect /index.html to root
+        if (path === '/index.html') {
+            window.location.replace('https://kharatishvili-law.com/');
+        }
+        
+        // If no redirect happened, show 404 page after 2 seconds
+        setTimeout(function() {
+            if (window.location.hostname !== 'www.kharatishvili-law.com') {
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('notfound').style.display = 'block';
+            }
+        }, 2000);
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: #2c2c2c;
+            background: #fefefe;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .container {
+            text-align: center;
+            max-width: 600px;
+            padding: 2rem;
+        }
+        h1 {
+            font-family: 'Crimson Text', Georgia, serif;
+            font-size: 2.5rem;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+        .loading {
+            font-size: 1.1rem;
+            color: #666;
+        }
+        .notfound {
+            display: none;
+        }
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #1a1a1a;
+            color: white;
+            text-decoration: none;
+            border-radius: 2px;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="loading" class="loading">
+            <h1>Redirecting...</h1>
+            <p>Please wait while we redirect you to the correct page.</p>
+        </div>
+        
+        <div id="notfound" class="notfound">
+            <h1>Page Not Found</h1>
+            <p>Sorry, the page you're looking for doesn't exist or has been moved.</p>
+            <a href="https://kharatishvili-law.com/" class="btn">Return to Homepage</a>
+        </div>
+    </div>
+</body>
+</html>

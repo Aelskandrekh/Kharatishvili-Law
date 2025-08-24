@@ -1,0 +1,12 @@
+# Redirect www to non-www
+https://www.kharatishvili-law.com/* https://kharatishvili-law.com/:splat 301!
+
+# Redirect index.html to root
+/index.html / 301!
+
+# Redirect trailing slash variations
+/about.html/ /about.html 301!
+/services.html/ /services.html 301!
+/team.html/ /team.html 301!
+/contact.html/ /contact.html 301!
+/resources.html/ /resources.html 301!
