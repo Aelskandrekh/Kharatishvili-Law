@@ -115,3 +115,4 @@ Uses **Formspree** service (https://formspree.io/f/xwpqgkka) for form submission
 - **No build tools**: Direct file editing and deployment model
 
 always ensure mobile responsiveness when updating the code
+- always commit changes to git repository after making it in the code
