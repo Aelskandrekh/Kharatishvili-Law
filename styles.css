@@ -11,7 +11,7 @@ html {
 }
 
 body {
-    font-family: 'Orbitron', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
     color: #f7fafc;
     background: #2d3748;
@@ -23,7 +23,7 @@ body {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Orbitron', Georgia, serif;
+    font-family: 'Crimson Text', Georgia, serif;
     font-weight: 600;
     color: #f7fafc;
     line-height: 1.2;
@@ -97,7 +97,7 @@ p {
 }
 
 .logo-link {
-    font-family: 'Orbitron', serif;
+    font-family: 'Crimson Text', serif;
     font-size: 1.75rem;
     font-weight: 700;
     color: #f7fafc;
@@ -199,7 +199,7 @@ p {
 /* Hero Section */
 .hero {
     min-height: 100vh;
-    background: linear-gradient(135deg, #4a5568 0%, #2d3748 50%, #1a202c 100%);
+    background: linear-gradient(135deg, #f2f1f1 0%, #e2e2e2 50%, #d0d0d0 100%);
     display: flex;
     align-items: center;
     position: relative;
@@ -233,17 +233,17 @@ p {
 }
 
 .hero-title {
-    font-family: 'Orbitron', serif;
+    font-family: 'Crimson Text', serif;
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 700;
-    color: #f7fafc;
+    color: #2d3748;
     margin-bottom: 1.5rem;
     line-height: 1.1;
 }
 
 .hero-subtitle {
     font-size: clamp(1rem, 2vw, 1.25rem);
-    color: #e2e8f0;
+    color: #4a5568;
     margin-bottom: 3rem;
     line-height: 1.7;
     font-weight: 400;
@@ -263,7 +263,7 @@ p {
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-    color: #cbd5e0;
+    color: #4a5568;
     z-index: 2;
 }
 
@@ -338,7 +338,7 @@ p {
 /* Section Styles */
 .section-tag {
     display: inline-block;
-    background: #4a5568;
+    background: #e2e2e2;
     color: #471e0d;
     padding: 0.5rem 1rem;
     border-radius: 20px;
@@ -357,14 +357,26 @@ p {
 
 .section-header p {
     font-size: 1.125rem;
-    color: #e2e8f0;
+    color: #4a5568;
     margin-top: 1rem;
 }
 
 /* Attorney Profile */
 .attorney-profile {
     padding: 6rem 0;
-    background: #4a5568;
+    background: #f2f1f1;
+}
+
+.attorney-profile h1, .attorney-profile h2, .attorney-profile h3, .attorney-profile h4, .attorney-profile h5, .attorney-profile h6 {
+    color: #2d3748;
+}
+
+.attorney-profile p {
+    color: #4a5568;
+}
+
+.attorney-profile .feature span {
+    color: #2d3748;
 }
 
 .profile-grid {
@@ -397,7 +409,7 @@ p {
     font-size: 1.05rem;
     line-height: 1.7;
     margin-bottom: 2rem;
-    color: #e2e8f0;
+    color: #4a5568;
 }
 
 .credentials-list {
@@ -406,8 +418,8 @@ p {
 
 .credential {
     padding: 0.75rem 0;
-    border-bottom: 1px solid #718096;
-    color: #e2e8f0;
+    border-bottom: 1px solid #d0d0d0;
+    color: #4a5568;
 }
 
 .credential:last-child {
@@ -415,13 +427,25 @@ p {
 }
 
 .credential strong {
-    color: #f7fafc;
+    color: #2d3748;
 }
 
 /* About Section */
 .about-section {
     padding: 6rem 0;
-    background: #718096;
+    background: #e2e2e2;
+}
+
+.about-section h1, .about-section h2, .about-section h3, .about-section h4, .about-section h5, .about-section h6 {
+    color: #2d3748;
+}
+
+.about-section p {
+    color: #4a5568;
+}
+
+.about-section .feature span {
+    color: #2d3748;
 }
 
 .about-grid {
@@ -448,7 +472,7 @@ p {
 }
 
 .feature-icon {
-    background: #4a5568;
+    background: #d0d0d0;
     color: #471e0d;
     padding: 0.5rem;
     border-radius: 50%;
@@ -462,7 +486,7 @@ p {
 
 .feature span {
     font-weight: 500;
-    color: #f7fafc;
+    color: #2d3748;
 }
 
 .about-image {
@@ -491,11 +515,11 @@ p {
     position: absolute;
     bottom: 1.5rem;
     left: 1.5rem;
-    background: #2d3748;
+    background: #f2f1f1;
     padding: 1rem 1.5rem;
     border-radius: 8px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-    border: 1px solid #4a5568;
+    border: 1px solid #d0d0d0;
 }
 
 .experience-badge span {
@@ -507,7 +531,19 @@ p {
 /* Practice Areas */
 .practice-areas {
     padding: 6rem 0;
-    background: #4a5568;
+    background: #f2f1f1;
+}
+
+.practice-areas h1, .practice-areas h2, .practice-areas h3, .practice-areas h4, .practice-areas h5, .practice-areas h6 {
+    color: #2d3748;
+}
+
+.practice-areas p {
+    color: #4a5568;
+}
+
+.practice-areas .section-header p {
+    color: #4a5568;
 }
 
 .practice-grid {
@@ -518,12 +554,12 @@ p {
 }
 
 .practice-item {
-    background: #718096;
+    background: #e2e2e2;
     padding: 2.5rem;
     border-radius: 10px;
     text-align: center;
     transition: all 0.3s ease;
-    border: 1px solid #8a9ba8;
+    border: 1px solid #d0d0d0;
     position: relative;
     overflow: hidden;
 }
@@ -547,11 +583,11 @@ p {
     transform: translateY(-5px);
     box-shadow: 0 15px 35px rgba(71, 30, 13, 0.2);
     border-color: #471e0d;
-    background: #8a9ba8;
+    background: #d0d0d0;
 }
 
 .practice-icon {
-    background: #4a5568;
+    background: #d0d0d0;
     color: #471e0d;
     width: 70px;
     height: 70px;
@@ -571,11 +607,11 @@ p {
 
 .practice-item h3 {
     margin-bottom: 1rem;
-    color: #f7fafc;
+    color: #2d3748;
 }
 
 .practice-item p {
-    color: #e2e8f0;
+    color: #4a5568;
     font-size: 0.95rem;
     line-height: 1.6;
     margin: 0;
@@ -584,7 +620,15 @@ p {
 /* Why Choose Section */
 .why-choose {
     padding: 6rem 0;
-    background: #718096;
+    background: #e2e2e2;
+}
+
+.why-choose h1, .why-choose h2, .why-choose h3, .why-choose h4, .why-choose h5, .why-choose h6 {
+    color: #2d3748;
+}
+
+.why-choose p {
+    color: #4a5568;
 }
 
 .why-choose-content {
@@ -600,7 +644,7 @@ p {
 
 .benefit {
     padding: 1.5rem 0;
-    border-bottom: 1px solid #8a9ba8;
+    border-bottom: 1px solid #d0d0d0;
 }
 
 .benefit:last-child {
@@ -614,7 +658,7 @@ p {
 
 .benefit p {
     margin: 0;
-    color: #e2e8f0;
+    color: #4a5568;
     font-size: 0.95rem;
 }
 
@@ -625,11 +669,11 @@ p {
 }
 
 .stat-card {
-    background: #4a5568;
+    background: #f2f1f1;
     padding: 2rem;
     border-radius: 10px;
     text-align: center;
-    border: 1px solid #8a9ba8;
+    border: 1px solid #d0d0d0;
     transition: all 0.3s ease;
 }
 
@@ -645,7 +689,7 @@ p {
 }
 
 .stat-number {
-    font-family: 'Orbitron', serif;
+    font-family: 'Crimson Text', serif;
     font-size: 2.5rem;
     font-weight: 700;
     color: #471e0d;
@@ -656,7 +700,7 @@ p {
 
 .stat-label {
     font-size: 0.875rem;
-    color: #e2e8f0;
+    color: #4a5568;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -737,7 +781,7 @@ p {
 }
 
 .footer-info h4 {
-    font-family: 'Orbitron', serif;
+    font-family: 'Crimson Text', serif;
     color: white;
     font-size: 1.5rem;
     margin-bottom: 1rem;
@@ -770,6 +814,10 @@ p {
 @media (max-width: 768px) {
     .mobile-menu-btn {
         display: flex;
+    }
+    
+    .mobile-menu-btn span {
+        background: #2d3748;
     }
     
     .nav-menu {
