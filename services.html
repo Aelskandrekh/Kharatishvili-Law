@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
-    <title>Services | Kharatishvili Law</title>
+    <title>Practice Areas | Kharatishvili Law</title>
     <meta name="description" content="Comprehensive legal services including corporate law, litigation, real estate, immigration, and international business law in Georgia.">
     
     <!-- Canonical URL -->
@@ -12,43 +12,57 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="navigation">
+    <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <h1>Kharatishvili Law</h1>
+                <a href="/" class="logo-link">Kharatishvili Law</a>
             </div>
-            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
+            <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
             <ul class="nav-menu">
-                <li><a href="/" class="nav-link">Home</a></li>
-                <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="services.html" class="nav-link active">Services</a></li>
-                <li><a href="team.html" class="nav-link">Team</a></li>
-                <li><a href="resources.html" class="nav-link">Resources</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="/" class="nav-item">Home</a></li>
+                <li><a href="about.html" class="nav-item">About</a></li>
+                <li><a href="services.html" class="nav-item active">Practice Areas</a></li>
+                <li><a href="team.html" class="nav-item">Attorneys</a></li>
+                <li><a href="resources.html" class="nav-item">Resources</a></li>
+                <li><a href="contact.html" class="nav-item contact-btn">Contact Us</a></li>
             </ul>
         </div>
     </nav>
 
-    <main class="main-content page-content">
-        <section class="page-hero">
-            <div class="page-hero-content">
-                <h2>Legal Services</h2>
-                <p>Comprehensive legal solutions tailored to your needs</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">Practice Areas</h1>
+                <p class="hero-subtitle">Comprehensive legal solutions tailored to your needs across multiple practice areas.</p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="services-detailed">
-            <div class="content-container">
-                <div class="service-detail">
+    <!-- Practice Areas -->
+    <section class="practice-areas">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Practice Areas</span>
+                <h2>Comprehensive Legal Services</h2>
+                <p>We provide expert legal counsel across multiple practice areas, delivering results that matter to your business and personal interests.</p>
+            </div>
+            <div class="practice-grid">
+                <div class="practice-item">
+                    <div class="practice-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                            <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
                     <h3>Corporate Law</h3>
-                    <p>We provide comprehensive corporate legal services to businesses of all sizes, from startups to multinational corporations. Our corporate law practice encompasses business formation, corporate governance, mergers and acquisitions, and ongoing compliance matters.</p>
+                    <p>Business formation, mergers & acquisitions, corporate governance, and strategic commercial transactions.</p>
                     <ul class="service-list">
                         <li>Business formation and incorporation</li>
                         <li>Corporate governance and compliance</li>
@@ -58,10 +72,14 @@
                         <li>Corporate restructuring and insolvency</li>
                     </ul>
                 </div>
-
-                <div class="service-detail">
+                <div class="practice-item">
+                    <div class="practice-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                            <path d="M3 6a3 3 0 013-3h12a3 3 0 013 3v12a3 3 0 01-3 3H6a3 3 0 01-3-3V6z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
                     <h3>Litigation & Arbitration</h3>
-                    <p>Our litigation team represents clients in complex commercial disputes, providing strategic counsel and aggressive advocacy in courts and arbitration proceedings. We handle high-stakes matters with precision and dedication.</p>
+                    <p>Complex commercial disputes, international arbitration, and comprehensive civil litigation representation.</p>
                     <ul class="service-list">
                         <li>Commercial litigation and disputes</li>
                         <li>International arbitration</li>
@@ -71,10 +89,14 @@
                         <li>Debt collection and enforcement</li>
                     </ul>
                 </div>
-
-                <div class="service-detail">
+                <div class="practice-item">
+                    <div class="practice-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                            <path d="M3 21h18M5 21V7l8-4v18" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
                     <h3>Real Estate Law</h3>
-                    <p>We offer comprehensive real estate legal services for residential and commercial properties, assisting clients with transactions, development projects, and property-related disputes.</p>
+                    <p>Property transactions, development projects, landlord-tenant matters, and real estate investment guidance.</p>
                     <ul class="service-list">
                         <li>Property acquisition and sales</li>
                         <li>Real estate development and construction</li>
@@ -84,10 +106,14 @@
                         <li>Real estate investment structures</li>
                     </ul>
                 </div>
-
-                <div class="service-detail">
-                    <h3>International Business Law</h3>
-                    <p>Our international practice serves multinational corporations and foreign investors, providing expert guidance on cross-border transactions, regulatory compliance, and international business operations in Georgia.</p>
+                <div class="practice-item">
+                    <div class="practice-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                            <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>International Business</h3>
+                    <p>Cross-border transactions, foreign investment, trade law, and regulatory compliance for global operations.</p>
                     <ul class="service-list">
                         <li>Cross-border transactions and investments</li>
                         <li>Foreign investment structuring</li>
@@ -97,10 +123,14 @@
                         <li>International dispute resolution</li>
                     </ul>
                 </div>
-
-                <div class="service-detail">
+                <div class="practice-item">
+                    <div class="practice-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                            <path d="M17 20h5v-2a3 3 0 00-5.356-1.857" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
                     <h3>Immigration Law</h3>
-                    <p>We assist individuals and businesses with all aspects of Georgian immigration law, providing comprehensive support for visa applications, residency permits, and citizenship matters.</p>
+                    <p>Visa applications, residency permits, citizenship matters, and comprehensive immigration compliance services.</p>
                     <ul class="service-list">
                         <li>Visa applications and renewals</li>
                         <li>Temporary and permanent residency</li>
@@ -110,10 +140,14 @@
                         <li>Citizenship and naturalization</li>
                     </ul>
                 </div>
-
-                <div class="service-detail">
-                    <h3>Tax & Regulatory Law</h3>
-                    <p>Our tax and regulatory practice helps clients navigate Georgia's complex regulatory environment, ensuring compliance while optimizing tax efficiency and business operations.</p>
+                <div class="practice-item">
+                    <div class="practice-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 7h6m0 10v-3m-3 3h.01" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>Tax & Regulatory</h3>
+                    <p>Strategic tax planning, regulatory compliance, government relations, and administrative law expertise.</p>
                     <ul class="service-list">
                         <li>Tax planning and optimization</li>
                         <li>Regulatory compliance and licensing</li>
@@ -124,31 +158,48 @@
                     </ul>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="cta-section">
+    <!-- Contact CTA -->
+    <section class="cta-section">
+        <div class="container">
             <div class="cta-content">
-                <h3>Discuss Your Legal Requirements</h3>
-                <p>Contact us to explore how we can assist with your specific legal needs</p>
-                <a href="contact.html" class="cta-button primary">Schedule Consultation</a>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-info">
-                <h4>Kharatishvili Law</h4>
-                <p>Premier legal services in Tbilisi, Georgia</p>
-            </div>
-            <div class="footer-contact">
-                <p>Tbilisi, Georgia</p>
-                <p>+995 577335540</p>
-                <p>aleksandrekharatishvili@gmail.com</p>
+                <h2>Ready to Get Started?</h2>
+                <p>Contact us today for a confidential consultation and discover how our legal expertise can help you achieve your goals.</p>
+                <div class="cta-actions">
+                    <a href="contact.html" class="btn btn-primary">Schedule Consultation</a>
+                    <div class="contact-quick">
+                        <div class="contact-method">
+                            <span class="contact-label">Phone:</span>
+                            <a href="tel:+995577335540" class="contact-link">+995 577 335 540</a>
+                        </div>
+                        <div class="contact-method">
+                            <span class="contact-label">Email:</span>
+                            <a href="mailto:aleksandrekharatishvili@gmail.com" class="contact-link">aleksandrekharatishvili@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Kharatishvili Law. All rights reserved.</p>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h4>Kharatishvili Law</h4>
+                    <p>Premier legal services in Tbilisi, Georgia</p>
+                </div>
+                <div class="footer-contact">
+                    <p>Tbilisi, Georgia</p>
+                    <p>+995 577 335 540</p>
+                    <p>aleksandrekharatishvili@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Kharatishvili Law. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
