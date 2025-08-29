@@ -388,7 +388,7 @@ p {
 
 .profile-image {
     position: relative;
-    background: rgb(37, 150, 190);
+    background: #f5f5f5;
     border-radius: 15px;
     padding: 2rem;
     display: flex;
