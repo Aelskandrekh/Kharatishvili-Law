@@ -13,8 +13,8 @@ html {
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
-    color: #f7fafc;
-    background: #2d3748;
+    color: #333;
+    background: #fff;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -25,7 +25,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Crimson Text', Georgia, serif;
     font-weight: 600;
-    color: #f7fafc;
+    color: #1a1a1a;
     line-height: 1.2;
     margin-bottom: 1rem;
 }
@@ -79,9 +79,9 @@ p {
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(45, 55, 72, 0.95);
+    background: #000;
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid #4a5568;
+    border-bottom: 1px solid #333;
     z-index: 1000;
     padding: 1rem 0;
     transition: all 0.3s ease;
@@ -100,7 +100,7 @@ p {
     font-family: 'Crimson Text', serif;
     font-size: 1.75rem;
     font-weight: 700;
-    color: #f7fafc;
+    color: #fff;
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -118,7 +118,7 @@ p {
 
 .nav-item {
     text-decoration: none;
-    color: #cbd5e0;
+    color: #fff;
     font-weight: 500;
     font-size: 0.95rem;
     padding: 0.5rem 0;
@@ -128,7 +128,7 @@ p {
 
 .nav-item:hover,
 .nav-item.active {
-    color: #471e0d;
+    color: #ccc;
 }
 
 .nav-item::after {
@@ -138,7 +138,7 @@ p {
     left: 0;
     width: 0;
     height: 2px;
-    background: #471e0d;
+    background: #ccc;
     transition: width 0.3s ease;
 }
 
@@ -148,7 +148,7 @@ p {
 }
 
 .contact-btn {
-    background: #471e0d;
+    background: #333;
     color: white !important;
     padding: 0.75rem 1.5rem;
     border-radius: 5px;
@@ -160,9 +160,9 @@ p {
 }
 
 .contact-btn:hover {
-    background: #5a2510;
+    background: #555;
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(71, 30, 13, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Mobile Menu */
@@ -179,7 +179,7 @@ p {
 .mobile-menu-btn span {
     width: 25px;
     height: 3px;
-    background: #f7fafc;
+    background: #fff;
     border-radius: 2px;
     transition: all 0.3s ease;
 }
@@ -199,7 +199,7 @@ p {
 /* Hero Section */
 .hero {
     min-height: 100vh;
-    background: linear-gradient(135deg, #f2f1f1 0%, #e2e2e2 50%, #d0d0d0 100%);
+    background: linear-gradient(135deg, #fff 0%, #f8f8f8 50%, #f0f0f0 100%);
     display: flex;
     align-items: center;
     position: relative;
@@ -213,7 +213,7 @@ p {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 30% 70%, rgba(71, 30, 13, 0.1) 0%, transparent 50%);
+    background: radial-gradient(circle at 30% 70%, rgba(0, 0, 0, 0.05) 0%, transparent 50%);
     z-index: 1;
 }
 
@@ -236,14 +236,14 @@ p {
     font-family: 'Crimson Text', serif;
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 700;
-    color: #2d3748;
+    color: #1a1a1a;
     margin-bottom: 1.5rem;
     line-height: 1.1;
 }
 
 .hero-subtitle {
     font-size: clamp(1rem, 2vw, 1.25rem);
-    color: #4a5568;
+    color: #555;
     margin-bottom: 3rem;
     line-height: 1.7;
     font-weight: 400;
@@ -263,7 +263,7 @@ p {
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-    color: #4a5568;
+    color: #666;
     z-index: 2;
 }
 
@@ -277,8 +277,8 @@ p {
 .scroll-arrow {
     width: 20px;
     height: 20px;
-    border-right: 2px solid #471e0d;
-    border-bottom: 2px solid #471e0d;
+    border-right: 2px solid #333;
+    border-bottom: 2px solid #333;
     transform: rotate(45deg);
     margin: 0 auto;
     animation: bounce 2s infinite;
@@ -312,25 +312,25 @@ p {
 }
 
 .btn-primary {
-    background: #471e0d;
+    background: #1a1a1a;
     color: white;
-    box-shadow: 0 4px 12px rgba(71, 30, 13, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .btn-primary:hover {
-    background: #5a2510;
+    background: #333;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(71, 30, 13, 0.3);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 .btn-outline {
     background: transparent;
-    color: #471e0d;
-    border: 2px solid #471e0d;
+    color: #333;
+    border: 2px solid #333;
 }
 
 .btn-outline:hover {
-    background: #471e0d;
+    background: #333;
     color: white;
     transform: translateY(-2px);
 }
@@ -338,8 +338,8 @@ p {
 /* Section Styles */
 .section-tag {
     display: inline-block;
-    background: #e2e2e2;
-    color: #471e0d;
+    background: #f5f5f5;
+    color: #333;
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.875rem;
@@ -357,26 +357,26 @@ p {
 
 .section-header p {
     font-size: 1.125rem;
-    color: #4a5568;
+    color: #666;
     margin-top: 1rem;
 }
 
 /* Attorney Profile */
 .attorney-profile {
     padding: 6rem 0;
-    background: #f2f1f1;
+    background: linear-gradient(135deg, #fff 0%, #f8f8f8 50%, #f0f0f0 100%);
 }
 
 .attorney-profile h1, .attorney-profile h2, .attorney-profile h3, .attorney-profile h4, .attorney-profile h5, .attorney-profile h6 {
-    color: #2d3748;
+    color: #1a1a1a;
 }
 
 .attorney-profile p {
-    color: #4a5568;
+    color: #666;
 }
 
 .attorney-profile .feature span {
-    color: #2d3748;
+    color: #1a1a1a;
 }
 
 .profile-grid {
@@ -399,7 +399,7 @@ p {
 }
 
 .attorney-credentials {
-    color: #471e0d;
+    color: #333;
     font-weight: 600;
     margin-bottom: 1.5rem;
     font-size: 1.1rem;
@@ -409,7 +409,7 @@ p {
     font-size: 1.05rem;
     line-height: 1.7;
     margin-bottom: 2rem;
-    color: #4a5568;
+    color: #666;
 }
 
 .credentials-list {
@@ -418,8 +418,8 @@ p {
 
 .credential {
     padding: 0.75rem 0;
-    border-bottom: 1px solid #d0d0d0;
-    color: #4a5568;
+    border-bottom: 1px solid #eee;
+    color: #666;
 }
 
 .credential:last-child {
@@ -427,25 +427,25 @@ p {
 }
 
 .credential strong {
-    color: #2d3748;
+    color: #1a1a1a;
 }
 
 /* About Section */
 .about-section {
     padding: 6rem 0;
-    background: #e2e2e2;
+    background: linear-gradient(135deg, #f0f0f0 0%, #e8e8e8 50%, #e0e0e0 100%);
 }
 
 .about-section h1, .about-section h2, .about-section h3, .about-section h4, .about-section h5, .about-section h6 {
-    color: #2d3748;
+    color: #1a1a1a;
 }
 
 .about-section p {
-    color: #4a5568;
+    color: #666;
 }
 
 .about-section .feature span {
-    color: #2d3748;
+    color: #1a1a1a;
 }
 
 .about-grid {
@@ -472,8 +472,8 @@ p {
 }
 
 .feature-icon {
-    background: #d0d0d0;
-    color: #471e0d;
+    background: #f5f5f5;
+    color: #333;
     padding: 0.5rem;
     border-radius: 50%;
     flex-shrink: 0;
@@ -486,7 +486,7 @@ p {
 
 .feature span {
     font-weight: 500;
-    color: #2d3748;
+    color: #1a1a1a;
 }
 
 .about-image {
@@ -515,35 +515,35 @@ p {
     position: absolute;
     bottom: 1.5rem;
     left: 1.5rem;
-    background: #f2f1f1;
+    background: #fff;
     padding: 1rem 1.5rem;
     border-radius: 8px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-    border: 1px solid #d0d0d0;
+    border: 1px solid #eee;
 }
 
 .experience-badge span {
     font-weight: 600;
-    color: #471e0d;
+    color: #333;
     font-size: 0.9rem;
 }
 
 /* Practice Areas */
 .practice-areas {
     padding: 6rem 0;
-    background: #f2f1f1;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 50%, #f0f0f0 100%);
 }
 
 .practice-areas h1, .practice-areas h2, .practice-areas h3, .practice-areas h4, .practice-areas h5, .practice-areas h6 {
-    color: #2d3748;
+    color: #1a1a1a;
 }
 
 .practice-areas p {
-    color: #4a5568;
+    color: #666;
 }
 
 .practice-areas .section-header p {
-    color: #4a5568;
+    color: #666;
 }
 
 .practice-grid {
@@ -554,14 +554,15 @@ p {
 }
 
 .practice-item {
-    background: #e2e2e2;
+    background: #fff;
     padding: 2.5rem;
     border-radius: 10px;
     text-align: center;
     transition: all 0.3s ease;
-    border: 1px solid #d0d0d0;
+    border: 1px solid #e5e5e5;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .practice-item::before {
@@ -571,7 +572,7 @@ p {
     left: -100%;
     width: 100%;
     height: 3px;
-    background: linear-gradient(90deg, transparent, #471e0d, transparent);
+    background: linear-gradient(90deg, transparent, #333, transparent);
     transition: left 0.6s ease;
 }
 
@@ -581,14 +582,14 @@ p {
 
 .practice-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(71, 30, 13, 0.2);
-    border-color: #471e0d;
-    background: #d0d0d0;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    border-color: #333;
+    background: #f8f8f8;
 }
 
 .practice-icon {
-    background: #d0d0d0;
-    color: #471e0d;
+    background: #f5f5f5;
+    color: #333;
     width: 70px;
     height: 70px;
     border-radius: 50%;
@@ -600,18 +601,18 @@ p {
 }
 
 .practice-item:hover .practice-icon {
-    background: #471e0d;
+    background: #333;
     color: white;
     transform: scale(1.1);
 }
 
 .practice-item h3 {
     margin-bottom: 1rem;
-    color: #2d3748;
+    color: #1a1a1a;
 }
 
 .practice-item p {
-    color: #4a5568;
+    color: #666;
     font-size: 0.95rem;
     line-height: 1.6;
     margin: 0;
@@ -620,15 +621,15 @@ p {
 /* Why Choose Section */
 .why-choose {
     padding: 6rem 0;
-    background: #e2e2e2;
+    background: linear-gradient(135deg, #e8e8e8 0%, #d8d8d8 50%, #d0d0d0 100%);
 }
 
 .why-choose h1, .why-choose h2, .why-choose h3, .why-choose h4, .why-choose h5, .why-choose h6 {
-    color: #2d3748;
+    color: #1a1a1a;
 }
 
 .why-choose p {
-    color: #4a5568;
+    color: #666;
 }
 
 .why-choose-content {
@@ -644,7 +645,7 @@ p {
 
 .benefit {
     padding: 1.5rem 0;
-    border-bottom: 1px solid #d0d0d0;
+    border-bottom: 1px solid #ccc;
 }
 
 .benefit:last-child {
@@ -653,12 +654,12 @@ p {
 
 .benefit h4 {
     margin-bottom: 0.5rem;
-    color: #471e0d;
+    color: #333;
 }
 
 .benefit p {
     margin: 0;
-    color: #4a5568;
+    color: #666;
     font-size: 0.95rem;
 }
 
@@ -669,18 +670,19 @@ p {
 }
 
 .stat-card {
-    background: #f2f1f1;
+    background: #fff;
     padding: 2rem;
     border-radius: 10px;
     text-align: center;
-    border: 1px solid #d0d0d0;
+    border: 1px solid #e5e5e5;
     transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .stat-card:hover {
-    background: #471e0d;
+    background: #1a1a1a;
     transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(71, 30, 13, 0.3);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .stat-card:hover .stat-number,
@@ -692,7 +694,7 @@ p {
     font-family: 'Crimson Text', serif;
     font-size: 2.5rem;
     font-weight: 700;
-    color: #471e0d;
+    color: #333;
     display: block;
     line-height: 1;
     transition: color 0.3s ease;
@@ -700,7 +702,7 @@ p {
 
 .stat-label {
     font-size: 0.875rem;
-    color: #4a5568;
+    color: #666;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -711,7 +713,7 @@ p {
 /* CTA Section */
 .cta-section {
     padding: 6rem 0;
-    background: linear-gradient(135deg, #1a202c 0%, #471e0d 100%);
+    background: linear-gradient(135deg, #000 0%, #1a1a1a 50%, #333 100%);
     color: white;
     text-align: center;
 }
@@ -768,7 +770,7 @@ p {
 
 /* Footer */
 .footer {
-    background: #1a202c;
+    background: #000;
     color: white;
     padding: 3rem 0 1rem;
 }
@@ -789,7 +791,7 @@ p {
 
 .footer-info p,
 .footer-contact p {
-    color: #a0aec0;
+    color: #ccc;
     margin-bottom: 0.5rem;
     font-size: 0.95rem;
 }
@@ -799,13 +801,13 @@ p {
 }
 
 .footer-bottom {
-    border-top: 1px solid #2d3748;
+    border-top: 1px solid #333;
     padding-top: 1.5rem;
     text-align: center;
 }
 
 .footer-bottom p {
-    color: #718096;
+    color: #999;
     font-size: 0.875rem;
     margin: 0;
 }
@@ -825,16 +827,16 @@ p {
         top: 100%;
         left: 0;
         right: 0;
-        background: #2d3748;
+        background: #000;
         flex-direction: column;
         padding: 2rem 0;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         transform: translateY(-100%);
         opacity: 0;
         visibility: hidden;
         transition: all 0.3s ease;
         gap: 0;
-        border-top: 1px solid #4a5568;
+        border-top: 1px solid #333;
     }
     
     .nav-menu.active {
@@ -846,10 +848,10 @@ p {
     .nav-item {
         display: block;
         padding: 1rem 2rem;
-        border-bottom: 1px solid #4a5568;
+        border-bottom: 1px solid #333;
         width: 100%;
         text-align: center;
-        color: #e2e8f0;
+        color: #fff;
     }
     
     .nav-item::after {
@@ -991,6 +993,6 @@ p {
 
 /* Focus styles for accessibility */
 *:focus {
-    outline: 2px solid #471e0d;
+    outline: 2px solid #333;
     outline-offset: 2px;
 }
