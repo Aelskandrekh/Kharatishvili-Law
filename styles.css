@@ -399,10 +399,17 @@ p {
 }
 
 .attorney-credentials {
-    color: #333;
-    font-weight: 600;
+    color: #1a1a1a;
+    font-weight: 700;
     margin-bottom: 1.5rem;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    border: 2px solid #333;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .attorney-bio {
