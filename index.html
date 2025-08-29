@@ -12,321 +12,321 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="navigation">
+    <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <h1>Kharatishvili Law</h1>
+                <a href="/" class="logo-link">Kharatishvili Law</a>
             </div>
-            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
+            <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
             <ul class="nav-menu">
-                <li><a href="/" class="nav-link active">Home</a></li>
-                <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="services.html" class="nav-link">Services</a></li>
-                <li><a href="team.html" class="nav-link">Team</a></li>
-                <li><a href="resources.html" class="nav-link">Resources</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="/" class="nav-item active">Home</a></li>
+                <li><a href="about.html" class="nav-item">About</a></li>
+                <li><a href="services.html" class="nav-item">Practice Areas</a></li>
+                <li><a href="team.html" class="nav-item">Attorneys</a></li>
+                <li><a href="resources.html" class="nav-item">Resources</a></li>
+                <li><a href="contact.html" class="nav-item contact-btn">Contact Us</a></li>
             </ul>
         </div>
     </nav>
 
-    <main class="main-content">
-        <!-- Hero Section -->
-        <section class="hero-modern">
-            <div class="hero-background">
-                <div class="hero-overlay"></div>
-            </div>
-            <div class="hero-container">
-                <div class="hero-content-modern">
-                    <div class="hero-badge">
-                        <span>Premier Legal Services in Georgia</span>
-                    </div>
-                    <h1 class="hero-title-main">Do Law With New York & Georgia Qualified Lawyer. It is easier, it is better</h1>
-                    <p class="hero-description">Delivering sophisticated legal solutions with integrity, expertise, and unwavering commitment to our clients' success.</p>
-                    <div class="hero-actions-modern">
-                        <a href="contact.html" class="btn-primary-modern">Schedule Free Consultation</a>
-                        <a href="#about" class="btn-secondary-modern">Learn More About Us</a>
-                    </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">Do Law With New York & Georgia Qualified Lawyer. It is easier, it is better</h1>
+                <p class="hero-subtitle">Premier legal representation combining international expertise with local knowledge to deliver exceptional results for our clients.</p>
+                <div class="hero-buttons">
+                    <a href="contact.html" class="btn btn-primary">Schedule Free Consultation</a>
+                    <a href="tel:+995577335540" class="btn btn-outline">Call Now</a>
                 </div>
-            </div>
-        </section>
-
-        <!-- About Preview Section -->
-        <section class="about-preview" id="about">
-            <div class="container">
-                <div class="about-grid">
-                    <div class="about-image">
-                        <img src="images/lawyer-headshot.jpeg" alt="Professional lawyer portrait" class="lawyer-portrait">
-                        <div class="experience-badge">
-                            <span class="badge-text">Trusted Legal Advocate</span>
-                        </div>
-                    </div>
-                    <div class="about-content">
-                        <div class="section-label">About Our Firm</div>
-                        <h2>Dedicated to Your Legal Success</h2>
-                        <p class="about-lead">At Kharatishvili Law, we combine decades of legal expertise with a personalized approach to deliver exceptional results for our clients across Georgia and internationally.</p>
-                        <div class="about-features">
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                </div>
-                                <div class="feature-text">
-                                    <h4>Proven Track Record</h4>
-                                    <p>[Placeholder: Success rate and notable achievements]</p>
-                                </div>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                        <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                </div>
-                                <div class="feature-text">
-                                    <h4>International Expertise</h4>
-                                    <p>[Placeholder: Cross-border legal experience]</p>
-                                </div>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                        <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                </div>
-                                <div class="feature-text">
-                                    <h4>Client-Focused Service</h4>
-                                    <p>[Placeholder: Personalized legal approach]</p>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="about.html" class="btn-outline-modern">Learn More About Our Firm</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Practice Areas Section -->
-        <section class="practice-areas-modern">
-            <div class="container">
-                <div class="section-header-modern">
-                    <div class="section-label">Our Expertise</div>
-                    <h2>Comprehensive Legal Services</h2>
-                    <p>We provide expert legal counsel across multiple practice areas, delivering results that matter to your business and personal interests.</p>
-                </div>
-                <div class="practice-grid">
-                    <div class="practice-card">
-                        <div class="practice-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                                <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        <h3>Corporate Law</h3>
-                        <p>Business formation, mergers & acquisitions, corporate governance, and commercial transactions for growing enterprises.</p>
-                        <ul class="practice-features">
-                            <li>[Placeholder: Service detail 1]</li>
-                            <li>[Placeholder: Service detail 2]</li>
-                            <li>[Placeholder: Service detail 3]</li>
-                        </ul>
-                    </div>
-                    <div class="practice-card">
-                        <div class="practice-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                                <path d="M3 6a3 3 0 013-3h12a3 3 0 013 3v12a3 3 0 01-3 3H6a3 3 0 01-3-3V6zM8 12h8m-8 4h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        <h3>Litigation & Arbitration</h3>
-                        <p>Complex commercial disputes, international arbitration, and civil litigation representation with proven results.</p>
-                        <ul class="practice-features">
-                            <li>[Placeholder: Litigation expertise 1]</li>
-                            <li>[Placeholder: Litigation expertise 2]</li>
-                            <li>[Placeholder: Litigation expertise 3]</li>
-                        </ul>
-                    </div>
-                    <div class="practice-card">
-                        <div class="practice-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                                <path d="M3 21h18M5 21V7l8-4v18M3 7l8-4M21 7l-8-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        <h3>Real Estate Law</h3>
-                        <p>Property transactions, development projects, landlord-tenant matters, and real estate investment guidance.</p>
-                        <ul class="practice-features">
-                            <li>[Placeholder: Real estate service 1]</li>
-                            <li>[Placeholder: Real estate service 2]</li>
-                            <li>[Placeholder: Real estate service 3]</li>
-                        </ul>
-                    </div>
-                    <div class="practice-card">
-                        <div class="practice-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                                <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        <h3>International Business</h3>
-                        <p>Cross-border transactions, foreign investment, trade law, and regulatory compliance for global operations.</p>
-                        <ul class="practice-features">
-                            <li>[Placeholder: International service 1]</li>
-                            <li>[Placeholder: International service 2]</li>
-                            <li>[Placeholder: International service 3]</li>
-                        </ul>
-                    </div>
-                    <div class="practice-card">
-                        <div class="practice-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                                <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        <h3>Immigration Law</h3>
-                        <p>Visa applications, residency permits, citizenship matters, and comprehensive immigration compliance services.</p>
-                        <ul class="practice-features">
-                            <li>[Placeholder: Immigration service 1]</li>
-                            <li>[Placeholder: Immigration service 2]</li>
-                            <li>[Placeholder: Immigration service 3]</li>
-                        </ul>
-                    </div>
-                    <div class="practice-card">
-                        <div class="practice-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                                <path d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        <h3>Tax & Regulatory</h3>
-                        <p>Strategic tax planning, regulatory compliance, government relations, and administrative law expertise.</p>
-                        <ul class="practice-features">
-                            <li>[Placeholder: Tax service 1]</li>
-                            <li>[Placeholder: Tax service 2]</li>
-                            <li>[Placeholder: Tax service 3]</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Results & Testimonials Section -->
-        <section class="results-testimonials">
-            <div class="container">
-                <div class="section-header-modern">
-                    <div class="section-label">Client Success</div>
-                    <h2>Proven Results That Matter</h2>
-                    <p>Our commitment to excellence is reflected in the successful outcomes we achieve for our clients.</p>
-                </div>
-                <div class="results-grid">
-                    <div class="result-card">
-                        <div class="result-number">[Amount]</div>
-                        <div class="result-description">[Placeholder: Major case result or settlement]</div>
-                    </div>
-                    <div class="result-card">
-                        <div class="result-number">[Percentage]</div>
-                        <div class="result-description">[Placeholder: Success rate in specific area]</div>
-                    </div>
-                    <div class="result-card">
-                        <div class="result-number">[Number]</div>
-                        <div class="result-description">[Placeholder: Cases won or clients served]</div>
-                    </div>
-                </div>
-                <div class="testimonials">
-                    <div class="testimonial-item">
-                        <blockquote>
-                            <p>"[Placeholder: Client testimonial about exceptional service and results]"</p>
-                        </blockquote>
-                        <div class="testimonial-author">
-                            <div class="author-name">[Client Name]</div>
-                            <div class="author-title">[Client Title/Company]</div>
-                        </div>
-                    </div>
-                    <div class="testimonial-item">
-                        <blockquote>
-                            <p>"[Placeholder: Second client testimonial highlighting expertise and professionalism]"</p>
-                        </blockquote>
-                        <div class="testimonial-author">
-                            <div class="author-name">[Client Name]</div>
-                            <div class="author-title">[Client Title/Company]</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Attorney Spotlight Section -->
-        <section class="attorney-spotlight">
-            <div class="container">
-                <div class="spotlight-grid">
-                    <div class="spotlight-image">
-                        <img src="images/lawyer-headshot.jpeg" alt="Attorney portrait" class="attorney-image">
-                        <div class="credentials-badge">
-                            <span>[Placeholder: Key credential or achievement]</span>
-                        </div>
-                    </div>
-                    <div class="spotlight-content">
-                        <div class="section-label">Leading Attorney</div>
-                        <h2>[Attorney Name]</h2>
-                        <div class="attorney-title">[Title/Position]</div>
-                        <p class="attorney-bio">[Placeholder: Brief biography highlighting experience, education, and notable achievements in legal practice]</p>
-                        <div class="attorney-credentials">
-                            <div class="credential-item">
-                                <span class="credential-label">Bar Admission:</span>
-                                <span class="credential-value">[Placeholder: Bar admissions]</span>
-                            </div>
-                            <div class="credential-item">
-                                <span class="credential-label">Education:</span>
-                                <span class="credential-value">[Placeholder: Law school and degrees]</span>
-                            </div>
-                            <div class="credential-item">
-                                <span class="credential-label">Experience:</span>
-                                <span class="credential-value">[Placeholder: Years of practice]</span>
-                            </div>
-                        </div>
-                        <a href="team.html" class="btn-outline-modern">View Full Team</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact CTA Section -->
-        <section class="contact-cta">
-            <div class="container">
-                <div class="cta-content">
-                    <h2>Ready to Discuss Your Legal Needs?</h2>
-                    <p>Schedule a confidential consultation to explore how we can help you achieve your legal objectives.</p>
-                    <div class="cta-actions">
-                        <a href="contact.html" class="btn-primary-modern">Schedule Consultation</a>
-                        <div class="contact-info">
-                            <div class="contact-item">
-                                <span class="contact-label">Call Now:</span>
-                                <a href="tel:+995577335540" class="contact-link">+995 577 335 540</a>
-                            </div>
-                            <div class="contact-item">
-                                <span class="contact-label">Email:</span>
-                                <a href="mailto:aleksandrekharatishvili@gmail.com" class="contact-link">aleksandrekharatishvili@gmail.com</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-info">
-                <h4>Kharatishvili Law</h4>
-                <p>Premier legal services in Tbilisi, Georgia</p>
-            </div>
-            <div class="footer-contact">
-                <p>Tbilisi, Georgia</p>
-                <p>+995 577335540</p>
-                <p>aleksandrekharatishvili@gmail.com</p>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Kharatishvili Law. All rights reserved.</p>
+        <div class="scroll-indicator">
+            <span class="scroll-text">Scroll to explore</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <span class="section-tag">About Our Firm</span>
+                    <h2>Dedicated Legal Excellence</h2>
+                    <p class="lead-text">At Kharatishvili Law, we provide sophisticated legal counsel with a personal touch. Our practice combines deep legal expertise with strategic thinking to achieve the best possible outcomes for our clients.</p>
+                    <div class="features-list">
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <span>Proven track record of successful outcomes</span>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <span>International and domestic legal expertise</span>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <span>Personalized attention to every case</span>
+                        </div>
+                    </div>
+                    <a href="about.html" class="btn btn-outline">Learn More About Us</a>
+                </div>
+                <div class="about-image">
+                    <div class="image-wrapper">
+                        <img src="images/lawyer-headshot.jpeg" alt="Professional attorney portrait" class="attorney-photo">
+                        <div class="experience-badge">
+                            <span>Trusted Legal Counsel</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practice Areas -->
+    <section class="practice-areas">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Practice Areas</span>
+                <h2>Comprehensive Legal Services</h2>
+                <p>We provide expert legal counsel across multiple practice areas, delivering results that matter to your business and personal interests.</p>
+            </div>
+            <div class="practice-grid">
+                <div class="practice-item">
+                    <div class="practice-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                            <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>Corporate Law</h3>
+                    <p>Business formation, mergers & acquisitions, corporate governance, and strategic commercial transactions.</p>
+                </div>
+                <div class="practice-item">
+                    <div class="practice-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                            <path d="M3 6a3 3 0 013-3h12a3 3 0 013 3v12a3 3 0 01-3 3H6a3 3 0 01-3-3V6z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>Litigation & Arbitration</h3>
+                    <p>Complex commercial disputes, international arbitration, and comprehensive civil litigation representation.</p>
+                </div>
+                <div class="practice-item">
+                    <div class="practice-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                            <path d="M3 21h18M5 21V7l8-4v18" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>Real Estate Law</h3>
+                    <p>Property transactions, development projects, landlord-tenant matters, and real estate investment guidance.</p>
+                </div>
+                <div class="practice-item">
+                    <div class="practice-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                            <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>International Business</h3>
+                    <p>Cross-border transactions, foreign investment, trade law, and regulatory compliance for global operations.</p>
+                </div>
+                <div class="practice-item">
+                    <div class="practice-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                            <path d="M17 20h5v-2a3 3 0 00-5.356-1.857" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>Immigration Law</h3>
+                    <p>Visa applications, residency permits, citizenship matters, and comprehensive immigration compliance services.</p>
+                </div>
+                <div class="practice-item">
+                    <div class="practice-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 7h6m0 10v-3m-3 3h.01" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>Tax & Regulatory</h3>
+                    <p>Strategic tax planning, regulatory compliance, government relations, and administrative law expertise.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose">
+        <div class="container">
+            <div class="why-choose-content">
+                <div class="why-choose-text">
+                    <span class="section-tag">Why Choose Us</span>
+                    <h2>Experience You Can Trust</h2>
+                    <p>Our commitment to excellence and client satisfaction sets us apart in the legal industry. We combine years of experience with innovative approaches to deliver superior results.</p>
+                    <div class="benefits-list">
+                        <div class="benefit">
+                            <h4>Proven Results</h4>
+                            <p>[Placeholder: Track record of successful case outcomes and client satisfaction]</p>
+                        </div>
+                        <div class="benefit">
+                            <h4>Strategic Approach</h4>
+                            <p>[Placeholder: Tailored legal strategies designed for optimal results]</p>
+                        </div>
+                        <div class="benefit">
+                            <h4>Client Focus</h4>
+                            <p>[Placeholder: Dedicated attention and personalized service for every client]</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">[Number]</div>
+                        <div class="stat-label">Years of Experience</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">[Number]</div>
+                        <div class="stat-label">Cases Resolved</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">[Percentage]</div>
+                        <div class="stat-label">Success Rate</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">[Number]</div>
+                        <div class="stat-label">Satisfied Clients</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Client Testimonials</span>
+                <h2>What Our Clients Say</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>"[Placeholder: Client testimonial highlighting exceptional service, expertise, and successful outcome]"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <div class="author-name">[Client Name]</div>
+                            <div class="author-title">[Client Title/Company]</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>"[Placeholder: Second client testimonial emphasizing professionalism and legal expertise]"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <div class="author-name">[Client Name]</div>
+                            <div class="author-title">[Client Title/Company]</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>"[Placeholder: Third client testimonial focusing on results and client satisfaction]"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <div class="author-name">[Client Name]</div>
+                            <div class="author-title">[Client Title/Company]</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Attorney Profile -->
+    <section class="attorney-profile">
+        <div class="container">
+            <div class="profile-grid">
+                <div class="profile-image">
+                    <img src="images/lawyer-headshot.jpeg" alt="Attorney Kharatishvili" class="profile-photo">
+                </div>
+                <div class="profile-content">
+                    <span class="section-tag">Leading Attorney</span>
+                    <h2>[Attorney Name]</h2>
+                    <p class="attorney-credentials">[Title] | Licensed in New York & Georgia</p>
+                    <p class="attorney-bio">[Placeholder: Brief biography highlighting legal education, career highlights, notable achievements, and areas of specialization in New York and Georgia law]</p>
+                    <div class="credentials-list">
+                        <div class="credential">
+                            <strong>Education:</strong> [Placeholder: Law school and degree information]
+                        </div>
+                        <div class="credential">
+                            <strong>Bar Admissions:</strong> [Placeholder: New York State Bar, Georgia State Bar]
+                        </div>
+                        <div class="credential">
+                            <strong>Experience:</strong> [Placeholder: Years of practice and key experience areas]
+                        </div>
+                    </div>
+                    <a href="team.html" class="btn btn-outline">View Full Bio</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Get Started?</h2>
+                <p>Contact us today for a confidential consultation and discover how our legal expertise can help you achieve your goals.</p>
+                <div class="cta-actions">
+                    <a href="contact.html" class="btn btn-primary">Schedule Consultation</a>
+                    <div class="contact-quick">
+                        <div class="contact-method">
+                            <span class="contact-label">Phone:</span>
+                            <a href="tel:+995577335540" class="contact-link">+995 577 335 540</a>
+                        </div>
+                        <div class="contact-method">
+                            <span class="contact-label">Email:</span>
+                            <a href="mailto:aleksandrekharatishvili@gmail.com" class="contact-link">aleksandrekharatishvili@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h4>Kharatishvili Law</h4>
+                    <p>Premier legal services in Tbilisi, Georgia</p>
+                </div>
+                <div class="footer-contact">
+                    <p>Tbilisi, Georgia</p>
+                    <p>+995 577 335 540</p>
+                    <p>aleksandrekharatishvili@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Kharatishvili Law. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
