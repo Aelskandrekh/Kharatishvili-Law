@@ -8,8 +8,8 @@
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.7;
-    color: #1a1a1a;
-    background: #ffffff;
+    color: #2d3748;
+    background: #f7fafc;
     font-weight: 400;
     letter-spacing: 0.01em;
     -webkit-font-smoothing: antialiased;
@@ -24,7 +24,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Crimson Text', Georgia, serif;
     font-weight: 600;
-    color: #1a1a1a;
+    color: #2d3748;
     margin-bottom: 1rem;
     letter-spacing: -0.02em;
     line-height: 1.2;
@@ -62,7 +62,7 @@ h5 {
 
 p {
     margin-bottom: 1.5rem;
-    color: #4a5568;
+    color: #718096;
     font-size: 1.125rem;
     line-height: 1.7;
 }
@@ -111,7 +111,7 @@ p {
 .logo h1 {
     font-size: 1.75rem;
     margin: 0;
-    color: #1a1a1a;
+    color: #2d3748;
     font-weight: 700;
     font-family: 'Crimson Text', Georgia, serif;
 }
@@ -125,7 +125,7 @@ p {
 
 .nav-link {
     text-decoration: none;
-    color: #4a5568;
+    color: #718096;
     font-size: 1rem;
     font-weight: 500;
     position: relative;
@@ -136,7 +136,7 @@ p {
 
 .nav-link:hover,
 .nav-link.active {
-    color: #1a1a1a;
+    color: #471e0d;
 }
 
 .nav-link::after {
@@ -146,7 +146,7 @@ p {
     left: 0;
     width: 0;
     height: 2px;
-    background: #1a1a1a;
+    background: #471e0d;
     transition: width 0.3s ease;
 }
 
@@ -171,7 +171,7 @@ p {
 .hamburger-line {
     width: 24px;
     height: 2px;
-    background: #1a1a1a;
+    background: #2d3748;
     border-radius: 2px;
     transition: all 0.3s ease;
 }
@@ -220,7 +220,7 @@ p {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #4a5568 0%, #2d3748 50%, #471e0d 100%);
     z-index: 1;
 }
 
@@ -230,7 +230,7 @@ p {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(26, 26, 26, 0.6);
+    background: rgba(45, 55, 72, 0.4);
     z-index: 2;
 }
 
@@ -322,15 +322,15 @@ p {
 /* Modern Buttons */
 .btn-primary-modern {
     display: inline-block;
-    background: white;
-    color: #1a1a1a;
+    background: #471e0d;
+    color: white;
     padding: 1rem 2rem;
     border-radius: 6px;
     text-decoration: none;
     font-weight: 600;
     font-size: 1rem;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(71, 30, 13, 0.3);
     min-height: 44px;
     display: inline-flex;
     align-items: center;
@@ -339,8 +339,8 @@ p {
 
 .btn-primary-modern:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-    background: #f8f9fa;
+    box-shadow: 0 8px 25px rgba(71, 30, 13, 0.4);
+    background: #5a2510;
 }
 
 .btn-secondary-modern {
@@ -370,9 +370,9 @@ p {
 .btn-outline-modern {
     display: inline-block;
     background: transparent;
-    color: #1a1a1a;
+    color: #471e0d;
     padding: 0.875rem 1.5rem;
-    border: 2px solid #1a1a1a;
+    border: 2px solid #471e0d;
     border-radius: 6px;
     text-decoration: none;
     font-weight: 500;
@@ -385,17 +385,17 @@ p {
 }
 
 .btn-outline-modern:hover {
-    background: #1a1a1a;
+    background: #471e0d;
     color: white;
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(26, 26, 26, 0.2);
+    box-shadow: 0 4px 15px rgba(71, 30, 13, 0.2);
 }
 
 /* Section Styles */
 .section-label {
     display: inline-block;
-    background: #f7fafc;
-    color: #4a5568;
+    background: #edf2f7;
+    color: #471e0d;
     padding: 0.5rem 1rem;
     border-radius: 4px;
     font-size: 0.875rem;
@@ -420,7 +420,7 @@ p {
 
 .section-header-modern p {
     font-size: 1.25rem;
-    color: #4a5568;
+    color: #718096;
     max-width: 700px;
     margin: 0 auto;
 }
@@ -428,7 +428,7 @@ p {
 /* About Preview Section */
 .about-preview {
     padding: 6rem 0;
-    background: #f8f9fa;
+    background: #edf2f7;
 }
 
 .about-grid {
@@ -472,7 +472,7 @@ p {
 
 .about-lead {
     font-size: 1.25rem;
-    color: #4a5568;
+    color: #718096;
     margin-bottom: 3rem;
     font-weight: 400;
     line-height: 1.7;
@@ -491,7 +491,7 @@ p {
 
 .feature-icon {
     background: #e2e8f0;
-    color: #4a5568;
+    color: #471e0d;
     padding: 0.75rem;
     border-radius: 8px;
     flex-shrink: 0;
@@ -500,11 +500,11 @@ p {
 .feature-text h4 {
     font-size: 1.125rem;
     margin-bottom: 0.5rem;
-    color: #1a1a1a;
+    color: #2d3748;
 }
 
 .feature-text p {
-    color: #4a5568;
+    color: #718096;
     font-size: 1rem;
     margin: 0;
     line-height: 1.6;
@@ -513,7 +513,7 @@ p {
 /* Practice Areas Modern */
 .practice-areas-modern {
     padding: 6rem 0;
-    background: white;
+    background: #f7fafc;
 }
 
 .practice-grid {
@@ -527,20 +527,20 @@ p {
     background: white;
     padding: 2.5rem;
     border-radius: 12px;
-    border: 1px solid #e2e8f0;
+    border: 1px solid #cbd5e0;
     transition: all 0.3s ease;
     position: relative;
 }
 
 .practice-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-    border-color: #cbd5e0;
+    box-shadow: 0 20px 40px rgba(71, 30, 13, 0.1);
+    border-color: #471e0d;
 }
 
 .practice-icon {
-    background: #f7fafc;
-    color: #4a5568;
+    background: #edf2f7;
+    color: #471e0d;
     padding: 1rem;
     border-radius: 8px;
     display: inline-flex;
@@ -551,12 +551,12 @@ p {
 
 .practice-card h3 {
     margin-bottom: 1rem;
-    color: #1a1a1a;
+    color: #2d3748;
     font-size: 1.5rem;
 }
 
 .practice-card p {
-    color: #4a5568;
+    color: #718096;
     font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 1.5rem;
@@ -568,7 +568,7 @@ p {
 }
 
 .practice-features li {
-    color: #4a5568;
+    color: #718096;
     font-size: 0.9rem;
     padding: 0.25rem 0;
     position: relative;
@@ -585,7 +585,7 @@ p {
 /* Results & Testimonials */
 .results-testimonials {
     padding: 6rem 0;
-    background: #f8f9fa;
+    background: #edf2f7;
 }
 
 .results-grid {
@@ -606,14 +606,14 @@ p {
 .result-number {
     font-size: 3rem;
     font-weight: 700;
-    color: #667eea;
+    color: #471e0d;
     font-family: 'Crimson Text', serif;
     display: block;
     margin-bottom: 1rem;
 }
 
 .result-description {
-    color: #4a5568;
+    color: #718096;
     font-size: 1rem;
     font-weight: 500;
 }
@@ -639,7 +639,7 @@ p {
 .testimonial-item blockquote p {
     font-size: 1.125rem;
     font-style: italic;
-    color: #1a1a1a;
+    color: #2d3748;
     line-height: 1.7;
     margin: 0;
 }
@@ -651,19 +651,19 @@ p {
 
 .author-name {
     font-weight: 600;
-    color: #1a1a1a;
+    color: #2d3748;
     margin-bottom: 0.25rem;
 }
 
 .author-title {
-    color: #4a5568;
+    color: #718096;
     font-size: 0.9rem;
 }
 
 /* Attorney Spotlight */
 .attorney-spotlight {
     padding: 6rem 0;
-    background: white;
+    background: #f7fafc;
 }
 
 .spotlight-grid {
@@ -697,7 +697,7 @@ p {
 
 .credentials-badge span {
     font-weight: 600;
-    color: #1a1a1a;
+    color: #471e0d;
     font-size: 0.9rem;
 }
 
@@ -707,7 +707,7 @@ p {
 }
 
 .attorney-title {
-    color: #4a5568;
+    color: #471e0d;
     font-size: 1.25rem;
     font-weight: 500;
     margin-bottom: 2rem;
@@ -718,7 +718,7 @@ p {
 .attorney-bio {
     font-size: 1.125rem;
     line-height: 1.7;
-    color: #4a5568;
+    color: #718096;
     margin-bottom: 2rem;
 }
 
@@ -740,20 +740,20 @@ p {
 
 .credential-label {
     font-weight: 600;
-    color: #1a1a1a;
+    color: #2d3748;
     min-width: 120px;
     margin-right: 1rem;
 }
 
 .credential-value {
-    color: #4a5568;
+    color: #718096;
     flex: 1;
 }
 
 /* Contact CTA */
 .contact-cta {
     padding: 6rem 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #4a5568 0%, #2d3748 50%, #471e0d 100%);
     position: relative;
     color: white;
     text-align: center;
@@ -1028,13 +1028,13 @@ html {
 
 /* Focus styles for accessibility */
 *:focus {
-    outline: 2px solid #667eea;
+    outline: 2px solid #471e0d;
     outline-offset: 2px;
 }
 
 button:focus,
 a:focus {
-    outline: 2px solid #667eea;
+    outline: 2px solid #471e0d;
     outline-offset: 2px;
 }
 
