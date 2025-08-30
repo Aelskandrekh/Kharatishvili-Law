@@ -669,7 +669,7 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
 /* Practice Areas */
 .practice-areas {
     padding: 7.5rem 0;
-    background: linear-gradient(135deg, #fafaf9 0%, #f7f8fa 50%, #fafaf9 100%);
+    background: linear-gradient(135deg, #f0f2f5 0%, #e8eaf0 50%, #f0f2f5 100%);
     position: relative;
 }
 
@@ -715,11 +715,11 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
 }
 
 .practice-item {
-    background: #fff;
+    background: rgba(255, 255, 255, 0.95);
     border-radius: 12px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
     transition: all 0.3s ease;
     min-height: 300px;
     display: flex;
@@ -730,7 +730,7 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
 
 
 .practice-item:nth-child(even) {
-    background: #fafaf9;
+    background: rgba(250, 250, 249, 0.9);
 }
 
 .practice-item:hover {
@@ -955,7 +955,7 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
 /* Modern CTA Section */
 .cta-section-modern {
     padding: 6rem 0;
-    background: linear-gradient(135deg, var(--primary-navy) 0%, #2c3e50 100%);
+    background: linear-gradient(135deg, #0f1419 0%, var(--primary-navy) 50%, #0f1419 100%);
     color: white;
     position: relative;
     overflow: hidden;
