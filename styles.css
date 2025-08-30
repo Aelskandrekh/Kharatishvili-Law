@@ -1025,7 +1025,7 @@ p {
 
 .hero-grid {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 2fr 1fr;
     gap: 3rem;
     align-items: center;
     height: 100%;
