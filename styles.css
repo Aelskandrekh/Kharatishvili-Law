@@ -1045,9 +1045,30 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
 
 /* Footer */
 .footer {
-    background: #1a2332;
+    background: linear-gradient(135deg, #1a2332 0%, #0f1419 50%, #1a2332 100%);
     color: white;
-    padding: 3rem 0 1rem;
+    padding: 4rem 0 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(201, 169, 97, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(44, 82, 130, 0.03) 0%, transparent 50%);
+    background-size: 100px 100px;
+    z-index: 1;
+}
+
+.footer .container {
+    position: relative;
+    z-index: 2;
 }
 
 .footer-content {
@@ -1081,8 +1102,49 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
     text-align: center;
 }
 
+.footer-trust {
+    margin: 3rem 0 2rem;
+    padding: 2rem 0;
+    border-top: 1px solid rgba(201, 169, 97, 0.2);
+    border-bottom: 1px solid rgba(201, 169, 97, 0.2);
+}
+
+.trust-symbols {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.trust-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+}
+
+.trust-icon {
+    font-size: 1.5rem;
+    opacity: 0.8;
+}
+
+.trust-text {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+    text-align: center;
+}
+
 .footer-bottom p {
-    color: #999;
+    color: rgba(255, 255, 255, 0.7);
     font-size: 0.875rem;
     margin: 0;
 }
@@ -1207,6 +1269,14 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
     
     .footer-contact {
         text-align: center;
+    }
+    
+    .trust-symbols {
+        gap: 1.5rem;
+    }
+    
+    .trust-item {
+        min-width: 80px;
     }
     
     .container {
