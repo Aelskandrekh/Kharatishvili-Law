@@ -83,6 +83,33 @@ p {
     line-height: 1.7;
 }
 
+/* Link Micro-interactions */
+a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link) {
+    color: #2c5282;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link)::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #c9a961;
+    transition: width 0.3s ease;
+}
+
+a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover {
+    color: #c9a961;
+}
+
+a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
+    width: 100%;
+}
+
 /* Layout */
 .container {
     max-width: 1200px;
@@ -147,7 +174,7 @@ p {
 
 .nav-item:hover,
 .nav-item.active {
-    color: #ccc;
+    color: #c9a961;
 }
 
 .nav-item::after {
@@ -157,7 +184,7 @@ p {
     left: 0;
     width: 0;
     height: 2px;
-    background: #ccc;
+    background: #c9a961;
     transition: width 0.3s ease;
 }
 
@@ -993,8 +1020,27 @@ p {
     transition: color 0.3s ease;
 }
 
+.contact-link {
+    position: relative;
+}
+
+.contact-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #c9a961;
+    transition: width 0.3s ease;
+}
+
 .contact-link:hover {
     color: #c9a961;
+}
+
+.contact-link:hover::after {
+    width: 100%;
 }
 
 /* Footer */
@@ -1292,11 +1338,12 @@ p {
     border: 1px solid rgba(255, 255, 255, 0.2);
     text-align: left;
     width: 100%;
-    transition: box-shadow 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .attorney-card:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .attorney-info .section-tag {
@@ -1435,7 +1482,8 @@ p {
 }
 
 .contact-form-wrapper:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 .form-header h3 {
@@ -1544,7 +1592,8 @@ p {
 }
 
 .process-step:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 .step-number {
