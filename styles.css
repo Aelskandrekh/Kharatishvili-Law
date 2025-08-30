@@ -13,8 +13,8 @@ html {
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
-    color: #333;
-    background: #fff;
+    color: #4a5568;
+    background: #fafaf9;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -25,7 +25,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Crimson Text', Georgia, serif;
     font-weight: 600;
-    color: #1a1a1a;
+    color: #1a2332;
     line-height: 1.2;
     margin-bottom: 1rem;
 }
@@ -79,9 +79,9 @@ p {
     top: 0;
     left: 0;
     right: 0;
-    background: #000;
+    background: #1a2332;
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid #2c5282;
     z-index: 1000;
     padding: 1rem 0;
     transition: all 0.3s ease;
@@ -260,28 +260,33 @@ p {
 }
 
 .hero-split .btn-primary {
-    background: white;
-    color: #333;
-    border: 2px solid white;
+    background: #c9a961;
+    color: white;
+    border: 2px solid #c9a961;
+    font-weight: 600;
 }
 
 .hero-split .btn-primary:hover {
-    background: rgba(255, 255, 255, 0.9);
-    color: #000;
+    background: #b8965a;
+    color: white;
+    border-color: #b8965a;
     transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(201, 169, 97, 0.3);
 }
 
 .hero-split .btn-outline {
     background: transparent;
     color: white;
-    border: 2px solid rgba(255, 255, 255, 0.8);
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    font-weight: 600;
 }
 
 .hero-split .btn-outline:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.15);
     color: white;
     border-color: white;
     transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
 }
 
 .hero-buttons {
@@ -347,25 +352,27 @@ p {
 }
 
 .btn-primary {
-    background: #1a1a1a;
+    background: #c9a961;
     color: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(201, 169, 97, 0.3);
+    font-weight: 600;
 }
 
 .btn-primary:hover {
-    background: #333;
+    background: #b8965a;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 6px 20px rgba(201, 169, 97, 0.4);
 }
 
 .btn-outline {
     background: transparent;
-    color: #333;
-    border: 2px solid #333;
+    color: #1a2332;
+    border: 2px solid #1a2332;
+    font-weight: 600;
 }
 
 .btn-outline:hover {
-    background: #333;
+    background: #1a2332;
     color: white;
     transform: translateY(-2px);
 }
@@ -373,8 +380,8 @@ p {
 /* Section Styles */
 .section-tag {
     display: inline-block;
-    background: #f5f5f5;
-    color: #333;
+    background: rgba(201, 169, 97, 0.1);
+    color: #c9a961;
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.875rem;
@@ -382,6 +389,7 @@ p {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     margin-bottom: 1rem;
+    border: 1px solid rgba(201, 169, 97, 0.2);
 }
 
 .section-header {
@@ -585,19 +593,19 @@ p {
 /* Practice Areas */
 .practice-areas {
     padding: 6rem 0;
-    background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 50%, #f0f0f0 100%);
+    background: linear-gradient(135deg, #fafaf9 0%, #f7f8fa 50%, #fafaf9 100%);
 }
 
 .practice-areas h1, .practice-areas h2, .practice-areas h3, .practice-areas h4, .practice-areas h5, .practice-areas h6 {
-    color: #1a1a1a;
+    color: #1a2332;
 }
 
 .practice-areas p {
-    color: #666;
+    color: #4a5568;
 }
 
 .practice-areas .section-header p {
-    color: #666;
+    color: #4a5568;
 }
 
 .practice-grid {
@@ -768,8 +776,8 @@ p {
 /* CTA Section */
 .cta-section {
     padding: 4rem 0;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%);
-    color: #333;
+    background: linear-gradient(135deg, #f7f8fa 0%, #fafaf9 50%, #f7f8fa 100%);
+    color: #1a2332;
     text-align: center;
 }
 
@@ -779,14 +787,14 @@ p {
 }
 
 .cta-content h2 {
-    color: #333;
+    color: #1a2332;
     margin-bottom: 1.5rem;
     font-size: 2.5rem;
     font-weight: 600;
 }
 
 .cta-content p {
-    color: #666;
+    color: #4a5568;
     font-size: 1.125rem;
     margin-bottom: 2.5rem;
     max-width: 650px;
@@ -819,7 +827,7 @@ p {
 
 .contact-label {
     display: block;
-    color: #666;
+    color: #4a5568;
     font-size: 0.875rem;
     margin-bottom: 0.5rem;
     text-transform: uppercase;
@@ -828,7 +836,7 @@ p {
 }
 
 .contact-link {
-    color: #333;
+    color: #1a2332;
     text-decoration: none;
     font-weight: 600;
     font-size: 1.1rem;
@@ -836,12 +844,12 @@ p {
 }
 
 .contact-link:hover {
-    color: #000;
+    color: #c9a961;
 }
 
 /* Footer */
 .footer {
-    background: #000;
+    background: #1a2332;
     color: white;
     padding: 3rem 0 1rem;
 }
@@ -898,7 +906,7 @@ p {
         top: 100%;
         left: 0;
         right: 0;
-        background: #000;
+        background: #1a2332;
         flex-direction: column;
         padding: 2rem 0;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
@@ -1081,9 +1089,26 @@ p {
 /* Original Split Hero Layout */
 .hero-split {
     min-height: 80vh;
-    padding: 4rem 0;
-    background: linear-gradient(135deg, #000 0%, #1a1a1a 50%, #333 100%);
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #1a2332 0%, #2c5282 50%, #1a2332 100%);
     color: white;
+    position: relative;
+}
+
+.hero-split::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 0%, rgba(201, 169, 97, 0.05) 50%, transparent 100%);
+    z-index: 1;
+}
+
+.hero-split .container {
+    position: relative;
+    z-index: 2;
 }
 
 .hero-grid {
