@@ -216,11 +216,21 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
 .mobile-menu-btn {
     display: none;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background: none;
     border: none;
     cursor: pointer;
-    padding: 0.5rem;
+    padding: 12px;
     gap: 4px;
+    min-width: 44px;
+    min-height: 44px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.mobile-menu-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .mobile-menu-btn span {
@@ -1168,16 +1178,17 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
         top: 100%;
         left: 0;
         right: 0;
-        background: #1a2332;
+        background: linear-gradient(180deg, #1a2332 0%, #0f1419 100%);
         flex-direction: column;
-        padding: 2rem 0;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        padding: 1rem 0;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
         transform: translateY(-100%);
         opacity: 0;
         visibility: hidden;
-        transition: all 0.3s ease;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         gap: 0;
-        border-top: 1px solid #333;
+        border-top: 2px solid rgba(201, 169, 97, 0.3);
+        backdrop-filter: blur(10px);
     }
     
     .nav-menu.active {
@@ -1188,11 +1199,19 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
     
     .nav-item {
         display: block;
-        padding: 1rem 2rem;
-        border-bottom: 1px solid #333;
+        padding: 1.375rem 2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         width: 100%;
         text-align: center;
         color: #fff;
+        min-height: 44px;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+    
+    .nav-item:hover {
+        background: rgba(201, 169, 97, 0.1);
+        color: #c9a961;
     }
     
     .nav-item::after {
@@ -1202,7 +1221,10 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
     .contact-btn {
         margin-top: 1rem;
         display: inline-block;
-        border-radius: 5px;
+        border-radius: 4px;
+        min-height: 44px;
+        min-width: 44px;
+        font-size: 16px;
     }
     
     .hero-buttons {
@@ -1252,6 +1274,15 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
         padding: 1.5rem;
     }
     
+    .contact-link {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem;
+        font-size: 16px;
+    }
+    
     .cta-content h2 {
         font-size: 2rem;
     }
@@ -1289,6 +1320,10 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
 }
 
 @media (max-width: 480px) {
+    body {
+        font-size: 16px;
+    }
+    
     .hero-title {
         font-size: 2rem;
         line-height: 1.2;
@@ -1296,6 +1331,15 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
     
     .hero-subtitle {
         font-size: 1rem;
+    }
+    
+    p, .practice-content p, .attorney-bio {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+    
+    .section-header p {
+        font-size: 16px;
     }
     
     .stats-grid {
@@ -1307,8 +1351,10 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
     }
     
     .btn {
-        padding: 0.875rem 1.5rem;
-        font-size: 0.95rem;
+        padding: 1rem 1.5rem;
+        font-size: 16px;
+        min-height: 44px;
+        min-width: 44px;
     }
 }
 
