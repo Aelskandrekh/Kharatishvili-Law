@@ -669,18 +669,96 @@ p {
     border-radius: 12px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
     min-height: 300px;
     display: flex;
     align-items: flex-end;
+    border-top: 3px solid transparent;
 }
 
 
 
+.practice-item:nth-child(even) {
+    background: #fafaf9;
+}
+
 .practice-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+    border-top: 3px solid #c9a961;
+}
+
+.practice-item::after {
+    content: '';
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    background: rgba(201, 169, 97, 0.15);
+    border-radius: 50%;
+    z-index: 3;
+    transition: all 0.3s ease;
+}
+
+.practice-item:nth-child(1)::after {
+    content: '🌍';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    background: rgba(201, 169, 97, 0.15);
+}
+
+.practice-item:nth-child(2)::after {
+    content: '🏢';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    background: rgba(201, 169, 97, 0.15);
+}
+
+.practice-item:nth-child(3)::after {
+    content: '🏠';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    background: rgba(201, 169, 97, 0.15);
+}
+
+.practice-item:nth-child(4)::after {
+    content: '⚖️';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    background: rgba(201, 169, 97, 0.15);
+}
+
+.practice-item:nth-child(5)::after {
+    content: '📊';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    background: rgba(201, 169, 97, 0.15);
+}
+
+.practice-item:nth-child(6)::after {
+    content: '💡';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    background: rgba(201, 169, 97, 0.15);
+}
+
+.practice-item:hover::after {
+    background: rgba(201, 169, 97, 0.25);
+    transform: scale(1.1);
 }
 
 .practice-bg-image {
