@@ -1017,6 +1017,106 @@ p {
     outline-offset: 2px;
 }
 
+/* Homepage Hero Split Layout */
+.hero-split {
+    min-height: 80vh;
+    padding: 4rem 0;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    height: 100%;
+}
+
+.hero-split .hero-text {
+    max-width: none;
+}
+
+.hero-attorney {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.attorney-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+    max-width: 500px;
+}
+
+.attorney-image {
+    margin-bottom: 1.5rem;
+}
+
+.attorney-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.attorney-info .section-tag {
+    color: #666;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.attorney-info h2 {
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+}
+
+.attorney-credentials {
+    color: #666;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.attorney-bio {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.credentials-compact {
+    text-align: left;
+    margin-top: 1.5rem;
+}
+
+.credential-item {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 3px solid #333;
+}
+
+.credential-item strong {
+    color: #333;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.credential-item:last-child {
+    margin-bottom: 0;
+}
+
 /* Contact Page Specific Styles */
 .contact-hero {
     min-height: 50vh;
@@ -1224,6 +1324,30 @@ p {
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
+    .hero-split {
+        min-height: 60vh;
+        padding: 2rem 0;
+    }
+    
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .attorney-card {
+        padding: 2rem;
+        margin-top: 2rem;
+    }
+    
+    .attorney-photo {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .attorney-info h2 {
+        font-size: 1.5rem;
+    }
+    
     .contact-hero {
         min-height: 40vh;
     }
