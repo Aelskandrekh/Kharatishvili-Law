@@ -1447,19 +1447,52 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
 
 .attorney-card {
     background: rgba(255, 255, 255, 0.95);
-    padding: 3.75rem;
+    padding: 2.5rem;
     border-radius: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    text-align: left;
+    text-align: center;
     width: 100%;
     transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
 }
 
 .attorney-card:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.attorney-photo-container {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgba(201, 169, 97, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(201, 169, 97, 0.05) 100%);
+}
+
+.attorney-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease;
+}
+
+.attorney-photo-container:hover {
+    border-color: #c9a961;
+    transform: scale(1.05);
+}
+
+.attorney-photo-container:hover .attorney-photo {
+    transform: scale(1.1);
 }
 
 .attorney-info .section-tag {
@@ -1751,9 +1784,10 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
     .attorney-card {
         padding: 2rem;
         margin-top: 2rem;
+        gap: 1rem;
     }
     
-    .attorney-photo {
+    .attorney-photo-container {
         width: 100px;
         height: 100px;
     }
