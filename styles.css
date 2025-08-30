@@ -669,7 +669,7 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
 /* Practice Areas */
 .practice-areas {
     padding: 7.5rem 0;
-    background: linear-gradient(135deg, #f0f2f5 0%, #e8eaf0 50%, #f0f2f5 100%);
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #2c3e50 100%);
     position: relative;
 }
 
@@ -696,15 +696,19 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
 }
 
 .practice-areas h1, .practice-areas h2, .practice-areas h3, .practice-areas h4, .practice-areas h5, .practice-areas h6 {
-    color: #1a2332;
+    color: white;
 }
 
 .practice-areas p {
-    color: #4a5568;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .practice-areas .section-header p {
-    color: #4a5568;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.practice-areas .section-tag {
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .practice-grid {
