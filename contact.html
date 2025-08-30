@@ -15,35 +15,37 @@
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="navigation">
+    <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <h1>Kharatishvili Law</h1>
+                <a href="/" class="logo-link">Kharatishvili Law</a>
             </div>
-            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
+            <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
             <ul class="nav-menu">
-                <li><a href="/" class="nav-link">Home</a></li>
-                <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="resources.html" class="nav-link">Resources</a></li>
-                <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                <li><a href="/" class="nav-item">Home</a></li>
+                <li><a href="about.html" class="nav-item">About</a></li>
+                <li><a href="resources.html" class="nav-item">Resources</a></li>
+                <li><a href="contact.html" class="nav-item contact-btn active">Contact Us</a></li>
             </ul>
         </div>
     </nav>
 
-    <main class="main-content page-content">
-        <section class="page-hero">
-            <div class="page-hero-content">
-                <h2>Contact Us</h2>
-                <p>Schedule a consultation to discuss your legal needs</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">Contact Us</h1>
+                <p class="hero-subtitle">Schedule a consultation to discuss your legal needs</p>
             </div>
-        </section>
+        </div>
+    </section>
 
         <section class="contact-section">
-            <div class="content-container">
+            <div class="container">
                 <div class="contact-grid">
                     <div class="contact-info">
                         <h3>Get in Touch</h3>
@@ -150,19 +152,21 @@
     </main>
 
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-info">
-                <h4>Kharatishvili Law</h4>
-                <p>Premier legal services in Tbilisi, Georgia</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h4>Kharatishvili Law</h4>
+                    <p>Premier legal services in Tbilisi, Georgia</p>
+                </div>
+                <div class="footer-contact">
+                    <p>Tbilisi, Georgia</p>
+                    <p>+995 577 335 540</p>
+                    <p>aleksandrekharatishvili@gmail.com</p>
+                </div>
             </div>
-            <div class="footer-contact">
-                <p>Tbilisi, Georgia</p>
-                <p>+995 577335540</p>
-                <p>aleksandrekharatishvili@gmail.com</p>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Kharatishvili Law. All rights reserved.</p>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Kharatishvili Law. All rights reserved.</p>
         </div>
     </footer>
 

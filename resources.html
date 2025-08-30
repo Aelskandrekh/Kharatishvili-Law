@@ -15,35 +15,37 @@
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="navigation">
+    <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <h1>Kharatishvili Law</h1>
+                <a href="/" class="logo-link">Kharatishvili Law</a>
             </div>
-            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
+            <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
             <ul class="nav-menu">
-                <li><a href="/" class="nav-link">Home</a></li>
-                <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="resources.html" class="nav-link active">Resources</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="/" class="nav-item">Home</a></li>
+                <li><a href="about.html" class="nav-item">About</a></li>
+                <li><a href="resources.html" class="nav-item active">Resources</a></li>
+                <li><a href="contact.html" class="nav-item contact-btn">Contact Us</a></li>
             </ul>
         </div>
     </nav>
 
-    <main class="main-content page-content">
-        <section class="page-hero">
-            <div class="page-hero-content">
-                <h2>Legal Resources</h2>
-                <p>Insights and updates on Georgian law and legal developments</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">Legal Resources</h1>
+                <p class="hero-subtitle">Insights and updates on Georgian law and legal developments</p>
             </div>
-        </section>
+        </div>
+    </section>
 
         <section class="resources-section">
-            <div class="content-container">
+            <div class="container">
                 <div class="resources-intro">
                     <h3>Stay Informed</h3>
                     <p>Our legal resources provide valuable insights into Georgian law developments, practical guidance for businesses and individuals, and analysis of current legal trends affecting our clients.</p>
@@ -122,28 +124,43 @@
         </section>
 
         <section class="cta-section">
-            <div class="cta-content">
-                <h3>Need Specific Legal Guidance?</h3>
-                <p>Contact us for personalized legal advice on your specific situation</p>
-                <a href="contact.html" class="cta-button primary">Consult Our Attorneys</a>
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Need Specific Legal Guidance?</h2>
+                    <p>Contact us for personalized legal advice on your specific situation</p>
+                    <div class="cta-actions">
+                        <a href="contact.html" class="btn btn-primary">Schedule Consultation</a>
+                        <div class="contact-quick">
+                            <div class="contact-method">
+                                <span class="contact-label">Phone:</span>
+                                <a href="tel:+995577335540" class="contact-link">+995 577 335 540</a>
+                            </div>
+                            <div class="contact-method">
+                                <span class="contact-label">Email:</span>
+                                <a href="mailto:aleksandrekharatishvili@gmail.com" class="contact-link">aleksandrekharatishvili@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
-    </main>
 
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-info">
-                <h4>Kharatishvili Law</h4>
-                <p>Premier legal services in Tbilisi, Georgia</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h4>Kharatishvili Law</h4>
+                    <p>Premier legal services in Tbilisi, Georgia</p>
+                </div>
+                <div class="footer-contact">
+                    <p>Tbilisi, Georgia</p>
+                    <p>+995 577 335 540</p>
+                    <p>aleksandrekharatishvili@gmail.com</p>
+                </div>
             </div>
-            <div class="footer-contact">
-                <p>Tbilisi, Georgia</p>
-                <p>+995 577335540</p>
-                <p>aleksandrekharatishvili@gmail.com</p>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Kharatishvili Law. All rights reserved.</p>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Kharatishvili Law. All rights reserved.</p>
         </div>
     </footer>
 
