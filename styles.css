@@ -1,3 +1,11 @@
+/* CSS Custom Properties for consistency */
+:root {
+    --primary-navy: #1a2332;
+    --accent-gold: #c9a961;
+    --text-gray: #4a5568;
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -660,7 +668,10 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
 
 /* Practice Areas */
 .practice-areas {
-    padding: 7.5rem 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 60px 20px;
     background: linear-gradient(135deg, #fafaf9 0%, #f7f8fa 50%, #fafaf9 100%);
     position: relative;
 }
