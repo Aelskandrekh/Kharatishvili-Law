@@ -668,10 +668,7 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
 
 /* Practice Areas */
 .practice-areas {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    padding: 60px 20px;
+    padding: 7.5rem 0;
     background: linear-gradient(135deg, #fafaf9 0%, #f7f8fa 50%, #fafaf9 100%);
     position: relative;
 }
