@@ -620,20 +620,22 @@ p {
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent 0%, rgba(201, 169, 97, 0.3) 50%, transparent 100%);
+    left: 10%;
+    right: 10%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent 0%, rgba(201, 169, 97, 0.2) 20%, rgba(201, 169, 97, 0.4) 50%, rgba(201, 169, 97, 0.2) 80%, transparent 100%);
+    border-radius: 2px;
 }
 
 .practice-areas::after {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent 0%, rgba(201, 169, 97, 0.3) 50%, transparent 100%);
+    left: 10%;
+    right: 10%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent 0%, rgba(201, 169, 97, 0.2) 20%, rgba(201, 169, 97, 0.4) 50%, rgba(201, 169, 97, 0.2) 80%, transparent 100%);
+    border-radius: 2px;
 }
 
 .practice-areas h1, .practice-areas h2, .practice-areas h3, .practice-areas h4, .practice-areas h5, .practice-areas h6 {
@@ -657,10 +659,10 @@ p {
 
 .practice-item {
     background: #fff;
-    border-radius: 10px;
+    border-radius: 12px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
     transition: all 0.3s ease;
     min-height: 300px;
     display: flex;
@@ -671,7 +673,7 @@ p {
 
 .practice-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 .practice-bg-image {
@@ -872,10 +874,10 @@ p {
     justify-content: center;
     gap: 4rem;
     flex-wrap: wrap;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.9);
     padding: 2rem;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
 }
 
 .contact-method {
@@ -1190,11 +1192,16 @@ p {
     background: rgba(255, 255, 255, 0.95);
     padding: 2.5rem;
     border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     text-align: left;
     width: 100%;
+    transition: box-shadow 0.3s ease;
+}
+
+.attorney-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
 }
 
 .attorney-info .section-tag {
@@ -1326,8 +1333,13 @@ p {
     background: #fff;
     border-radius: 16px;
     padding: 2.5rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
     border: 1px solid #e5e5e5;
+    transition: box-shadow 0.3s ease;
+}
+
+.contact-form-wrapper:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
 }
 
 .form-header h3 {
@@ -1430,8 +1442,13 @@ p {
     background: white;
     padding: 2rem;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
     text-align: center;
+    transition: box-shadow 0.3s ease;
+}
+
+.process-step:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
 }
 
 .step-number {
