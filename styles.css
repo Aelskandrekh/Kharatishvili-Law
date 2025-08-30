@@ -87,7 +87,7 @@ p {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 3.75rem;
     position: relative;
     z-index: 2;
 }
@@ -420,14 +420,19 @@ p {
 
 .section-header {
     text-align: center;
-    max-width: 700px;
-    margin: 0 auto 4rem;
+    max-width: 800px;
+    margin: 0 auto 5rem;
+    padding: 0 2rem;
 }
 
 .section-header p {
     font-size: 1.125rem;
-    color: #666;
-    margin-top: 1rem;
+    color: #4a5568;
+    margin-top: 1.5rem;
+    line-height: 1.7;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Attorney Profile */
@@ -618,7 +623,7 @@ p {
 
 /* Practice Areas */
 .practice-areas {
-    padding: 6rem 0;
+    padding: 7.5rem 0;
     background: linear-gradient(135deg, #fafaf9 0%, #f7f8fa 50%, #fafaf9 100%);
     position: relative;
 }
@@ -660,8 +665,8 @@ p {
 .practice-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
+    gap: 2.5rem;
+    margin-top: 4rem;
 }
 
 .practice-item {
@@ -786,22 +791,23 @@ p {
     position: relative;
     z-index: 2;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
-    padding: 2rem;
+    padding: 2.5rem;
     width: 100%;
     color: white;
 }
 
 .practice-content h3 {
     color: white;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     font-size: 1.5rem;
+    line-height: 1.3;
 }
 
 .practice-content p {
     color: rgba(255, 255, 255, 0.9);
     margin: 0;
-    font-size: 0.95rem;
-    line-height: 1.5;
+    font-size: 1rem;
+    line-height: 1.7;
 }
 
 
@@ -902,7 +908,7 @@ p {
 
 /* CTA Section */
 .cta-section {
-    padding: 4rem 0;
+    padding: 5rem 0;
     background: linear-gradient(135deg, #f7f8fa 0%, #fafaf9 50%, #f7f8fa 100%);
     color: #1a2332;
     text-align: center;
@@ -1037,6 +1043,10 @@ p {
 
 /* Mobile Styles */
 @media (max-width: 768px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+    
     .mobile-menu-btn {
         display: flex;
     }
@@ -1233,7 +1243,7 @@ p {
 /* Original Split Hero Layout */
 .hero-split {
     min-height: 80vh;
-    padding: 5rem 0;
+    padding: 6rem 0;
     background: linear-gradient(135deg, #1a2332 0%, #2c5282 50%, #1a2332 100%);
     color: white;
     position: relative;
@@ -1275,7 +1285,7 @@ p {
 
 .attorney-card {
     background: rgba(255, 255, 255, 0.95);
-    padding: 2.5rem;
+    padding: 3.75rem;
     border-radius: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
     backdrop-filter: blur(10px);
@@ -1303,23 +1313,24 @@ p {
 }
 
 .attorney-info h2 {
-    color: #333;
-    margin-bottom: 0.5rem;
+    color: #1a2332;
+    margin-bottom: 1rem;
     font-size: 1.8rem;
+    line-height: 1.3;
 }
 
 .attorney-credentials {
-    color: #666;
+    color: #c9a961;
     font-weight: 600;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     font-size: 1rem;
 }
 
 .attorney-bio {
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    font-size: 0.95rem;
+    color: #4a5568;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    font-size: 1rem;
 }
 
 .credentials-compact {
