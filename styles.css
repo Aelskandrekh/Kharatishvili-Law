@@ -133,7 +133,7 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
     top: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(135deg, #1a2332 0%, #2c5282 50%, #1a2332 100%);
+    background: #1a2332;
     backdrop-filter: blur(10px);
     border-bottom: 1px solid #2c5282;
     z-index: 1000;
