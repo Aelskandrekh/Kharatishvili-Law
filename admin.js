@@ -374,14 +374,36 @@ class AdminConsole {
 
     applyFontStyle(command, value) {
         const editor = document.getElementById('articleContent');
+        editor.focus();
         
-        // Get current selection
         const selection = window.getSelection();
         
         if (selection.rangeCount > 0 && !selection.isCollapsed) {
-            // Apply to selected text
-            editor.focus();
-            document.execCommand(command, false, value);
+            // Apply to selected text using span wrapper
+            const range = selection.getRangeAt(0);
+            const span = document.createElement('span');
+            
+            if (command === 'fontName') {
+                span.style.fontFamily = value;
+            } else if (command === 'fontSize') {
+                span.style.fontSize = value;
+            }
+            
+            try {
+                range.surroundContents(span);
+            } catch (e) {
+                // If range spans multiple elements, extract and wrap content
+                const contents = range.extractContents();
+                span.appendChild(contents);
+                range.insertNode(span);
+            }
+            
+            // Clear selection and place cursor after the span
+            selection.removeAllRanges();
+            const newRange = document.createRange();
+            newRange.setStartAfter(span);
+            newRange.collapse(true);
+            selection.addRange(newRange);
         } else {
             // Apply to entire editor for future text
             if (command === 'fontName') {
