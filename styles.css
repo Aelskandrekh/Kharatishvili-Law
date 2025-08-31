@@ -1034,16 +1034,6 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
     position: relative;
 }
 
-.why-choose::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 10%;
-    right: 10%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent 0%, rgba(201, 169, 97, 0.2) 20%, rgba(201, 169, 97, 0.4) 50%, rgba(201, 169, 97, 0.2) 80%, transparent 100%);
-    border-radius: 0;
-}
 
 .why-choose::after {
     content: '';
