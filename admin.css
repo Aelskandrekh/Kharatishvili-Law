@@ -657,8 +657,9 @@
     }
 }
 
-/* Video Container */
-.video-container {
+/* Media Containers */
+.video-container,
+.image-container {
     margin: 1.5rem 0;
     padding: 1rem;
     background: #f8f9fa;
@@ -689,6 +690,26 @@
     width: 100%;
     height: auto;
     padding-bottom: 0;
+}
+
+/* Image Styles */
+.article-image {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image-caption {
+    margin-top: 0.75rem;
+    text-align: center;
+}
+
+.image-caption p {
+    margin: 0;
+    color: #666;
+    font-size: 0.875rem;
+    font-style: italic;
 }
 
 /* Animation Classes */

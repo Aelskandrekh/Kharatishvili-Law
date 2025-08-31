@@ -364,6 +364,8 @@ class AdminConsole {
             }
         } else if (command === 'insertVideo') {
             this.insertVideo();
+        } else if (command === 'insertImage') {
+            this.insertImage();
         } else if (command === 'formatBlock') {
             // Handle heading formatting
             document.execCommand(command, false, `<${value}>`);
@@ -379,30 +381,53 @@ class AdminConsole {
         const selection = window.getSelection();
         
         if (selection.rangeCount > 0 && !selection.isCollapsed) {
-            // Apply to selected text using span wrapper
+            // Save the current selection
             const range = selection.getRangeAt(0);
-            const span = document.createElement('span');
+            const selectedContent = range.cloneContents();
             
+            // Create container span with the desired style
+            const span = document.createElement('span');
             if (command === 'fontName') {
                 span.style.fontFamily = value;
             } else if (command === 'fontSize') {
                 span.style.fontSize = value;
             }
             
-            try {
-                range.surroundContents(span);
-            } catch (e) {
-                // If range spans multiple elements, extract and wrap content
-                const contents = range.extractContents();
-                span.appendChild(contents);
-                range.insertNode(span);
-            }
+            // Apply style to all text nodes recursively
+            const applyToTextNodes = (node) => {
+                if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
+                    const wrapper = document.createElement('span');
+                    if (command === 'fontName') {
+                        wrapper.style.fontFamily = value;
+                    } else if (command === 'fontSize') {
+                        wrapper.style.fontSize = value;
+                    }
+                    node.parentNode.insertBefore(wrapper, node);
+                    wrapper.appendChild(node);
+                } else if (node.nodeType === Node.ELEMENT_NODE) {
+                    // Apply style directly to elements
+                    if (command === 'fontName') {
+                        node.style.fontFamily = value;
+                    } else if (command === 'fontSize') {
+                        node.style.fontSize = value;
+                    }
+                    // Also process child nodes
+                    Array.from(node.childNodes).forEach(child => applyToTextNodes(child));
+                }
+            };
             
-            // Clear selection and place cursor after the span
-            selection.removeAllRanges();
+            // Process all nodes in selection
+            Array.from(selectedContent.childNodes).forEach(node => applyToTextNodes(node));
+            span.appendChild(selectedContent);
+            
+            // Replace selection with styled content
+            range.deleteContents();
+            range.insertNode(span);
+            
+            // Restore selection
             const newRange = document.createRange();
-            newRange.setStartAfter(span);
-            newRange.collapse(true);
+            newRange.selectNodeContents(span);
+            selection.removeAllRanges();
             selection.addRange(newRange);
         } else {
             // Apply to entire editor for future text
@@ -411,6 +436,35 @@ class AdminConsole {
             } else if (command === 'fontSize') {
                 editor.style.fontSize = value;
             }
+        }
+    }
+
+    insertImage() {
+        const imageUrl = prompt('Enter image URL or upload path:');
+        if (!imageUrl) return;
+
+        const alt = prompt('Enter image description (alt text):') || 'Article image';
+        const editor = document.getElementById('articleContent');
+        
+        const imageHTML = `
+            <div class="image-container">
+                <img src="${imageUrl}" alt="${alt}" class="article-image">
+                <div class="image-caption">
+                    <p>${alt}</p>
+                </div>
+            </div>
+        `;
+
+        const selection = window.getSelection();
+        if (selection.rangeCount > 0) {
+            const range = selection.getRangeAt(0);
+            range.deleteContents();
+            const div = document.createElement('div');
+            div.innerHTML = imageHTML;
+            range.insertNode(div.firstElementChild);
+        } else {
+            // Insert at the end if no selection
+            editor.insertAdjacentHTML('beforeend', imageHTML);
         }
     }
 
