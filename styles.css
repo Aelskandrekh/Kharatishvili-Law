@@ -2479,6 +2479,191 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
     line-height: 1.6;
 }
 
+/* Resources Page Styles */
+.news-filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+    border: 1px solid #e5e5e5;
+}
+
+.filter-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.filter-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.filter-btn:hover {
+    background: #f8f9fa;
+    border-color: #1a2332;
+}
+
+.filter-btn.active {
+    background: #1a2332;
+    color: white;
+    border-color: #1a2332;
+}
+
+.sort-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.sort-controls label {
+    font-size: 0.875rem;
+    color: #666;
+    font-weight: 500;
+}
+
+.sort-select {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: white;
+    font-size: 0.875rem;
+    cursor: pointer;
+}
+
+.news-articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.resource-article {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e5e5e5;
+    transition: all 0.3s ease;
+}
+
+.resource-article:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.article-header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.article-date-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 0.75rem 0.5rem;
+    border: 1px solid #e5e5e5;
+    min-width: 60px;
+}
+
+.date-day {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1a2332;
+    line-height: 1;
+}
+
+.date-month {
+    font-size: 0.75rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1;
+}
+
+.date-year {
+    font-size: 0.75rem;
+    color: #999;
+    line-height: 1;
+}
+
+.practice-badge-resource {
+    display: inline-block;
+    padding: 0.375rem 0.75rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.article-content-section h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+    line-height: 1.3;
+}
+
+.article-content-section h3 a {
+    color: #1a2332;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.article-content-section h3 a:hover {
+    color: #c9a961;
+}
+
+.article-content-section p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.read-more-link {
+    color: #c9a961;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.875rem;
+    transition: color 0.3s ease;
+}
+
+.read-more-link:hover {
+    color: #1a2332;
+}
+
+.empty-articles {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e5e5e5;
+}
+
+.empty-articles h3 {
+    color: #1a2332;
+    margin-bottom: 1rem;
+}
+
+.empty-articles p {
+    color: #666;
+    margin-bottom: 2rem;
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     .hero-split {
@@ -2621,5 +2806,38 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
         flex: 1;
         min-width: 120px;
         justify-content: center;
+    }
+
+    .news-filters {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: stretch;
+    }
+
+    .filter-controls {
+        justify-content: center;
+    }
+
+    .sort-controls {
+        justify-content: center;
+    }
+
+    .news-articles-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .resource-article {
+        padding: 1.5rem;
+    }
+
+    .article-header-section {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+    }
+
+    .article-date-badge {
+        align-self: center;
     }
 }

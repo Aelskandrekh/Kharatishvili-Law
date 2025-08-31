@@ -44,106 +44,77 @@
         </div>
     </section>
 
-        <section class="resources-section">
-            <div class="container">
-                <div class="resources-intro">
-                    <h3>Stay Informed</h3>
-                    <p>Our legal resources provide valuable insights into Georgian law developments, practical guidance for businesses and individuals, and analysis of current legal trends affecting our clients.</p>
+    <!-- News & Resources Section -->
+    <section class="news-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Legal Resources</span>
+                <h2>News & Updates</h2>
+                <p>Stay informed with the latest legal developments, case studies, and insights from our practice areas.</p>
+            </div>
+
+            <!-- Filter Controls -->
+            <div class="news-filters">
+                <div class="filter-controls">
+                    <button class="filter-btn active" data-filter="all">All Articles</button>
+                    <button class="filter-btn" data-filter="immigration">Immigration Law</button>
+                    <button class="filter-btn" data-filter="corporate">Corporate Law</button>
+                    <button class="filter-btn" data-filter="real-estate">Real Estate Law</button>
+                    <button class="filter-btn" data-filter="litigation">Litigation & Arbitration</button>
+                    <button class="filter-btn" data-filter="tax-regulatory">Tax & Regulatory</button>
+                    <button class="filter-btn" data-filter="intellectual-property">Intellectual Property</button>
                 </div>
-
-                <div class="resources-grid">
-                    <div class="resource-category">
-                        <h4>Legal Insights</h4>
-                        <div class="resource-items">
-                            <div class="resource-item">
-                                <h5>Georgia's New Corporate Governance Requirements</h5>
-                                <p>Understanding the latest compliance obligations for Georgian corporations and their impact on business operations.</p>
-                                <span class="resource-date">March 2024</span>
-                            </div>
-                            <div class="resource-item">
-                                <h5>Foreign Investment Opportunities in Georgia</h5>
-                                <p>Comprehensive guide to investment structures, tax incentives, and regulatory considerations for international investors.</p>
-                                <span class="resource-date">February 2024</span>
-                            </div>
-                            <div class="resource-item">
-                                <h5>Real Estate Market Trends and Legal Considerations</h5>
-                                <p>Analysis of current market conditions and legal framework for property investments in Georgia.</p>
-                                <span class="resource-date">January 2024</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="resource-category">
-                        <h4>Practice Guides</h4>
-                        <div class="resource-items">
-                            <div class="resource-item">
-                                <h5>Business Formation in Georgia: A Complete Guide</h5>
-                                <p>Step-by-step guidance on establishing and operating a business entity in Georgia, including regulatory requirements.</p>
-                                <span class="resource-date">Practical Guide</span>
-                            </div>
-                            <div class="resource-item">
-                                <h5>Immigration and Residency Handbook</h5>
-                                <p>Comprehensive resource covering visa types, application processes, and residency requirements for Georgia.</p>
-                                <span class="resource-date">Reference Guide</span>
-                            </div>
-                            <div class="resource-item">
-                                <h5>Contract Essentials for Georgian Businesses</h5>
-                                <p>Key considerations and best practices for drafting and negotiating commercial contracts under Georgian law.</p>
-                                <span class="resource-date">Best Practices</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="resource-category">
-                        <h4>Legal Updates</h4>
-                        <div class="resource-items">
-                            <div class="resource-item">
-                                <h5>Recent Changes to Tax Legislation</h5>
-                                <p>Summary of recent amendments to Georgian tax laws and their implications for businesses and individuals.</p>
-                                <span class="resource-date">Legislative Update</span>
-                            </div>
-                            <div class="resource-item">
-                                <h5>Court Decisions Affecting Commercial Law</h5>
-                                <p>Analysis of significant court rulings and their impact on commercial practice in Georgia.</p>
-                                <span class="resource-date">Case Law Review</span>
-                            </div>
-                            <div class="resource-item">
-                                <h5>Regulatory Changes in Financial Services</h5>
-                                <p>Overview of new regulations affecting banking, securities, and financial services sectors.</p>
-                                <span class="resource-date">Regulatory Alert</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="resources-disclaimer">
-                    <h3>Important Notice</h3>
-                    <p>The information provided in these resources is for general informational purposes only and does not constitute legal advice. Laws and regulations are subject to change, and specific circumstances may require different approaches. We recommend consulting with qualified legal counsel for advice on specific legal matters.</p>
+                <div class="sort-controls">
+                    <label for="sortBy">Sort by:</label>
+                    <select id="sortBy" class="sort-select">
+                        <option value="date-desc">Newest First</option>
+                        <option value="date-asc">Oldest First</option>
+                        <option value="title">Title A-Z</option>
+                    </select>
                 </div>
             </div>
-        </section>
 
-        <section class="cta-section">
-            <div class="container">
-                <div class="cta-content">
-                    <h2>Need Specific Legal Guidance?</h2>
-                    <p>Contact us for personalized legal advice on your specific situation</p>
-                    <div class="cta-actions">
-                        <a href="contact.html" class="btn btn-primary">Schedule Consultation</a>
-                        <div class="contact-quick">
-                            <div class="contact-method">
-                                <span class="contact-label">Phone:</span>
-                                <a href="tel:+995577335540" class="contact-link">+995 577 335 540</a>
-                            </div>
-                            <div class="contact-method">
-                                <span class="contact-label">Email:</span>
-                                <a href="mailto:aleksandrekharatishvili@gmail.com" class="contact-link">aleksandrekharatishvili@gmail.com</a>
-                            </div>
-                        </div>
-                    </div>
+            <!-- Articles Grid -->
+            <div class="news-articles-grid" id="articlesGrid">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Loading articles...</p>
                 </div>
             </div>
-        </section>
+
+            <!-- Empty State -->
+            <div class="empty-articles" id="emptyState" style="display: none;">
+                <h3>No Articles Found</h3>
+                <p>No articles match your current filter criteria. Try selecting a different practice area or check back later for new updates.</p>
+                <button class="filter-btn" data-filter="all">Show All Articles</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="cta-section-modern">
+        <div class="container">
+            <div class="cta-modern-content">
+                <div class="cta-text">
+                    <span class="section-tag">Get Expert Legal Guidance</span>
+                    <h2>Schedule Your Consultation</h2>
+                    <p>Connect with an experienced attorney qualified in New York & Georgia for personalized legal solutions.</p>
+                </div>
+                <div class="cta-contact-grid">
+                    <a href="contact.html" class="cta-card primary">
+                        <div class="cta-icon">📅</div>
+                        <h3>Free Consultation</h3>
+                        <p>Schedule a confidential discussion about your legal needs</p>
+                    </a>
+                    <a href="tel:+995577335540" class="cta-card secondary">
+                        <div class="cta-icon">📞</div>
+                        <h3>Call Directly</h3>
+                        <p>+995 577 335 540</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer class="footer">
         <div class="container">
@@ -158,12 +129,194 @@
                     <p>aleksandrekharatishvili@gmail.com</p>
                 </div>
             </div>
+            <div class="footer-trust">
+                <div class="trust-symbols">
+                    <div class="trust-item">
+                        <span class="trust-icon">🔒</span>
+                        <span class="trust-text">SSL Secured</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-icon">⚖️</span>
+                        <span class="trust-text">Licensed Attorney</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-icon">🌟</span>
+                        <span class="trust-text">Fulbright Scholar</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-icon">🏛️</span>
+                        <span class="trust-text">NY & GA Qualified</span>
+                    </div>
+                </div>
+            </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 Kharatishvili Law. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
+    <script>
+        let allArticles = [];
+        let currentFilter = 'all';
+        let currentSort = 'date-desc';
+
+        document.addEventListener('DOMContentLoaded', function() {
+            loadResourcesArticles();
+            setupFilters();
+        });
+
+        function getPracticeAreaInfo(practiceArea) {
+            const practiceAreas = {
+                'immigration': {
+                    label: 'Immigration Law',
+                    color: '#3498db',
+                    bgColor: 'rgba(52, 152, 219, 0.1)'
+                },
+                'corporate': {
+                    label: 'Corporate Law',
+                    color: '#27ae60',
+                    bgColor: 'rgba(39, 174, 96, 0.1)'
+                },
+                'real-estate': {
+                    label: 'Real Estate Law',
+                    color: '#f1c40f',
+                    bgColor: 'rgba(241, 196, 15, 0.1)'
+                },
+                'litigation': {
+                    label: 'Litigation & Arbitration',
+                    color: '#e74c3c',
+                    bgColor: 'rgba(231, 76, 60, 0.1)'
+                },
+                'tax-regulatory': {
+                    label: 'Tax & Regulatory',
+                    color: '#7f8c8d',
+                    bgColor: 'rgba(127, 140, 141, 0.1)'
+                },
+                'intellectual-property': {
+                    label: 'Intellectual Property',
+                    color: '#9b59b6',
+                    bgColor: 'rgba(155, 89, 182, 0.1)'
+                }
+            };
+            
+            return practiceAreas[practiceArea] || {
+                label: 'Legal Update',
+                color: '#7f8c8d',
+                bgColor: 'rgba(127, 140, 141, 0.1)'
+            };
+        }
+
+        function loadResourcesArticles() {
+            const articlesGrid = document.getElementById('articlesGrid');
+            const emptyState = document.getElementById('emptyState');
+            
+            // Load all published articles
+            allArticles = JSON.parse(localStorage.getItem('kharatishviliLawArticles') || '[]')
+                .filter(article => article.status === 'published');
+            
+            if (allArticles.length === 0) {
+                articlesGrid.innerHTML = `
+                    <div class="empty-articles">
+                        <h3>No Articles Published Yet</h3>
+                        <p>Check back soon for legal updates and insights from our practice areas.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            displayFilteredArticles();
+        }
+
+        function setupFilters() {
+            // Filter buttons
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    currentFilter = this.dataset.filter;
+                    displayFilteredArticles();
+                });
+            });
+
+            // Sort dropdown
+            const sortSelect = document.getElementById('sortBy');
+            if (sortSelect) {
+                sortSelect.addEventListener('change', function() {
+                    currentSort = this.value;
+                    displayFilteredArticles();
+                });
+            }
+        }
+
+        function displayFilteredArticles() {
+            const articlesGrid = document.getElementById('articlesGrid');
+            const emptyState = document.getElementById('emptyState');
+            
+            // Filter articles
+            let filteredArticles = currentFilter === 'all' ? 
+                [...allArticles] : 
+                allArticles.filter(article => article.practiceArea === currentFilter);
+            
+            // Sort articles
+            filteredArticles.sort((a, b) => {
+                switch (currentSort) {
+                    case 'date-desc':
+                        return new Date(b.date) - new Date(a.date);
+                    case 'date-asc':
+                        return new Date(a.date) - new Date(b.date);
+                    case 'title':
+                        return a.title.localeCompare(b.title);
+                    default:
+                        return new Date(b.date) - new Date(a.date);
+                }
+            });
+            
+            if (filteredArticles.length === 0) {
+                articlesGrid.style.display = 'none';
+                emptyState.style.display = 'block';
+                return;
+            }
+            
+            emptyState.style.display = 'none';
+            articlesGrid.style.display = 'grid';
+            
+            // Generate articles HTML
+            articlesGrid.innerHTML = filteredArticles.map(article => {
+                const practiceInfo = getPracticeAreaInfo(article.practiceArea);
+                const articleDate = formatDateForDisplay(article.date);
+                
+                return `
+                    <article class="resource-article">
+                        <div class="article-header-section">
+                            <div class="article-date-badge">
+                                <span class="date-day">${articleDate.day}</span>
+                                <span class="date-month">${articleDate.month}</span>
+                                <span class="date-year">${articleDate.year}</span>
+                            </div>
+                            ${article.practiceArea ? `<span class="practice-badge-resource" style="background-color: ${practiceInfo.bgColor}; color: ${practiceInfo.color}; border: 1px solid ${practiceInfo.color};">${practiceInfo.label}</span>` : ''}
+                        </div>
+                        <div class="article-content-section">
+                            <h3><a href="article.html?id=${article.id}">${article.title}</a></h3>
+                            <p>${article.summary}</p>
+                            <a href="article.html?id=${article.id}" class="read-more-link">Read Full Article →</a>
+                        </div>
+                    </article>
+                `;
+            }).join('');
+        }
+
+        function formatDateForDisplay(dateString) {
+            const date = new Date(dateString);
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            
+            return {
+                day: date.getDate().toString().padStart(2, '0'),
+                month: months[date.getMonth()],
+                year: date.getFullYear()
+            };
+        }
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
