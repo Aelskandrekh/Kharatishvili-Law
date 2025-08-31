@@ -106,14 +106,29 @@
                         <div class="form-group">
                             <label for="articleContent">Content</label>
                             <div class="editor-toolbar">
-                                <button type="button" class="editor-btn" data-command="bold">B</button>
-                                <button type="button" class="editor-btn" data-command="italic">I</button>
-                                <button type="button" class="editor-btn" data-command="underline">U</button>
-                                <button type="button" class="editor-btn" data-command="insertOrderedList">1.</button>
-                                <button type="button" class="editor-btn" data-command="insertUnorderedList">•</button>
-                                <button type="button" class="editor-btn" data-command="createLink">🔗</button>
-                                <button type="button" class="editor-btn video-btn" data-command="insertVideo">📹</button>
-                                <button type="button" class="editor-btn" data-command="insertHorizontalRule">─</button>
+                                <div class="toolbar-group">
+                                    <span class="toolbar-label">Format:</span>
+                                    <button type="button" class="editor-btn" data-command="bold" title="Bold">B</button>
+                                    <button type="button" class="editor-btn" data-command="italic" title="Italic">I</button>
+                                    <button type="button" class="editor-btn" data-command="underline" title="Underline">U</button>
+                                </div>
+                                <div class="toolbar-group">
+                                    <span class="toolbar-label">Headlines:</span>
+                                    <button type="button" class="editor-btn heading-btn" data-command="formatBlock" data-value="h1" title="Main Heading">H1</button>
+                                    <button type="button" class="editor-btn heading-btn" data-command="formatBlock" data-value="h2" title="Section Heading">H2</button>
+                                    <button type="button" class="editor-btn heading-btn" data-command="formatBlock" data-value="h3" title="Subsection Heading">H3</button>
+                                </div>
+                                <div class="toolbar-group">
+                                    <span class="toolbar-label">Lists:</span>
+                                    <button type="button" class="editor-btn" data-command="insertOrderedList" title="Numbered List">1.</button>
+                                    <button type="button" class="editor-btn" data-command="insertUnorderedList" title="Bullet List">•</button>
+                                </div>
+                                <div class="toolbar-group">
+                                    <span class="toolbar-label">Media:</span>
+                                    <button type="button" class="editor-btn" data-command="createLink" title="Add Link">🔗</button>
+                                    <button type="button" class="editor-btn video-btn" data-command="insertVideo" title="Add Video">📹</button>
+                                    <button type="button" class="editor-btn" data-command="insertHorizontalRule" title="Horizontal Line">─</button>
+                                </div>
                             </div>
                             <div id="articleContent" class="content-editor" contenteditable="true"></div>
                         </div>

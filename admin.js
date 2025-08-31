@@ -64,7 +64,9 @@ class AdminConsole {
         editorBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
-                this.handleEditorCommand(btn.dataset.command);
+                const command = btn.dataset.command;
+                const value = btn.dataset.value;
+                this.handleEditorCommand(command, value);
             });
         });
 
@@ -335,7 +337,7 @@ class AdminConsole {
     }
 
     // Editor Functions
-    handleEditorCommand(command) {
+    handleEditorCommand(command, value = null) {
         const editor = document.getElementById('articleContent');
         editor.focus();
 
@@ -346,8 +348,11 @@ class AdminConsole {
             }
         } else if (command === 'insertVideo') {
             this.insertVideo();
+        } else if (command === 'formatBlock') {
+            // Handle heading formatting
+            document.execCommand(command, false, `<${value}>`);
         } else {
-            document.execCommand(command, false, null);
+            document.execCommand(command, false, value);
         }
     }
 

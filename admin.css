@@ -317,13 +317,33 @@
 /* Content Editor */
 .editor-toolbar {
     display: flex;
-    gap: 0.5rem;
+    gap: 1.5rem;
     margin-bottom: 1rem;
     padding: 1rem;
     background: #f8f9fa;
     border-radius: 8px 8px 0 0;
     border: 2px solid #e5e5e5;
     border-bottom: none;
+    flex-wrap: wrap;
+}
+
+.toolbar-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background: white;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+}
+
+.toolbar-label {
+    font-size: 0.75rem;
+    color: #666;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-right: 0.5rem;
 }
 
 .editor-btn {
@@ -340,6 +360,17 @@
     background: #1a2332;
     color: white;
     border-color: #1a2332;
+}
+
+.heading-btn {
+    font-family: 'Crimson Text', serif;
+    font-weight: 600;
+}
+
+.heading-btn:hover {
+    background: #c9a961;
+    color: white;
+    border-color: #c9a961;
 }
 
 .content-editor {
@@ -542,7 +573,18 @@
     }
     
     .editor-toolbar {
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: stretch;
+    }
+    
+    .toolbar-group {
+        justify-content: center;
         flex-wrap: wrap;
+    }
+    
+    .toolbar-label {
+        display: none;
     }
     
     .setting-actions {
