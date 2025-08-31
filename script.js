@@ -265,6 +265,35 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 100);
     });
     
+    // Navigation dropdown functionality
+    const navDropdowns = document.querySelectorAll('.nav-dropdown');
+    
+    navDropdowns.forEach(dropdown => {
+        const dropdownMenu = dropdown.querySelector('.nav-dropdown-menu');
+        
+        // Desktop hover functionality
+        dropdown.addEventListener('mouseenter', function() {
+            if (window.innerWidth > 768) {
+                this.classList.add('active');
+            }
+        });
+        
+        dropdown.addEventListener('mouseleave', function() {
+            if (window.innerWidth > 768) {
+                this.classList.remove('active');
+            }
+        });
+        
+        // Mobile click functionality
+        const serviceLink = dropdown.querySelector('.nav-item');
+        serviceLink.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                dropdown.classList.toggle('active');
+            }
+        });
+    });
+
     // Mobile menu functionality
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
@@ -489,6 +518,16 @@ document.addEventListener('DOMContentLoaded', function() {
                     <a href="article.html?id=${article.id}" class="news-link">Read More →</a>
                 </div>
             `;
+            
+            // Make entire card clickable
+            articleElement.addEventListener('click', function(e) {
+                // Don't trigger if clicking the "Read More" link directly
+                if (e.target.classList.contains('news-link')) {
+                    return;
+                }
+                window.location.href = `article.html?id=${article.id}`;
+            });
+            
             newsGrid.appendChild(articleElement);
         });
     }
