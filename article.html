@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article - Kharatishvili Law</title>
+    <meta name="description" content="Read the latest legal developments and news from Kharatishvili Law.">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://kharatishvili-law.com/article.html">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="/" class="logo-link">Kharatishvili Law</a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="/" class="nav-item">Home</a></li>
+                <li><a href="about.html" class="nav-item">About</a></li>
+                <li><a href="resources.html" class="nav-item">Resources</a></li>
+                <li><a href="contact.html" class="nav-item contact-btn">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Article Content -->
+    <section class="article-section">
+        <div class="container">
+            <div class="article-container">
+                <div class="article-header">
+                    <a href="/" class="back-link">← Back to News</a>
+                    <div class="article-meta">
+                        <span class="article-date" id="articleDate"></span>
+                        <span class="article-category">Legal Update</span>
+                    </div>
+                    <h1 class="article-title" id="articleTitle">Loading...</h1>
+                </div>
+                
+                <div class="article-content" id="articleContent">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        <p>Loading article...</p>
+                    </div>
+                </div>
+                
+                <div class="article-footer">
+                    <div class="article-author">
+                        <div class="author-info">
+                            <img src="images/aleksandre-attorney-photo.png" alt="Aleksandre Kharatishvili" class="author-photo">
+                            <div>
+                                <h4>Aleksandre Kharatishvili</h4>
+                                <p>Attorney licensed in New York & Georgia</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Need Legal Consultation?</h2>
+                <p>Contact us to discuss how these legal developments may affect your specific situation.</p>
+                <div class="cta-actions">
+                    <a href="contact.html" class="btn btn-primary">Schedule Consultation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h4>Kharatishvili Law</h4>
+                    <p>Premier legal services in Tbilisi, Georgia</p>
+                </div>
+                <div class="footer-contact">
+                    <p>Tbilisi, Georgia</p>
+                    <p>+995 577 335 540</p>
+                    <p>aleksandrekharatishvili@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-trust">
+                <div class="trust-symbols">
+                    <div class="trust-item">
+                        <span class="trust-icon">🔒</span>
+                        <span class="trust-text">SSL Secured</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-icon">⚖️</span>
+                        <span class="trust-text">Licensed Attorney</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-icon">🌟</span>
+                        <span class="trust-text">Fulbright Scholar</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-icon">🏛️</span>
+                        <span class="trust-text">NY & GA Qualified</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Kharatishvili Law. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Load article content
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const articleId = urlParams.get('id');
+            
+            if (!articleId) {
+                window.location.href = '/';
+                return;
+            }
+            
+            loadArticle(articleId);
+        });
+        
+        function loadArticle(articleId) {
+            const articles = JSON.parse(localStorage.getItem('kharatishviliLawArticles') || '[]');
+            const article = articles.find(a => a.id === articleId && a.status === 'published');
+            
+            if (!article) {
+                document.getElementById('articleContent').innerHTML = `
+                    <div class="error-state">
+                        <h3>Article Not Found</h3>
+                        <p>The article you're looking for doesn't exist or has been removed.</p>
+                        <a href="/" class="btn btn-primary">Return Home</a>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Update page title and meta
+            document.title = `${article.title} - Kharatishvili Law`;
+            
+            // Format date
+            const articleDate = new Date(article.date);
+            const formattedDate = articleDate.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            
+            // Update content
+            document.getElementById('articleDate').textContent = formattedDate;
+            document.getElementById('articleTitle').textContent = article.title;
+            document.getElementById('articleContent').innerHTML = article.content;
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

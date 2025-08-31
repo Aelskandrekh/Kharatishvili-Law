@@ -1424,6 +1424,193 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
     margin: 0;
 }
 
+/* Article Page Styles */
+.article-section {
+    padding: 8rem 0 4rem;
+    background: linear-gradient(135deg, #fff 0%, #f8f8f8 50%, #f0f0f0 100%);
+    min-height: 70vh;
+}
+
+.article-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.article-header {
+    padding: 2.5rem 2.5rem 1.5rem;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.back-link {
+    color: #c9a961;
+    text-decoration: none;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: #1a2332;
+}
+
+.article-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+}
+
+.article-date {
+    color: #666;
+}
+
+.article-category {
+    background: rgba(201, 169, 97, 0.1);
+    color: #c9a961;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+.article-title {
+    font-family: 'Crimson Text', serif;
+    color: #1a2332;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.article-content {
+    padding: 2.5rem;
+    color: #333;
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+.article-content h1,
+.article-content h2,
+.article-content h3,
+.article-content h4,
+.article-content h5,
+.article-content h6 {
+    font-family: 'Crimson Text', serif;
+    color: #1a2332;
+    margin: 2rem 0 1rem 0;
+}
+
+.article-content h2 {
+    font-size: 1.75rem;
+}
+
+.article-content h3 {
+    font-size: 1.5rem;
+}
+
+.article-content p {
+    margin-bottom: 1.5rem;
+}
+
+.article-content ul,
+.article-content ol {
+    margin: 1.5rem 0;
+    padding-left: 2rem;
+}
+
+.article-content li {
+    margin-bottom: 0.5rem;
+}
+
+.article-content a {
+    color: #c9a961;
+    text-decoration: underline;
+}
+
+.article-content a:hover {
+    color: #1a2332;
+}
+
+.article-footer {
+    padding: 2rem 2.5rem;
+    border-top: 1px solid #e5e5e5;
+    background: #f8f9fa;
+}
+
+.article-author {
+    display: flex;
+    justify-content: center;
+}
+
+.author-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.author-photo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.author-info h4 {
+    margin: 0 0 0.25rem 0;
+    color: #1a2332;
+    font-size: 1.1rem;
+}
+
+.author-info p {
+    margin: 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.error-state {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.error-state h3 {
+    color: #1a2332;
+    margin-bottom: 1rem;
+}
+
+.error-state p {
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.loading {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #666;
+}
+
+.spinner {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #1a2332;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 /* Mobile Styles */
 @media (max-width: 768px) {
     .container {
@@ -2118,5 +2305,37 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
     
     .date-day {
         font-size: 1.5rem;
+    }
+    
+    .article-section {
+        padding: 6rem 0 2rem;
+    }
+    
+    .article-container {
+        margin: 0 1rem;
+    }
+    
+    .article-header {
+        padding: 2rem 1.5rem 1rem;
+    }
+    
+    .article-title {
+        font-size: 2rem;
+    }
+    
+    .article-content {
+        padding: 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .article-footer {
+        padding: 1.5rem;
+    }
+    
+    .author-info {
+        padding: 1rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 0.75rem;
     }
 }

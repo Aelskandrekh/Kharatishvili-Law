@@ -400,6 +400,62 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 16); // ~60fps
     
     window.addEventListener('scroll', debouncedScroll);
+    
+    // Load Dynamic News Articles
+    loadNewsArticles();
+    
+    // Listen for updates from admin console
+    window.addEventListener('message', function(event) {
+        if (event.data && event.data.type === 'articlesUpdated') {
+            loadNewsArticles();
+        }
+    });
+    
+    function loadNewsArticles() {
+        const newsGrid = document.querySelector('.news-grid');
+        if (!newsGrid) return;
+        
+        const publishedArticles = JSON.parse(localStorage.getItem('publishedArticles') || '[]');
+        
+        if (publishedArticles.length === 0) {
+            // Use default articles if no published articles exist
+            return;
+        }
+        
+        // Clear existing articles
+        newsGrid.innerHTML = '';
+        
+        // Show latest 3 articles
+        const articlesToShow = publishedArticles.slice(0, 3);
+        
+        articlesToShow.forEach(article => {
+            const articleDate = formatDateForDisplay(article.date);
+            const articleElement = document.createElement('article');
+            articleElement.className = 'news-item';
+            articleElement.innerHTML = `
+                <div class="news-date">
+                    <span class="date-day">${articleDate.day}</span>
+                    <span class="date-month">${articleDate.month}</span>
+                    <span class="date-year">${articleDate.year}</span>
+                </div>
+                <div class="news-content">
+                    <h3>${article.title}</h3>
+                    <p>${article.summary}</p>
+                    <a href="article.html?id=${article.id}" class="news-link">Read More →</a>
+                </div>
+            `;
+            newsGrid.appendChild(articleElement);
+        });
+    }
+    
+    function formatDateForDisplay(dateString) {
+        const date = new Date(dateString);
+        return {
+            day: date.getDate().toString().padStart(2, '0'),
+            month: date.toLocaleDateString('en-US', { month: 'short' }),
+            year: date.getFullYear().toString()
+        };
+    }
 });
 
 // Add CSS for keyboard navigation

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Console - Kharatishvili Law</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+</head>
+<body class="admin-body">
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-screen">
+        <div class="login-container">
+            <div class="login-header">
+                <h1>Kharatishvili Law</h1>
+                <h2>Admin Console</h2>
+                <p>Enter your credentials to access the content management system</p>
+            </div>
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+                <div id="loginError" class="error-message"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="adminDashboard" class="admin-dashboard" style="display: none;">
+        <!-- Navigation -->
+        <nav class="admin-nav">
+            <div class="nav-brand">
+                <h3>Kharatishvili Law Admin</h3>
+            </div>
+            <div class="nav-actions">
+                <button id="logoutBtn" class="btn btn-outline">Logout</button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="admin-main">
+            <!-- Sidebar -->
+            <aside class="admin-sidebar">
+                <nav class="sidebar-nav">
+                    <a href="#" id="articlesTab" class="nav-link active">
+                        <span class="nav-icon">📝</span>
+                        Articles
+                    </a>
+                    <a href="#" id="settingsTab" class="nav-link">
+                        <span class="nav-icon">⚙️</span>
+                        Settings
+                    </a>
+                </nav>
+            </aside>
+
+            <!-- Content Area -->
+            <main class="admin-content">
+                <!-- Articles Management -->
+                <div id="articlesPanel" class="content-panel active">
+                    <div class="panel-header">
+                        <h2>News Articles</h2>
+                        <button id="newArticleBtn" class="btn btn-primary">New Article</button>
+                    </div>
+                    
+                    <div class="articles-list" id="articlesList">
+                        <!-- Articles will be loaded dynamically -->
+                    </div>
+                </div>
+
+                <!-- Article Editor -->
+                <div id="editorPanel" class="content-panel">
+                    <div class="panel-header">
+                        <h2 id="editorTitle">New Article</h2>
+                        <div class="editor-actions">
+                            <button id="cancelEdit" class="btn btn-outline">Cancel</button>
+                            <button id="saveArticle" class="btn btn-primary">Save Article</button>
+                        </div>
+                    </div>
+                    
+                    <form id="articleForm" class="article-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="articleTitle">Title</label>
+                                <input type="text" id="articleTitle" name="title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="articleDate">Date</label>
+                                <input type="date" id="articleDate" name="date" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="articleSummary">Summary</label>
+                            <textarea id="articleSummary" name="summary" rows="3" placeholder="Brief description for the news section" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="articleContent">Content</label>
+                            <div class="editor-toolbar">
+                                <button type="button" class="editor-btn" data-command="bold">B</button>
+                                <button type="button" class="editor-btn" data-command="italic">I</button>
+                                <button type="button" class="editor-btn" data-command="underline">U</button>
+                                <button type="button" class="editor-btn" data-command="insertOrderedList">1.</button>
+                                <button type="button" class="editor-btn" data-command="insertUnorderedList">•</button>
+                                <button type="button" class="editor-btn" data-command="createLink">🔗</button>
+                            </div>
+                            <div id="articleContent" class="content-editor" contenteditable="true"></div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="articleStatus">Status</label>
+                                <select id="articleStatus" name="status">
+                                    <option value="draft">Draft</option>
+                                    <option value="published">Published</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Settings Panel -->
+                <div id="settingsPanel" class="content-panel">
+                    <div class="panel-header">
+                        <h2>Settings</h2>
+                    </div>
+                    <div class="settings-content">
+                        <div class="setting-item">
+                            <h4>Data Management</h4>
+                            <p>Backup and restore your articles</p>
+                            <div class="setting-actions">
+                                <button id="exportData" class="btn btn-outline">Export Articles</button>
+                                <input type="file" id="importFile" accept=".json" style="display: none;">
+                                <button id="importData" class="btn btn-outline">Import Articles</button>
+                            </div>
+                        </div>
+                        <div class="setting-item">
+                            <h4>Clear All Data</h4>
+                            <p>Remove all articles from local storage</p>
+                            <button id="clearData" class="btn btn-danger">Clear All Articles</button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
