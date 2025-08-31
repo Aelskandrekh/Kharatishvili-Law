@@ -959,7 +959,7 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
 /* Modern CTA Section */
 .cta-section-modern {
     padding: 6rem 0;
-    background: linear-gradient(135deg, #1a2332 0%, #2c5282 50%, #1a2332 100%);
+    background: linear-gradient(135deg, #0f1419 0%, var(--primary-navy) 50%, #0f1419 100%);
     color: white;
     position: relative;
     overflow: hidden;
@@ -1182,7 +1182,7 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
 
 /* Footer */
 .footer {
-    background: linear-gradient(135deg, #1a2332 0%, #2c5282 50%, #1a2332 100%);
+    background: linear-gradient(135deg, #1a2332 0%, #0f1419 50%, #1a2332 100%);
     color: white;
     padding: 4rem 0 1rem;
     position: relative;
