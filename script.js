@@ -420,13 +420,13 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             'corporate': {
                 label: 'Corporate Law',
-                color: '#2c3e50',
-                bgColor: 'rgba(44, 62, 80, 0.1)'
+                color: '#27ae60',
+                bgColor: 'rgba(39, 174, 96, 0.1)'
             },
             'real-estate': {
                 label: 'Real Estate Law',
-                color: '#27ae60',
-                bgColor: 'rgba(39, 174, 96, 0.1)'
+                color: '#f1c40f',
+                bgColor: 'rgba(241, 196, 15, 0.1)'
             },
             'litigation': {
                 label: 'Litigation & Arbitration',
@@ -435,8 +435,8 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             'tax-regulatory': {
                 label: 'Tax & Regulatory',
-                color: '#f39c12',
-                bgColor: 'rgba(243, 156, 18, 0.1)'
+                color: '#7f8c8d',
+                bgColor: 'rgba(127, 140, 141, 0.1)'
             },
             'intellectual-property': {
                 label: 'Intellectual Property',
