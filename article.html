@@ -259,9 +259,14 @@
                     const targetElement = document.getElementById(targetId);
                     
                     if (targetElement) {
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
+                        // Calculate offset for fixed navbar
+                        const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                        const elementPosition = targetElement.offsetTop;
+                        const offsetPosition = elementPosition - navbarHeight - 30; // 30px extra spacing
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
                         });
                         
                         // Update active state
@@ -296,12 +301,14 @@
             function updateActiveTocItem() {
                 const headings = document.querySelectorAll('#articleContent h1, #articleContent h2, #articleContent h3, #articleContent h4, #articleContent h5, #articleContent h6');
                 const tocLinks = document.querySelectorAll('.toc-link');
+                const navbarHeight = document.querySelector('.navbar').offsetHeight;
                 
                 let currentHeading = null;
                 
                 headings.forEach(heading => {
                     const rect = heading.getBoundingClientRect();
-                    if (rect.top <= 100) {
+                    // Use navbar height + buffer for accurate detection
+                    if (rect.top <= navbarHeight + 50) {
                         currentHeading = heading;
                     }
                 });
