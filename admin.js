@@ -248,22 +248,28 @@ class AdminConsole {
             return;
         }
 
-        container.innerHTML = this.articles.map(article => `
-            <div class="article-item">
-                <div class="article-info">
-                    <h4>${article.title}</h4>
-                    <div class="article-meta">
-                        ${this.formatDate(article.date)} 
-                        <span class="status-badge ${article.status}">${article.status}</span>
+        container.innerHTML = this.articles.map(article => {
+            const practiceInfo = this.getPracticeAreaInfo(article.practiceArea);
+            return `
+                <div class="article-item">
+                    <div class="article-info">
+                        <div class="article-header-row">
+                            <h4>${article.title}</h4>
+                            ${article.practiceArea ? `<span class="practice-badge" style="background-color: ${practiceInfo.bgColor}; color: ${practiceInfo.color}; border: 1px solid ${practiceInfo.color};">${practiceInfo.label}</span>` : ''}
+                        </div>
+                        <div class="article-meta">
+                            ${this.formatDate(article.date)} 
+                            <span class="status-badge ${article.status}">${article.status}</span>
+                        </div>
+                        <p class="article-summary">${article.summary}</p>
                     </div>
-                    <p class="article-summary">${article.summary}</p>
+                    <div class="article-actions">
+                        <button class="btn btn-small btn-outline" onclick="admin.editArticle('${article.id}')">Edit</button>
+                        <button class="btn btn-small btn-danger" onclick="admin.deleteArticle('${article.id}')">Delete</button>
+                    </div>
                 </div>
-                <div class="article-actions">
-                    <button class="btn btn-small btn-outline" onclick="admin.editArticle('${article.id}')">Edit</button>
-                    <button class="btn btn-small btn-danger" onclick="admin.deleteArticle('${article.id}')">Delete</button>
-                </div>
-            </div>
-        `).join('');
+            `;
+        }).join('');
     }
 
     showEditor(articleId = null) {
@@ -282,6 +288,7 @@ class AdminConsole {
                 document.getElementById('articleSummary').value = article.summary;
                 document.getElementById('articleContent').innerHTML = article.content;
                 document.getElementById('articleStatus').value = article.status;
+                document.getElementById('practiceArea').value = article.practiceArea || '';
             }
         } else {
             document.getElementById('editorTitle').textContent = 'New Article';
@@ -290,6 +297,7 @@ class AdminConsole {
             document.getElementById('articleSummary').value = '';
             document.getElementById('articleContent').innerHTML = '';
             document.getElementById('articleStatus').value = 'draft';
+            document.getElementById('practiceArea').value = '';
         }
     }
 
@@ -300,11 +308,12 @@ class AdminConsole {
             const summary = document.getElementById('articleSummary').value.trim();
             const content = document.getElementById('articleContent').innerHTML;
             const status = document.getElementById('articleStatus').value;
+            const practiceArea = document.getElementById('practiceArea').value;
 
-            console.log('Saving article:', { title, date, summary, status });
+            console.log('Saving article:', { title, date, summary, status, practiceArea });
 
-            if (!title || !date || !summary) {
-                alert('Please fill in all required fields');
+            if (!title || !date || !summary || !practiceArea) {
+                alert('Please fill in all required fields including practice area');
                 return;
             }
 
@@ -315,6 +324,7 @@ class AdminConsole {
                 summary,
                 content,
                 status,
+                practiceArea,
                 createdAt: this.currentEditingId ? 
                     this.articles.find(a => a.id === this.currentEditingId)?.createdAt || new Date().toISOString() : 
                     new Date().toISOString(),
@@ -678,6 +688,48 @@ class AdminConsole {
         } catch (error) {
             console.error('Error updating main website:', error);
         }
+    }
+
+    // Practice Area Configuration
+    getPracticeAreaInfo(practiceArea) {
+        const practiceAreas = {
+            'immigration': {
+                label: 'Immigration Law',
+                color: '#3498db',
+                bgColor: 'rgba(52, 152, 219, 0.1)'
+            },
+            'corporate': {
+                label: 'Corporate Law',
+                color: '#2c3e50',
+                bgColor: 'rgba(44, 62, 80, 0.1)'
+            },
+            'real-estate': {
+                label: 'Real Estate Law',
+                color: '#27ae60',
+                bgColor: 'rgba(39, 174, 96, 0.1)'
+            },
+            'litigation': {
+                label: 'Litigation & Arbitration',
+                color: '#e74c3c',
+                bgColor: 'rgba(231, 76, 60, 0.1)'
+            },
+            'tax-regulatory': {
+                label: 'Tax & Regulatory',
+                color: '#f39c12',
+                bgColor: 'rgba(243, 156, 18, 0.1)'
+            },
+            'intellectual-property': {
+                label: 'Intellectual Property',
+                color: '#9b59b6',
+                bgColor: 'rgba(155, 89, 182, 0.1)'
+            }
+        };
+        
+        return practiceAreas[practiceArea] || {
+            label: 'General',
+            color: '#7f8c8d',
+            bgColor: 'rgba(127, 140, 141, 0.1)'
+        };
     }
 
     // Utility Functions

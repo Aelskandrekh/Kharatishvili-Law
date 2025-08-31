@@ -1062,11 +1062,32 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
     flex: 1;
 }
 
+.news-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+}
+
 .news-content h3 {
     color: #1a2332;
     font-size: 1.25rem;
-    margin-bottom: 0.75rem;
+    margin: 0;
     line-height: 1.3;
+    flex: 1;
+}
+
+.practice-badge-news {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+    white-space: nowrap;
 }
 
 .news-content p {

@@ -222,10 +222,30 @@
     transform: translateY(-2px);
 }
 
+.article-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
 .article-info h4 {
-    margin: 0 0 0.5rem 0;
+    margin: 0;
     color: #1a2332;
     font-size: 1.25rem;
+    flex: 1;
+}
+
+.practice-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
 }
 
 .article-meta {

@@ -410,6 +410,47 @@ document.addEventListener('DOMContentLoaded', function() {
             loadNewsArticles();
         }
     });
+
+    function getPracticeAreaInfo(practiceArea) {
+        const practiceAreas = {
+            'immigration': {
+                label: 'Immigration Law',
+                color: '#3498db',
+                bgColor: 'rgba(52, 152, 219, 0.1)'
+            },
+            'corporate': {
+                label: 'Corporate Law',
+                color: '#2c3e50',
+                bgColor: 'rgba(44, 62, 80, 0.1)'
+            },
+            'real-estate': {
+                label: 'Real Estate Law',
+                color: '#27ae60',
+                bgColor: 'rgba(39, 174, 96, 0.1)'
+            },
+            'litigation': {
+                label: 'Litigation & Arbitration',
+                color: '#e74c3c',
+                bgColor: 'rgba(231, 76, 60, 0.1)'
+            },
+            'tax-regulatory': {
+                label: 'Tax & Regulatory',
+                color: '#f39c12',
+                bgColor: 'rgba(243, 156, 18, 0.1)'
+            },
+            'intellectual-property': {
+                label: 'Intellectual Property',
+                color: '#9b59b6',
+                bgColor: 'rgba(155, 89, 182, 0.1)'
+            }
+        };
+        
+        return practiceAreas[practiceArea] || {
+            label: 'General',
+            color: '#7f8c8d',
+            bgColor: 'rgba(127, 140, 141, 0.1)'
+        };
+    }
     
     function loadNewsArticles() {
         const newsGrid = document.querySelector('.news-grid');
@@ -430,6 +471,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         articlesToShow.forEach(article => {
             const articleDate = formatDateForDisplay(article.date);
+            const practiceInfo = getPracticeAreaInfo(article.practiceArea);
             const articleElement = document.createElement('article');
             articleElement.className = 'news-item';
             articleElement.innerHTML = `
@@ -439,7 +481,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     <span class="date-year">${articleDate.year}</span>
                 </div>
                 <div class="news-content">
-                    <h3>${article.title}</h3>
+                    <div class="news-header">
+                        <h3>${article.title}</h3>
+                        ${article.practiceArea ? `<span class="practice-badge-news" style="background-color: ${practiceInfo.bgColor}; color: ${practiceInfo.color}; border: 1px solid ${practiceInfo.color};">${practiceInfo.label}</span>` : ''}
+                    </div>
                     <p>${article.summary}</p>
                     <a href="article.html?id=${article.id}" class="news-link">Read More →</a>
                 </div>
