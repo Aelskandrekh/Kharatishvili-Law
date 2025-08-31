@@ -610,9 +610,9 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
     top: 0;
     left: 10%;
     right: 10%;
-    height: 0.5px;
+    height: 1px;
     background: linear-gradient(90deg, transparent 0%, rgba(201, 169, 97, 0.2) 20%, rgba(201, 169, 97, 0.4) 50%, rgba(201, 169, 97, 0.2) 80%, transparent 100%);
-    border-radius: 2px;
+    border-radius: 0;
 }
 
 .attorney-profile::after {
@@ -621,9 +621,9 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
     bottom: 0;
     left: 10%;
     right: 10%;
-    height: 0.5px;
+    height: 1px;
     background: linear-gradient(90deg, transparent 0%, rgba(201, 169, 97, 0.2) 20%, rgba(201, 169, 97, 0.4) 50%, rgba(201, 169, 97, 0.2) 80%, transparent 100%);
-    border-radius: 2px;
+    border-radius: 0;
 }
 
 .attorney-profile h1, .attorney-profile h2, .attorney-profile h3, .attorney-profile h4, .attorney-profile h5, .attorney-profile h6 {
@@ -1050,9 +1050,9 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
     top: 0;
     left: 10%;
     right: 10%;
-    height: 0.5px;
+    height: 1px;
     background: linear-gradient(90deg, transparent 0%, rgba(201, 169, 97, 0.2) 20%, rgba(201, 169, 97, 0.4) 50%, rgba(201, 169, 97, 0.2) 80%, transparent 100%);
-    border-radius: 2px;
+    border-radius: 0;
 }
 
 .why-choose::after {
@@ -1061,9 +1061,9 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
     bottom: 0;
     left: 10%;
     right: 10%;
-    height: 0.5px;
+    height: 1px;
     background: linear-gradient(90deg, transparent 0%, rgba(201, 169, 97, 0.2) 20%, rgba(201, 169, 97, 0.4) 50%, rgba(201, 169, 97, 0.2) 80%, transparent 100%);
-    border-radius: 2px;
+    border-radius: 0;
 }
 
 .why-choose h1, .why-choose h2, .why-choose h3, .why-choose h4, .why-choose h5, .why-choose h6 {
