@@ -98,7 +98,7 @@ class AdminConsole {
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
         
-        // Simple authentication (in production, use proper authentication)
+        // Simple authentication
         if (username === 'admin' && password === 'kharatishvili2025') {
             this.currentUser = { username };
             localStorage.setItem('adminSession', JSON.stringify({
@@ -120,15 +120,18 @@ class AdminConsole {
     checkAuthStatus() {
         const session = localStorage.getItem('adminSession');
         if (session) {
-            const sessionData = JSON.parse(session);
-            // Check if session is less than 24 hours old
-            const isValid = (Date.now() - sessionData.timestamp) < (24 * 60 * 60 * 1000);
-            
-            if (isValid) {
-                this.currentUser = sessionData.user;
-                this.showDashboard();
-                return;
-            } else {
+            try {
+                const sessionData = JSON.parse(session);
+                const isValid = (Date.now() - sessionData.timestamp) < (24 * 60 * 60 * 1000);
+                
+                if (isValid) {
+                    this.currentUser = sessionData.user;
+                    this.showDashboard();
+                    return;
+                } else {
+                    localStorage.removeItem('adminSession');
+                }
+            } catch (error) {
                 localStorage.removeItem('adminSession');
             }
         }
@@ -138,21 +141,35 @@ class AdminConsole {
     showLogin() {
         document.getElementById('loginScreen').style.display = 'flex';
         document.getElementById('adminDashboard').style.display = 'none';
+        
+        // Clear any error messages
+        const errorEl = document.getElementById('loginError');
+        if (errorEl) errorEl.textContent = '';
+        
+        // Clear form fields
+        const usernameEl = document.getElementById('username');
+        const passwordEl = document.getElementById('password');
+        if (usernameEl) usernameEl.value = '';
+        if (passwordEl) passwordEl.value = '';
     }
 
     showDashboard() {
         document.getElementById('loginScreen').style.display = 'none';
         document.getElementById('adminDashboard').style.display = 'block';
         this.loadArticlesList();
+        this.showPanel('articles');
     }
 
     showError(message) {
         const errorElement = document.getElementById('loginError');
-        errorElement.textContent = message;
-        errorElement.style.display = 'block';
-        setTimeout(() => {
-            errorElement.style.display = 'none';
-        }, 5000);
+        if (errorElement) {
+            errorElement.textContent = message;
+            errorElement.style.display = 'block';
+            
+            setTimeout(() => {
+                errorElement.style.display = 'none';
+            }, 5000);
+        }
     }
 
     // Panel Navigation
@@ -185,7 +202,12 @@ class AdminConsole {
     }
 
     saveArticles() {
-        localStorage.setItem('kharatishviliLawArticles', JSON.stringify(this.articles));
+        try {
+            localStorage.setItem('kharatishviliLawArticles', JSON.stringify(this.articles));
+            console.log('Articles saved successfully:', this.articles.length, 'articles');
+        } catch (error) {
+            console.error('Error saving articles:', error);
+        }
     }
 
     loadArticlesList() {
@@ -247,45 +269,55 @@ class AdminConsole {
     }
 
     saveArticle() {
-        const title = document.getElementById('articleTitle').value.trim();
-        const date = document.getElementById('articleDate').value;
-        const summary = document.getElementById('articleSummary').value.trim();
-        const content = document.getElementById('articleContent').innerHTML;
-        const status = document.getElementById('articleStatus').value;
+        try {
+            const title = document.getElementById('articleTitle').value.trim();
+            const date = document.getElementById('articleDate').value;
+            const summary = document.getElementById('articleSummary').value.trim();
+            const content = document.getElementById('articleContent').innerHTML;
+            const status = document.getElementById('articleStatus').value;
 
-        if (!title || !date || !summary) {
-            alert('Please fill in all required fields');
-            return;
+            console.log('Saving article:', { title, date, summary, status });
+
+            if (!title || !date || !summary) {
+                alert('Please fill in all required fields');
+                return;
+            }
+
+            const article = {
+                id: this.currentEditingId || this.generateId(),
+                title,
+                date,
+                summary,
+                content,
+                status,
+                createdAt: this.currentEditingId ? 
+                    this.articles.find(a => a.id === this.currentEditingId)?.createdAt || new Date().toISOString() : 
+                    new Date().toISOString(),
+                updatedAt: new Date().toISOString()
+            };
+
+            if (this.currentEditingId) {
+                // Update existing article
+                const index = this.articles.findIndex(a => a.id === this.currentEditingId);
+                if (index !== -1) {
+                    this.articles[index] = article;
+                }
+            } else {
+                // Add new article
+                this.articles.unshift(article);
+            }
+
+            this.saveArticles();
+            console.log('Articles saved to localStorage:', this.articles);
+            this.showSuccessMessage('Article saved successfully');
+            this.showPanel('articles');
+            
+            // Update the main website
+            this.updateMainWebsite();
+        } catch (error) {
+            console.error('Error saving article:', error);
+            alert('Error saving article: ' + error.message);
         }
-
-        const article = {
-            id: this.currentEditingId || this.generateId(),
-            title,
-            date,
-            summary,
-            content,
-            status,
-            createdAt: this.currentEditingId ? 
-                this.articles.find(a => a.id === this.currentEditingId).createdAt : 
-                new Date().toISOString(),
-            updatedAt: new Date().toISOString()
-        };
-
-        if (this.currentEditingId) {
-            // Update existing article
-            const index = this.articles.findIndex(a => a.id === this.currentEditingId);
-            this.articles[index] = article;
-        } else {
-            // Add new article
-            this.articles.unshift(article);
-        }
-
-        this.saveArticles();
-        this.showSuccessMessage('Article saved successfully');
-        this.showPanel('articles');
-        
-        // Update the main website
-        this.updateMainWebsite();
     }
 
     editArticle(id) {
@@ -317,6 +349,27 @@ class AdminConsole {
         }
     }
 
+    // Update Main Website
+    updateMainWebsite() {
+        try {
+            // Store articles for the main website to use
+            const publishedArticles = this.articles
+                .filter(article => article.status === 'published')
+                .sort((a, b) => new Date(b.date) - new Date(a.date))
+                .slice(0, 6); // Show latest 6 articles
+            
+            localStorage.setItem('publishedArticles', JSON.stringify(publishedArticles));
+            console.log('Published articles updated:', publishedArticles);
+            
+            // If we're in an iframe or popup, notify parent window
+            if (window.opener) {
+                window.opener.postMessage({ type: 'articlesUpdated' }, '*');
+            }
+        } catch (error) {
+            console.error('Error updating main website:', error);
+        }
+    }
+
     // Utility Functions
     generateId() {
         return Date.now().toString(36) + Math.random().toString(36).substr(2);
@@ -333,15 +386,6 @@ class AdminConsole {
 
     formatDateForInput(date) {
         return date.toISOString().split('T')[0];
-    }
-
-    formatDateForDisplay(dateString) {
-        const date = new Date(dateString);
-        return {
-            day: date.getDate().toString().padStart(2, '0'),
-            month: date.toLocaleDateString('en-US', { month: 'short' }),
-            year: date.getFullYear().toString()
-        };
     }
 
     showSuccessMessage(message) {
@@ -401,22 +445,6 @@ class AdminConsole {
             this.showSuccessMessage('All articles cleared');
         }
     }
-
-    // Update Main Website
-    updateMainWebsite() {
-        // Store articles for the main website to use
-        const publishedArticles = this.articles
-            .filter(article => article.status === 'published')
-            .sort((a, b) => new Date(b.date) - new Date(a.date))
-            .slice(0, 6); // Show latest 6 articles
-        
-        localStorage.setItem('publishedArticles', JSON.stringify(publishedArticles));
-        
-        // If we're in an iframe or popup, notify parent window
-        if (window.opener) {
-            window.opener.postMessage({ type: 'articlesUpdated' }, '*');
-        }
-    }
 }
 
 // Initialize admin console
@@ -459,78 +487,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
-
-// Add methods to AdminConsole prototype
-AdminConsole.prototype.checkAuthStatus = function() {
-    const session = localStorage.getItem('adminSession');
-    if (session) {
-        try {
-            const sessionData = JSON.parse(session);
-            const isValid = (Date.now() - sessionData.timestamp) < (24 * 60 * 60 * 1000);
-            
-            if (isValid) {
-                this.currentUser = sessionData.user;
-                this.showDashboard();
-                return;
-            } else {
-                localStorage.removeItem('adminSession');
-            }
-        } catch (error) {
-            localStorage.removeItem('adminSession');
-        }
-    }
-    this.showLogin();
-};
-
-AdminConsole.prototype.showLogin = function() {
-    document.getElementById('loginScreen').style.display = 'flex';
-    document.getElementById('adminDashboard').style.display = 'none';
-    
-    // Clear any error messages
-    document.getElementById('loginError').textContent = '';
-    
-    // Clear form fields
-    document.getElementById('username').value = '';
-    document.getElementById('password').value = '';
-};
-
-AdminConsole.prototype.showDashboard = function() {
-    document.getElementById('loginScreen').style.display = 'none';
-    document.getElementById('adminDashboard').style.display = 'block';
-    this.loadArticlesList();
-    this.showPanel('articles');
-};
-
-AdminConsole.prototype.showError = function(message) {
-    const errorElement = document.getElementById('loginError');
-    errorElement.textContent = message;
-    errorElement.style.display = 'block';
-    
-    setTimeout(() => {
-        errorElement.style.display = 'none';
-    }, 5000);
-};
-
-AdminConsole.prototype.showPanel = function(panelName) {
-    // Hide all panels
-    document.querySelectorAll('.content-panel').forEach(panel => {
-        panel.classList.remove('active');
-    });
-    
-    // Remove active from nav links
-    document.querySelectorAll('.sidebar-nav .nav-link').forEach(link => {
-        link.classList.remove('active');
-    });
-
-    // Show selected panel
-    if (panelName === 'articles') {
-        document.getElementById('articlesPanel').classList.add('active');
-        document.getElementById('articlesTab').classList.add('active');
-    } else if (panelName === 'settings') {
-        document.getElementById('settingsPanel').classList.add('active');
-        document.getElementById('settingsTab').classList.add('active');
-    }
-};
 
 // Global helper functions for inline event handlers
 window.admin = {
