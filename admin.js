@@ -344,8 +344,96 @@ class AdminConsole {
             if (url) {
                 document.execCommand(command, false, url);
             }
+        } else if (command === 'insertVideo') {
+            this.insertVideo();
         } else {
             document.execCommand(command, false, null);
+        }
+    }
+
+    insertVideo() {
+        const videoUrl = prompt('Enter video URL (YouTube, Vimeo, or direct video file):');
+        if (!videoUrl) return;
+
+        const editor = document.getElementById('articleContent');
+        let videoHTML = '';
+
+        if (videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be')) {
+            // Extract YouTube video ID
+            let videoId = '';
+            if (videoUrl.includes('youtube.com')) {
+                videoId = videoUrl.split('v=')[1]?.split('&')[0];
+            } else if (videoUrl.includes('youtu.be')) {
+                videoId = videoUrl.split('youtu.be/')[1]?.split('?')[0];
+            }
+            
+            if (videoId) {
+                videoHTML = `
+                    <div class="video-container">
+                        <div class="video-responsive">
+                            <iframe src="https://www.youtube.com/embed/${videoId}" 
+                                    allowfullscreen 
+                                    title="YouTube video">
+                            </iframe>
+                        </div>
+                    </div>
+                `;
+            }
+        } else if (videoUrl.includes('vimeo.com')) {
+            // Extract Vimeo video ID
+            const videoId = videoUrl.split('vimeo.com/')[1]?.split('/')[0];
+            
+            if (videoId) {
+                videoHTML = `
+                    <div class="video-container">
+                        <div class="video-responsive">
+                            <iframe src="https://player.vimeo.com/video/${videoId}" 
+                                    allowfullscreen 
+                                    title="Vimeo video">
+                            </iframe>
+                        </div>
+                    </div>
+                `;
+            }
+        } else {
+            // Direct video file or other embed code
+            if (videoUrl.includes('<iframe') || videoUrl.includes('<video')) {
+                // User provided embed code
+                videoHTML = `
+                    <div class="video-container">
+                        <div class="video-responsive">
+                            ${videoUrl}
+                        </div>
+                    </div>
+                `;
+            } else if (videoUrl.match(/\.(mp4|webm|ogg|mov)$/i)) {
+                // Direct video file
+                videoHTML = `
+                    <div class="video-container">
+                        <video controls>
+                            <source src="${videoUrl}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                `;
+            } else {
+                alert('Please provide a valid YouTube, Vimeo, or direct video file URL.');
+                return;
+            }
+        }
+
+        if (videoHTML) {
+            const selection = window.getSelection();
+            if (selection.rangeCount > 0) {
+                const range = selection.getRangeAt(0);
+                range.deleteContents();
+                const div = document.createElement('div');
+                div.innerHTML = videoHTML;
+                range.insertNode(div.firstElementChild);
+            } else {
+                // Insert at the end if no selection
+                editor.insertAdjacentHTML('beforeend', videoHTML);
+            }
         }
     }
 
