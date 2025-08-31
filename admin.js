@@ -70,6 +70,22 @@ class AdminConsole {
             });
         });
 
+        // Font controls
+        const fontFamily = document.getElementById('fontFamily');
+        const fontSize = document.getElementById('fontSize');
+        
+        if (fontFamily) {
+            fontFamily.addEventListener('change', () => {
+                this.applyFontStyle('fontName', fontFamily.value);
+            });
+        }
+        
+        if (fontSize) {
+            fontSize.addEventListener('change', () => {
+                this.applyFontStyle('fontSize', fontSize.value);
+            });
+        }
+
         // Settings
         const exportData = document.getElementById('exportData');
         if (exportData) {
@@ -353,6 +369,26 @@ class AdminConsole {
             document.execCommand(command, false, `<${value}>`);
         } else {
             document.execCommand(command, false, value);
+        }
+    }
+
+    applyFontStyle(command, value) {
+        const editor = document.getElementById('articleContent');
+        
+        // Get current selection
+        const selection = window.getSelection();
+        
+        if (selection.rangeCount > 0 && !selection.isCollapsed) {
+            // Apply to selected text
+            editor.focus();
+            document.execCommand(command, false, value);
+        } else {
+            // Apply to entire editor for future text
+            if (command === 'fontName') {
+                editor.style.fontFamily = value;
+            } else if (command === 'fontSize') {
+                editor.style.fontSize = value;
+            }
         }
     }
 
