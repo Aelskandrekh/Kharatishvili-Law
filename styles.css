@@ -133,7 +133,7 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
     top: 0;
     left: 0;
     right: 0;
-    background: #1a2332;
+    background: linear-gradient(135deg, #1a2332 0%, #2c5282 50%, #1a2332 100%);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid #2c5282;
     z-index: 1000;
@@ -959,7 +959,7 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
 /* Modern CTA Section */
 .cta-section-modern {
     padding: 6rem 0;
-    background: linear-gradient(135deg, #0f1419 0%, var(--primary-navy) 50%, #0f1419 100%);
+    background: linear-gradient(135deg, #1a2332 0%, #2c5282 50%, #1a2332 100%);
     color: white;
     position: relative;
     overflow: hidden;
@@ -1182,7 +1182,7 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
 
 /* Footer */
 .footer {
-    background: linear-gradient(135deg, #1a2332 0%, #0f1419 50%, #1a2332 100%);
+    background: linear-gradient(135deg, #1a2332 0%, #2c5282 50%, #1a2332 100%);
     color: white;
     padding: 4rem 0 1rem;
     position: relative;
