@@ -70,6 +70,13 @@ class AdminConsole {
             });
         });
 
+        // Update font controls when selection changes
+        const editor = document.getElementById('articleContent');
+        if (editor) {
+            editor.addEventListener('mouseup', () => this.updateFontControls());
+            editor.addEventListener('keyup', () => this.updateFontControls());
+        }
+
         // Font controls
         const fontFamily = document.getElementById('fontFamily');
         const fontSize = document.getElementById('fontSize');
@@ -393,6 +400,69 @@ class AdminConsole {
         }
     }
 
+    updateFontControls() {
+        const selection = window.getSelection();
+        const fontSizeSelect = document.getElementById('fontSize');
+        const fontFamilySelect = document.getElementById('fontFamily');
+        
+        if (selection.rangeCount > 0 && !selection.isCollapsed) {
+            // Get the first element in selection
+            const range = selection.getRangeAt(0);
+            let element = range.commonAncestorContainer;
+            
+            // If it's a text node, get the parent element
+            if (element.nodeType === Node.TEXT_NODE) {
+                element = element.parentElement;
+            }
+            
+            // Get computed style
+            const computedStyle = window.getComputedStyle(element);
+            const currentFontSize = parseInt(computedStyle.fontSize);
+            const currentFontFamily = computedStyle.fontFamily;
+            
+            // Update font size dropdown
+            if (fontSizeSelect) {
+                // Find closest match or add current size if not in list
+                const sizeExists = Array.from(fontSizeSelect.options).some(option => 
+                    parseInt(option.value) === currentFontSize
+                );
+                
+                if (sizeExists) {
+                    fontSizeSelect.value = currentFontSize.toString();
+                } else {
+                    // Add current size to dropdown temporarily
+                    const option = document.createElement('option');
+                    option.value = currentFontSize.toString();
+                    option.textContent = currentFontSize.toString();
+                    option.selected = true;
+                    fontSizeSelect.appendChild(option);
+                    
+                    // Sort options numerically
+                    const options = Array.from(fontSizeSelect.options);
+                    options.sort((a, b) => parseInt(a.value) - parseInt(b.value));
+                    fontSizeSelect.innerHTML = '';
+                    options.forEach(opt => fontSizeSelect.appendChild(opt));
+                }
+            }
+            
+            // Update font family dropdown
+            if (fontFamilySelect) {
+                // Try to match font family
+                const fontFamilies = currentFontFamily.split(',').map(f => f.trim().replace(/['"]/g, ''));
+                
+                for (const font of fontFamilies) {
+                    const option = Array.from(fontFamilySelect.options).find(opt => 
+                        opt.value.toLowerCase() === font.toLowerCase()
+                    );
+                    if (option) {
+                        fontFamilySelect.value = option.value;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
     applyFontSize(size) {
         const editor = document.getElementById('articleContent');
         editor.focus();
@@ -469,6 +539,9 @@ class AdminConsole {
             // Apply to entire editor for future text
             editor.style.fontSize = size;
         }
+        
+        // Update the dropdown to reflect the new size
+        setTimeout(() => this.updateFontControls(), 10);
     }
 
     insertImage() {
