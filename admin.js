@@ -82,7 +82,7 @@ class AdminConsole {
         
         if (fontSize) {
             fontSize.addEventListener('change', () => {
-                this.applyFontStyle('fontSize', fontSize.value);
+                this.applyFontSize(fontSize.value + 'px');
             });
         }
 
@@ -381,61 +381,93 @@ class AdminConsole {
         const selection = window.getSelection();
         
         if (selection.rangeCount > 0 && !selection.isCollapsed) {
-            // Save the current selection
-            const range = selection.getRangeAt(0);
-            const selectedContent = range.cloneContents();
-            
-            // Create container span with the desired style
-            const span = document.createElement('span');
+            // Apply font family using execCommand which works better for font names
             if (command === 'fontName') {
-                span.style.fontFamily = value;
-            } else if (command === 'fontSize') {
-                span.style.fontSize = value;
+                document.execCommand('fontName', false, value);
             }
-            
-            // Apply style to all text nodes recursively
-            const applyToTextNodes = (node) => {
-                if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
-                    const wrapper = document.createElement('span');
-                    if (command === 'fontName') {
-                        wrapper.style.fontFamily = value;
-                    } else if (command === 'fontSize') {
-                        wrapper.style.fontSize = value;
-                    }
-                    node.parentNode.insertBefore(wrapper, node);
-                    wrapper.appendChild(node);
-                } else if (node.nodeType === Node.ELEMENT_NODE) {
-                    // Apply style directly to elements
-                    if (command === 'fontName') {
-                        node.style.fontFamily = value;
-                    } else if (command === 'fontSize') {
-                        node.style.fontSize = value;
-                    }
-                    // Also process child nodes
-                    Array.from(node.childNodes).forEach(child => applyToTextNodes(child));
-                }
-            };
-            
-            // Process all nodes in selection
-            Array.from(selectedContent.childNodes).forEach(node => applyToTextNodes(node));
-            span.appendChild(selectedContent);
-            
-            // Replace selection with styled content
-            range.deleteContents();
-            range.insertNode(span);
-            
-            // Restore selection
-            const newRange = document.createRange();
-            newRange.selectNodeContents(span);
-            selection.removeAllRanges();
-            selection.addRange(newRange);
         } else {
             // Apply to entire editor for future text
             if (command === 'fontName') {
                 editor.style.fontFamily = value;
-            } else if (command === 'fontSize') {
-                editor.style.fontSize = value;
             }
+        }
+    }
+
+    applyFontSize(size) {
+        const editor = document.getElementById('articleContent');
+        editor.focus();
+        
+        const selection = window.getSelection();
+        
+        if (selection.rangeCount > 0 && !selection.isCollapsed) {
+            // Get all elements in the selection
+            const range = selection.getRangeAt(0);
+            const container = document.createElement('div');
+            container.appendChild(range.cloneContents());
+            
+            // Find all text nodes and elements in the selection
+            const walker = document.createTreeWalker(
+                container,
+                NodeFilter.SHOW_TEXT | NodeFilter.SHOW_ELEMENT,
+                null,
+                false
+            );
+            
+            const nodesToStyle = [];
+            let node;
+            while (node = walker.nextNode()) {
+                if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
+                    nodesToStyle.push(node);
+                } else if (node.nodeType === Node.ELEMENT_NODE) {
+                    nodesToStyle.push(node);
+                }
+            }
+            
+            // Apply font size using CSS custom approach
+            const fragment = document.createDocumentFragment();
+            const wrapper = document.createElement('span');
+            wrapper.style.fontSize = size;
+            wrapper.style.lineHeight = 'inherit';
+            
+            // Process the content while preserving structure
+            const processNode = (node) => {
+                if (node.nodeType === Node.TEXT_NODE) {
+                    const span = document.createElement('span');
+                    span.style.fontSize = size;
+                    span.style.lineHeight = 'inherit';
+                    span.textContent = node.textContent;
+                    return span;
+                } else if (node.nodeType === Node.ELEMENT_NODE) {
+                    const clone = node.cloneNode(false);
+                    clone.style.fontSize = size;
+                    clone.style.lineHeight = 'inherit';
+                    
+                    // Process child nodes
+                    Array.from(node.childNodes).forEach(child => {
+                        clone.appendChild(processNode(child));
+                    });
+                    return clone;
+                }
+                return node.cloneNode(true);
+            };
+            
+            // Process all nodes in the container
+            Array.from(container.childNodes).forEach(child => {
+                fragment.appendChild(processNode(child));
+            });
+            
+            // Replace selection
+            range.deleteContents();
+            range.insertNode(fragment);
+            
+            // Restore selection
+            const newRange = document.createRange();
+            newRange.selectNodeContents(fragment);
+            selection.removeAllRanges();
+            selection.addRange(newRange);
+        } else {
+            // Apply to entire editor for future text
+            editor.style.fontSize = size;
         }
     }
 
