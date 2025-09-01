@@ -692,9 +692,8 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
     position: relative;
     background: transparent;
     border-radius: 15px;
-    padding: 2rem;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
 }
 
@@ -714,7 +713,7 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
 }
 
 .attorney-credentials {
-    color: #c9a961;
+    color: #c9a961 !important;
     font-family: 'Crimson Text', serif;
     font-weight: 700;
     margin-bottom: 1.5rem;
