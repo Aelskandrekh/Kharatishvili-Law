@@ -690,7 +690,7 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
 
 .profile-image {
     position: relative;
-    background: #f5f5f5;
+    background: transparent;
     border-radius: 15px;
     padding: 2rem;
     display: flex;
@@ -706,6 +706,7 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
     object-position: center;
     border-radius: 10px;
     transition: all 0.3s ease;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
 }
 
 .profile-photo:hover {
