@@ -1965,6 +1965,94 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
     margin-right: 0.5rem;
 }
 
+/* Service Detail Sections */
+.service-details-container {
+    display: none;
+}
+
+.service-detail-section {
+    padding: 4rem 0;
+    background: #f8f9fa;
+}
+
+.service-detail-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.service-detail-icon {
+    font-size: 3rem;
+    background: linear-gradient(135deg, #c9a961 0%, #d4b76a 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
+}
+
+.service-detail-title h2 {
+    font-family: 'Crimson Text', serif;
+    font-size: 2.5rem;
+    color: #1a2332;
+    margin: 0 0 0.5rem 0;
+    font-weight: 600;
+}
+
+.service-detail-title p {
+    color: #666;
+    font-size: 1.1rem;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.back-to-overview {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #1a2332;
+    color: white;
+    border: none;
+    padding: 0.875rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 2rem;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.back-to-overview:hover {
+    background: #2d3748;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Mobile responsiveness for service details */
+@media (max-width: 768px) {
+    .service-detail-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        text-align: left;
+    }
+    
+    .service-detail-icon {
+        font-size: 2.5rem;
+    }
+    
+    .service-detail-title h2 {
+        font-size: 2rem;
+    }
+    
+    .service-detail-title p {
+        font-size: 1rem;
+    }
+}
+
 .article-content {
     padding: 2.5rem;
     color: #333;
