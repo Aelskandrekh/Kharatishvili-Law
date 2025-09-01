@@ -714,6 +714,7 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
 
 .attorney-credentials {
     color: #c9a961;
+    font-family: 'Crimson Text', serif;
     font-weight: 700;
     margin-bottom: 1.5rem;
     font-size: 1.2rem;
