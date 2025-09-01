@@ -2066,9 +2066,23 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
     gap: 0.5rem;
 }
 
+.contact-form-wrapper .form-header h3 {
+    font-family: 'Crimson Text', serif;
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.contact-form-wrapper .form-header p {
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
 .simple-contact-form label {
     font-weight: 500;
-    color: #333;
+    color: white;
     font-size: 0.95rem;
 }
 
@@ -2076,11 +2090,17 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
 .simple-contact-form select,
 .simple-contact-form textarea {
     padding: 0.75rem 1rem;
-    border: 1px solid #e5e7eb;
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 6px;
     font-size: 1rem;
-    background: white;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.simple-contact-form input::placeholder,
+.simple-contact-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .simple-contact-form input:focus,
@@ -2130,11 +2150,16 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
     align-items: start;
 }
 
+.contact-form-center {
+    display: flex;
+    justify-content: center;
+}
+
 .contact-form-wrapper {
-    background: white;
+    max-width: 500px;
+    width: 100%;
+    background: transparent;
     padding: 3rem;
-    border-radius: 12px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
 .contact-info {
@@ -2195,15 +2220,16 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
 }
 
 .form-info {
-    background: #f8f9fa;
+    background: rgba(255, 255, 255, 0.1);
     padding: 1rem 1.5rem;
     border-radius: 6px;
     margin: 1rem 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .form-info p {
     margin: 0;
-    color: #666;
+    color: rgba(255, 255, 255, 0.9);
     font-size: 0.95rem;
     line-height: 1.5;
 }
