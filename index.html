@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
-    <title>Kharatishvili Law | Premier Legal Services in Georgia</title>
-    <meta name="description" content="Kharatishvili Law provides exceptional legal services in Georgia. Expertise in corporate law, litigation, real estate, and international business law.">
+    <title>Top Law Firm in Tbilisi | Kharatishvili Law | Attorney Services Georgia</title>
+    <meta name="description" content="Premier law firm in Tbilisi, Georgia. NY & Georgia licensed attorney. Expert legal services in immigration, corporate law, real estate & litigation. Free consultation.">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://kharatishvili-law.com/">
@@ -13,6 +13,129 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Schema Markup for Law Firm -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LegalService",
+      "name": "Kharatishvili Law",
+      "description": "Premier legal services in Tbilisi, Georgia. Expertise in corporate law, immigration, real estate, litigation, and international business law.",
+      "url": "https://kharatishvili-law.com",
+      "logo": "https://kharatishvili-law.com/images/aleksandre-professional-photo.png",
+      "telephone": "+995577335540",
+      "email": "aleksandrekharatishvili@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tbilisi",
+        "addressCountry": "GE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 41.7151,
+        "longitude": 44.8271
+      },
+      "openingHours": "Mo-Fr 09:00-18:00",
+      "sameAs": [
+        "https://kharatishvili-law.com"
+      ],
+      "serviceType": [
+        "Immigration Law",
+        "Corporate Law",
+        "Real Estate Law",
+        "Litigation",
+        "Tax Law",
+        "Intellectual Property Law"
+      ],
+      "areaServed": {
+        "@type": "Country",
+        "name": "Georgia"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Aleksandre Kharatishvili",
+        "jobTitle": "Attorney",
+        "description": "Licensed attorney in New York & Georgia, Fulbright Scholar with expertise in corporate law, immigration, and international business.",
+        "telephone": "+995577335540",
+        "email": "aleksandrekharatishvili@gmail.com",
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "New York State Bar",
+            "credentialCategory": "Bar Admission"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "Georgian Bar Association",
+            "credentialCategory": "Bar Admission"
+          }
+        ]
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Legal Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Immigration Law Services",
+              "description": "Visa applications, residency permits, citizenship matters, and comprehensive immigration compliance services."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Corporate Law Services",
+              "description": "Business formation, mergers & acquisitions, corporate governance, and strategic commercial transactions."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Real Estate Law Services",
+              "description": "Property transactions, development projects, landlord-tenant matters, and real estate investment guidance."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Litigation Services",
+              "description": "Complex commercial disputes, international arbitration, and comprehensive civil litigation representation."
+            }
+          }
+        ]
+      }
+    }
+    </script>
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-MEASUREMENT_ID');
+      
+      // Conversion tracking for contact form
+      function trackFormSubmission() {
+        gtag('event', 'contact_form_submit', {
+          event_category: 'engagement',
+          event_label: 'contact_form'
+        });
+      }
+      
+      // Conversion tracking for phone calls
+      function trackPhoneCall() {
+        gtag('event', 'phone_call', {
+          event_category: 'engagement',
+          event_label: 'phone_click'
+        });
+      }
+    </script>
 </head>
 <body>
     <nav class="navbar">
@@ -54,8 +177,8 @@
                     <h1 class="hero-title">Retain New York & Georgia Qualified Attorney</h1>
                     <p class="hero-subtitle">High-quality legal services at accessible rates, delivered by a lawyer qualified in Georgia and New York.</p>
                     <div class="hero-buttons">
-                        <a href="contact.html" class="btn btn-primary">Schedule Free Consultation</a>
-                        <a href="tel:+995577335540" class="btn btn-outline">Call Now</a>
+                        <a href="contact.html" class="btn btn-primary" onclick="trackFormSubmission()">Schedule Free Consultation</a>
+                        <a href="tel:+995577335540" class="btn btn-outline" onclick="trackPhoneCall()">Call Now</a>
                     </div>
                 </div>
                 
@@ -131,12 +254,12 @@
                     <p>Connect with an experienced attorney qualified in New York & Georgia for personalized legal solutions.</p>
                 </div>
                 <div class="cta-contact-grid">
-                    <a href="contact.html" class="cta-card primary">
+                    <a href="contact.html" class="cta-card primary" onclick="trackFormSubmission()">
                         <div class="cta-icon">📅</div>
                         <h3>Free Consultation</h3>
                         <p>Schedule a confidential discussion about your legal needs</p>
                     </a>
-                    <a href="tel:+995577335540" class="cta-card secondary">
+                    <a href="tel:+995577335540" class="cta-card secondary" onclick="trackPhoneCall()">
                         <div class="cta-icon">📞</div>
                         <h3>Call Directly</h3>
                         <p>+995 577 335 540</p>
