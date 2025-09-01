@@ -667,7 +667,7 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
 }
 
 .attorney-profile .credential strong {
-    color: white !important;
+    color: #c9a961 !important;
 }
 
 .attorney-profile .attorney-credentials {
