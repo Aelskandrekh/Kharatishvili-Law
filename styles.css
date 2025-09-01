@@ -699,7 +699,7 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    margin-top: 0;
+    margin-top: -20%;
 }
 
 .profile-photo {
