@@ -658,6 +658,18 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
     color: rgba(255, 255, 255, 0.9) !important;
 }
 
+.attorney-profile .attorney-bio {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.attorney-profile .credential {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.attorney-profile .credential strong {
+    color: white !important;
+}
+
 .attorney-profile .attorney-credentials {
     color: #c9a961 !important;
     font-weight: 600;
@@ -1099,7 +1111,15 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
 }
 
 .why-choose p {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.why-choose .benefit p {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.why-choose .stat-label {
+    color: rgba(255, 255, 255, 0.8) !important;
 }
 
 .why-choose .section-tag {
