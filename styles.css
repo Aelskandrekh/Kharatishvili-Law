@@ -670,12 +670,6 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
     color: #c9a961 !important;
 }
 
-.attorney-profile .attorney-credentials {
-    color: #c9a961 !important;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-    font-size: 1rem;
-}
 
 .attorney-profile .section-tag {
     color: rgba(255, 255, 255, 0.8) !important;
@@ -719,7 +713,7 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
 }
 
 .attorney-credentials {
-    color: #1a1a1a;
+    color: #c9a961;
     font-weight: 700;
     margin-bottom: 1.5rem;
     font-size: 1.2rem;
