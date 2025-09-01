@@ -3870,6 +3870,14 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
     margin: 0 auto;
 }
 
+.contact-centered-layout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
 /* Left Side - Contact Info Card */
 .contact-info-card {
     background: rgba(255, 255, 255, 0.1);
