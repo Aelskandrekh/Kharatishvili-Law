@@ -17,28 +17,10 @@
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="dns-prefetch" href="https://formspree.io">
     
-    <!-- Preload critical CSS -->
-    <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="styles.css"></noscript>
+    <link rel="stylesheet" href="styles.css">
     
     <!-- Optimized fonts with display swap -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    
-    <!-- Preload critical images -->
-    <link rel="preload" href="images/aleksandre-hero-photo.png" as="image">
-    
-    <!-- Critical CSS for above-the-fold content -->
-    <style>
-      body{margin:0;font-family:'Inter',sans-serif}
-      .navbar{position:fixed;top:0;left:0;right:0;background:#1a2332;backdrop-filter:blur(10px);border-bottom:1px solid #2c5282;z-index:1000;padding:1rem 0;transition:all 0.3s ease}
-      .nav-container{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;justify-content:space-between;align-items:center}
-      .logo{font-size:1.5rem;font-weight:700;color:white}
-      .hero{background:linear-gradient(135deg,#1a2332 0%,#2c3e50 100%);color:white;padding:120px 0 80px;min-height:600px}
-      .hero-container{max-width:1200px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-      .hero-content h1{font-size:3.5rem;margin-bottom:1.5rem;line-height:1.2}
-      .hero-content p{font-size:1.25rem;margin-bottom:2rem;opacity:0.9}
-      @media (max-width:768px){.hero-container{grid-template-columns:1fr;text-align:center}.hero-content h1{font-size:2.2rem}}
-    </style>
     
     <!-- Schema Markup for Law Firm -->
     <script type="application/ld+json">
