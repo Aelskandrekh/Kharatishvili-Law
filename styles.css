@@ -2151,6 +2151,30 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
     line-height: 1.5;
 }
 
+.contact-page-bg {
+    background-color: #333333;
+    color: white;
+}
+
+.contact-page-bg .section-tag {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.contact-page-bg h1,
+.contact-page-bg h2,
+.contact-page-bg h3 {
+    color: white;
+}
+
+.contact-page-bg p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.contact-header {
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+}
+
 .article-content {
     padding: 2.5rem;
     color: #333;
