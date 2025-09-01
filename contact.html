@@ -59,72 +59,7 @@
     <!-- Contact Section -->
     <section class="contact-section section-white">
         <div class="container">
-            <div class="contact-grid">
-                <!-- Contact Information -->
-                <div class="contact-info">
-                    <div class="contact-info-header">
-                        <h3>Contact Information</h3>
-                        <p class="contact-intro">Reach out to us directly or use the form to schedule your consultation.</p>
-                    </div>
-                    
-                    <div class="contact-methods">
-                        <div class="contact-method">
-                            <div class="contact-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/>
-                                    <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
-                                </svg>
-                            </div>
-                            <div class="contact-details">
-                                <h4>Office Location</h4>
-                                <p>Tbilisi, Georgia</p>
-                                <span class="contact-note">Specific address provided upon consultation</span>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-method">
-                            <div class="contact-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="2"/>
-                                </svg>
-                            </div>
-                            <div class="contact-details">
-                                <h4>Phone</h4>
-                                <a href="tel:+995577335540" class="contact-link">+995 577 335 540</a>
-                                <span class="contact-note">Available during business hours</span>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-method">
-                            <div class="contact-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2"/>
-                                    <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2"/>
-                                </svg>
-                            </div>
-                            <div class="contact-details">
-                                <h4>Email</h4>
-                                <a href="mailto:aleksandrekharatishvili@gmail.com" class="contact-link">aleksandrekharatishvili@gmail.com</a>
-                                <span class="contact-note">Response within 24 hours</span>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-method">
-                            <div class="contact-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-                                    <polyline points="12,6 12,12 16,14" stroke="currentColor" stroke-width="2"/>
-                                </svg>
-                            </div>
-                            <div class="contact-details">
-                                <h4>Office Hours</h4>
-                                <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                                <span class="contact-note">Weekend appointments available</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
+            <div class="contact-form-center">
                 <!-- Contact Form -->
                 <div class="contact-form-wrapper">
                     <div class="form-header">
@@ -137,13 +72,13 @@
                         <input type="hidden" name="_subject" value="New Consultation Request from Kharatishvili Law Website">
                         
                         <div class="form-group">
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" name="name" required placeholder="Your full name">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your full name">
                         </div>
                         
                         <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required placeholder="your@email.com">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="your@email.com">
                         </div>
                         
                         <div class="form-group">
@@ -151,79 +86,12 @@
                             <input type="tel" id="phone" name="phone" placeholder="+995 XXX XXX XXX">
                         </div>
                         
-                        <div class="form-group">
-                            <label for="service">Area of Interest</label>
-                            <select id="service" name="service">
-                                <option value="">Select a practice area</option>
-                                <option value="immigration">Immigration</option>
-                                <option value="corporate">Corporate & Commercial</option>
-                                <option value="real-estate">Real Estate</option>
-                                <option value="litigation">Litigation & Arbitration</option>
-                                <option value="tax-regulatory">Tax & Regulatory</option>
-                                <option value="intellectual-property">Intellectual Property</option>
-                                <option value="other">Other Legal Matter</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">How Can We Help You? *</label>
-                            <textarea id="message" name="message" rows="5" placeholder="Please describe your legal needs..." required></textarea>
-                        </div>
-                        
-                        <div class="form-group checkbox-group">
-                            <input type="checkbox" id="consent" name="consent" required>
-                            <label for="consent" class="checkbox-label">
-                                I consent to the collection and processing of my personal data for consultation purposes.
-                            </label>
+                        <div class="form-info">
+                            <p>We will contact you after receiving your information to schedule a consultation.</p>
                         </div>
                         
                         <button type="submit" class="btn btn-primary">Send Message</button>
                     </form>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Consultation Process -->
-    <section class="consultation-process section-light">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Consultation Process</span>
-                <h2>What to Expect</h2>
-                <p>Our streamlined consultation process ensures you receive the guidance you need efficiently and confidentially.</p>
-            </div>
-            
-            <div class="process-grid">
-                <div class="process-step">
-                    <div class="step-number">01</div>
-                    <div class="step-content">
-                        <h4>Initial Contact</h4>
-                        <p>Reach out via phone, email, or our contact form. We'll schedule a convenient time for your consultation.</p>
-                    </div>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">02</div>
-                    <div class="step-content">
-                        <h4>Confidential Consultation</h4>
-                        <p>Discuss your legal needs in detail. All conversations are protected by attorney-client privilege.</p>
-                    </div>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">03</div>
-                    <div class="step-content">
-                        <h4>Strategic Plan</h4>
-                        <p>Receive a clear understanding of your options, potential strategies, and recommended next steps.</p>
-                    </div>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">04</div>
-                    <div class="step-content">
-                        <h4>Transparent Engagement</h4>
-                        <p>Review our fee structure and engagement terms before proceeding with representation.</p>
-                    </div>
                 </div>
             </div>
         </div>
