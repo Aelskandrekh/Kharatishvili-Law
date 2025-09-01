@@ -658,6 +658,10 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
     color: rgba(255, 255, 255, 0.9) !important;
 }
 
+.attorney-profile .attorney-credentials {
+    color: #c9a961 !important;
+}
+
 .attorney-profile .attorney-bio {
     color: rgba(255, 255, 255, 0.9) !important;
 }
@@ -695,6 +699,7 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
     display: flex;
     align-items: flex-start;
     justify-content: center;
+    margin-top: 0;
 }
 
 .profile-photo {
@@ -3394,4 +3399,10 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
         min-width: 200px;
         font-size: 1rem;
     }
+}
+/* Profile content alignment */
+.profile-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
