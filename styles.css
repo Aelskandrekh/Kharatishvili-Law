@@ -2478,12 +2478,6 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
     line-height: 1.3;
 }
 
-.attorney-credentials {
-    color: #c9a961;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-    font-size: 1rem;
-}
 
 .attorney-bio {
     color: #4a5568;
