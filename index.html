@@ -3,16 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
+    <meta name="theme-color" content="#1a2332">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Top Law Firm in Tbilisi | Kharatishvili Law | Attorney Services Georgia</title>
     <meta name="description" content="Premier law firm in Tbilisi, Georgia. NY & Georgia licensed attorney. Expert legal services in immigration, corporate law, real estate & litigation. Free consultation.">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://kharatishvili-law.com/">
     
-    <link rel="stylesheet" href="styles.css">
+    <!-- Performance optimizations -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://formspree.io">
+    
+    <!-- Preload critical CSS -->
+    <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="styles.css"></noscript>
+    
+    <!-- Optimized fonts with display swap -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Preload critical images -->
+    <link rel="preload" href="images/aleksandre-hero-photo.png" as="image">
+    
+    <!-- Critical CSS for above-the-fold content -->
+    <style>
+      body{margin:0;font-family:'Inter',sans-serif}
+      .navbar{position:fixed;top:0;width:100%;z-index:1000;background:linear-gradient(135deg,#1a2332 0%,#2c3e50 100%);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.1)}
+      .nav-container{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center;height:80px}
+      .logo{font-size:1.5rem;font-weight:700;color:white}
+      .hero{background:linear-gradient(135deg,#1a2332 0%,#2c3e50 100%);color:white;padding:120px 0 80px;min-height:600px}
+      .hero-container{max-width:1200px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+      .hero-content h1{font-size:3.5rem;margin-bottom:1.5rem;line-height:1.2}
+      .hero-content p{font-size:1.25rem;margin-bottom:2rem;opacity:0.9}
+      @media (max-width:768px){.hero-container{grid-template-columns:1fr;text-align:center}.hero-content h1{font-size:2.2rem}}
+    </style>
     
     <!-- Schema Markup for Law Firm -->
     <script type="application/ld+json">
@@ -112,28 +138,115 @@
     }
     </script>
     
+    <!-- Enhanced Organization Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Kharatishvili Law",
+      "legalName": "Kharatishvili Law",
+      "url": "https://kharatishvili-law.com",
+      "logo": "https://kharatishvili-law.com/images/aleksandre-professional-photo.png",
+      "description": "Premier legal services in Tbilisi, Georgia. Expert attorneys qualified in New York & Georgia providing immigration, corporate, real estate, litigation, tax, and intellectual property law services.",
+      "foundingDate": "2023",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tbilisi",
+        "addressCountry": "GE",
+        "streetAddress": "Tbilisi, Georgia"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+995577335540",
+        "contactType": "customer service",
+        "areaServed": "GE",
+        "availableLanguage": ["English", "Georgian"]
+      },
+      "sameAs": [
+        "https://kharatishvili-law.com"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Legal Services",
+        "itemListElement": [
+          {
+            "@type": "OfferCatalog",
+            "name": "Immigration Law",
+            "description": "Visa applications, residency permits, citizenship matters, and immigration compliance"
+          },
+          {
+            "@type": "OfferCatalog", 
+            "name": "Corporate Law",
+            "description": "Business formation, mergers & acquisitions, corporate governance"
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Real Estate Law", 
+            "description": "Property transactions, development projects, real estate investment"
+          }
+        ]
+      }
+    }
+    </script>
+    
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MEASUREMENT_ID"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-MEASUREMENT_ID');
+      // Enhanced configuration for conversion tracking
+      gtag('config', 'G-MEASUREMENT_ID', {
+        enhanced_conversions: true,
+        allow_enhanced_conversions: true,
+        send_page_view: true
+      });
       
-      // Conversion tracking for contact form
-      function trackFormSubmission() {
-        gtag('event', 'contact_form_submit', {
+      // Enhanced conversion tracking functions
+      function trackContactFormSubmit(email, phone) {
+        gtag('event', 'generate_lead', {
           event_category: 'engagement',
-          event_label: 'contact_form'
+          event_label: 'contact_form_submission',
+          currency: 'USD',
+          value: 500,
+          user_data: {
+            email_address: email,
+            phone_number: phone
+          }
         });
       }
       
-      // Conversion tracking for phone calls
-      function trackPhoneCall() {
+      function trackPhoneClick() {
         gtag('event', 'phone_call', {
           event_category: 'engagement',
-          event_label: 'phone_click'
+          event_label: 'phone_click',
+          value: 300
         });
+      }
+      
+      function trackConsultationClick() {
+        gtag('event', 'consultation_request', {
+          event_category: 'engagement',
+          event_label: 'consultation_button',
+          value: 400
+        });
+      }
+      
+      function trackServicePageView(service) {
+        gtag('event', 'service_interest', {
+          event_category: 'engagement',
+          event_label: service,
+          value: 100
+        });
+      }
+      
+      // Backward compatibility functions
+      function trackFormSubmission() {
+        trackConsultationClick();
+      }
+      
+      function trackPhoneCall() {
+        trackPhoneClick();
       }
     </script>
 </head>
@@ -308,6 +421,20 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+              console.log('SW registered: ', registration);
+            })
+            .catch((registrationError) => {
+              console.log('SW registration failed: ', registrationError);
+            });
+        });
+      }
+    </script>
+    <script defer src="script.js"></script>
 </body>
 </html>

@@ -9,25 +9,68 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://kharatishvili-law.com/contact.html">
     
-    <link rel="stylesheet" href="styles.css">
+    <!-- Performance optimizations -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://formspree.io">
+    
+    <!-- Preload critical CSS -->
+    <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="styles.css"></noscript>
+    
+    <!-- Optimized fonts with display swap -->
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
-    <!-- Google Analytics 4 -->
+    <!-- Google Analytics 4 with Enhanced Conversions -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MEASUREMENT_ID"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-MEASUREMENT_ID');
       
-      // Form submission tracking
-      function trackContactFormSubmit() {
-        gtag('event', 'form_submit', {
-          event_category: 'contact',
-          event_label: 'contact_form',
-          value: 1
+      // Enhanced configuration for conversion tracking
+      gtag('config', 'G-MEASUREMENT_ID', {
+        enhanced_conversions: true,
+        allow_enhanced_conversions: true,
+        send_page_view: true
+      });
+      
+      // Enhanced conversion tracking functions
+      function trackContactFormSubmit(email, phone) {
+        gtag('event', 'generate_lead', {
+          event_category: 'engagement',
+          event_label: 'contact_form_submission',
+          currency: 'USD',
+          value: 500, // Estimated lead value
+          user_data: {
+            email_address: email,
+            phone_number: phone
+          }
+        });
+      }
+      
+      function trackPhoneClick() {
+        gtag('event', 'phone_call', {
+          event_category: 'engagement',
+          event_label: 'phone_click',
+          value: 300
+        });
+      }
+      
+      function trackConsultationClick() {
+        gtag('event', 'consultation_request', {
+          event_category: 'engagement',
+          event_label: 'consultation_button',
+          value: 400
+        });
+      }
+      
+      function trackServicePageView(service) {
+        gtag('event', 'service_interest', {
+          event_category: 'engagement',
+          event_label: service,
+          value: 100
         });
       }
     </script>
@@ -85,7 +128,7 @@
                         <p>Complete the form and we'll contact you within 24 hours.</p>
                     </div>
                     
-                    <form class="simple-contact-form" id="contactForm" action="https://formspree.io/f/xwpqgkka" method="POST" onsubmit="trackContactFormSubmit()">
+                    <form class="simple-contact-form" id="contactForm" action="https://formspree.io/f/xwpqgkka" method="POST" onsubmit="handleFormSubmit()">
                         <input type="hidden" name="_next" value="https://kharatishvili-law.com/contact.html?success=true">
                         <input type="hidden" name="_subject" value="New Consultation Request from Kharatishvili Law Website">
                         
@@ -134,6 +177,42 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Enhanced form submission handling
+        function handleFormSubmit() {
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            
+            // Track the conversion with enhanced data
+            trackContactFormSubmit(email, phone);
+            
+            return true; // Allow form to proceed with normal submission
+        }
+        
+        // Add click tracking to phone links
+        document.addEventListener('DOMContentLoaded', function() {
+            const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
+            phoneLinks.forEach(link => {
+                link.addEventListener('click', trackPhoneClick);
+            });
+            
+            // Check for success parameter and track conversion completion
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('success') === 'true') {
+                gtag('event', 'conversion', {
+                    send_to: 'G-MEASUREMENT_ID/CONTACT_FORM_CONVERSION',
+                    event_category: 'conversion',
+                    event_label: 'form_completion',
+                    value: 500
+                });
+                
+                // Clean up URL
+                const url = new URL(window.location);
+                url.searchParams.delete('success');
+                window.history.replaceState({}, document.title, url);
+            }
+        });
+    </script>
+    <script defer src="script.js"></script>
 </body>
 </html>

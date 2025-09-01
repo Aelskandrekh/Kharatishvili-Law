@@ -1,6 +1,9 @@
 // Enhanced Navigation and Page Transitions
 document.addEventListener('DOMContentLoaded', function() {
     
+    // Automatic conversion tracking setup
+    setupConversionTracking();
+    
     // Enhanced Navigation Hover Effects
     const navLinks = document.querySelectorAll('.nav-link');
     
@@ -555,3 +558,35 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Conversion tracking setup
+function setupConversionTracking() {
+    // Only setup if gtag is available
+    if (typeof gtag === 'undefined') return;
+    
+    // Track phone link clicks automatically
+    document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+        link.addEventListener('click', function() {
+            if (typeof trackPhoneClick === 'function') {
+                trackPhoneClick();
+            }
+        });
+    });
+    
+    // Track consultation button clicks
+    document.querySelectorAll('a[href*="contact"], .contact-btn, .btn-primary').forEach(button => {
+        button.addEventListener('click', function() {
+            if (typeof trackConsultationClick === 'function') {
+                trackConsultationClick();
+            }
+        });
+    });
+    
+    // Track service page views
+    if (window.location.pathname.includes('services.html')) {
+        const hash = window.location.hash.substring(1);
+        if (hash && typeof trackServicePageView === 'function') {
+            trackServicePageView(hash);
+        }
+    }
+}
