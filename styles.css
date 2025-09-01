@@ -1018,27 +1018,7 @@ a:not(.btn):not(.nav-item):not(.logo-link):not(.contact-link):hover::after {
     color: rgba(255, 255, 255, 0.8);
 }
 
-.why-choose::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #c9a961 0%, #b8984f 100%);
-    border-radius: 2px;
-}
 
-.why-choose::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #c9a961 0%, #b8984f 100%);
-    border-radius: 2px;
-}
 
 .why-choose-content {
     display: grid;
