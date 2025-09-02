@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     setupConversionTracking();
     
     // Enhanced Navigation Hover Effects
-    const navLinks = document.querySelectorAll('.nav-link');
+    const navLinks = document.querySelectorAll('.nav-item');
     
     navLinks.forEach(link => {
         link.addEventListener('mouseenter', function() {
@@ -298,7 +298,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Mobile menu functionality
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileMenuToggle = document.querySelector('.mobile-menu-btn');
     const navMenu = document.querySelector('.nav-menu');
     const navContainer = document.querySelector('.nav-container');
     
@@ -317,7 +317,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // Close mobile menu when clicking on a nav link
-        const navLinks = document.querySelectorAll('.nav-link');
+        const navLinks = document.querySelectorAll('.nav-item');
         navLinks.forEach(link => {
             link.addEventListener('click', function() {
                 mobileMenuToggle.classList.remove('active');
