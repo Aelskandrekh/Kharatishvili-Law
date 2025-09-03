@@ -163,8 +163,11 @@
         let currentSort = 'date-desc';
 
         document.addEventListener('DOMContentLoaded', function() {
-            loadResourcesArticles();
-            setupFilters();
+            // Add a small delay to ensure articles-data.js is fully loaded
+            setTimeout(function() {
+                loadResourcesArticles();
+                setupFilters();
+            }, 100);
         });
 
         function getPracticeAreaInfo(practiceArea) {

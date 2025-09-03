@@ -391,7 +391,10 @@
     <script>
         // Load latest articles for home page
         document.addEventListener('DOMContentLoaded', function() {
-            loadHomePageArticles();
+            // Add a small delay to ensure articles-data.js is fully loaded
+            setTimeout(function() {
+                loadHomePageArticles();
+            }, 100);
         });
 
         function loadHomePageArticles() {
