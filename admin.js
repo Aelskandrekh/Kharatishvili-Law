@@ -675,10 +675,14 @@ class AdminConsole {
             // Store articles for the main website to use
             const publishedArticles = this.articles
                 .filter(article => article.status === 'published')
-                .sort((a, b) => new Date(b.date) - new Date(a.date))
-                .slice(0, 6); // Show latest 6 articles
+                .sort((a, b) => new Date(b.date) - new Date(a.date));
             
+            // Store in localStorage (for current browser)
             localStorage.setItem('publishedArticles', JSON.stringify(publishedArticles));
+            
+            // Generate downloadable data file for cross-browser sharing
+            this.generateDataFile(publishedArticles);
+            
             console.log('Published articles updated:', publishedArticles);
             
             // If we're in an iframe or popup, notify parent window
@@ -688,6 +692,88 @@ class AdminConsole {
         } catch (error) {
             console.error('Error updating main website:', error);
         }
+    }
+
+    generateDataFile(publishedArticles) {
+        try {
+            // Create JavaScript data file content
+            const dataFileContent = `// Published Articles Data
+// This file is automatically updated when articles are published via admin console
+// DO NOT EDIT MANUALLY - Use admin.html to manage articles
+
+window.publishedArticlesData = ${JSON.stringify(publishedArticles, null, 4)};
+
+// Last updated timestamp
+window.articlesLastUpdated = ${Date.now()};`;
+
+            // Create and download the file
+            const blob = new Blob([dataFileContent], { type: 'text/javascript' });
+            const url = URL.createObjectURL(blob);
+            
+            // Create download link
+            const downloadLink = document.createElement('a');
+            downloadLink.href = url;
+            downloadLink.download = 'articles-data.js';
+            downloadLink.style.display = 'none';
+            
+            // Add to page and trigger download
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+            
+            // Clean up
+            URL.revokeObjectURL(url);
+            
+            // Show instructions to user
+            this.showDataFileInstructions();
+            
+        } catch (error) {
+            console.error('Error generating data file:', error);
+        }
+    }
+
+    showDataFileInstructions() {
+        const instructions = `
+            <div style="background: #e8f5e8; border: 1px solid #4caf50; padding: 15px; margin: 10px 0; border-radius: 5px;">
+                <h4 style="margin: 0 0 10px 0; color: #2e7d32;">📁 Articles Data File Generated!</h4>
+                <p style="margin: 0 0 10px 0;">A file called <strong>articles-data.js</strong> has been downloaded to your computer.</p>
+                <p style="margin: 0 0 10px 0;"><strong>To make articles visible on your website:</strong></p>
+                <ol style="margin: 0; padding-left: 20px;">
+                    <li>Upload the <strong>articles-data.js</strong> file to your website's root directory</li>
+                    <li>Deploy your website to apply the changes</li>
+                    <li>Your articles will now be visible to all visitors!</li>
+                </ol>
+                <p style="margin: 10px 0 0 0; font-size: 14px; color: #666;">
+                    This file contains your published articles and will make them appear on the Resources page and Homepage.
+                </p>
+            </div>
+        `;
+        
+        // Show instructions in the admin interface
+        const existingInstructions = document.querySelector('.data-file-instructions');
+        if (existingInstructions) {
+            existingInstructions.innerHTML = instructions;
+        } else {
+            const instructionsDiv = document.createElement('div');
+            instructionsDiv.className = 'data-file-instructions';
+            instructionsDiv.innerHTML = instructions;
+            
+            // Add after the articles list
+            const articlesList = document.getElementById('articlesList');
+            if (articlesList && articlesList.parentNode) {
+                articlesList.parentNode.insertBefore(instructionsDiv, articlesList.nextSibling);
+            }
+        }
+        
+        // Auto-hide after 30 seconds
+        setTimeout(() => {
+            const instructions = document.querySelector('.data-file-instructions');
+            if (instructions) {
+                instructions.style.transition = 'opacity 1s';
+                instructions.style.opacity = '0';
+                setTimeout(() => instructions.remove(), 1000);
+            }
+        }, 30000);
     }
 
     // Practice Area Configuration

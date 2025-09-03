@@ -211,16 +211,40 @@
             const articlesGrid = document.getElementById('articlesGrid');
             const emptyState = document.getElementById('emptyState');
             
-            // Load all published articles from localStorage
-            let storedArticles = JSON.parse(localStorage.getItem('kharatishviliLawArticles') || '[]')
-                .filter(article => article.status === 'published');
+            let articlesToLoad = [];
             
-            // If no stored articles, load default sample articles
-            if (storedArticles.length === 0) {
-                storedArticles = getDefaultArticles();
+            // Priority 1: Try to load from shared data file (for cross-browser sharing)
+            if (window.publishedArticlesData && window.publishedArticlesData.length > 0) {
+                articlesToLoad = window.publishedArticlesData.filter(article => article.status === 'published');
+                console.log('Loaded articles from shared data file:', articlesToLoad.length);
             }
             
-            allArticles = storedArticles;
+            // Priority 2: Fall back to localStorage (for same browser)
+            if (articlesToLoad.length === 0) {
+                const localStorageArticles = JSON.parse(localStorage.getItem('kharatishviliLawArticles') || '[]')
+                    .filter(article => article.status === 'published');
+                if (localStorageArticles.length > 0) {
+                    articlesToLoad = localStorageArticles;
+                    console.log('Loaded articles from localStorage:', articlesToLoad.length);
+                }
+            }
+            
+            // Priority 3: Fall back to published articles from admin
+            if (articlesToLoad.length === 0) {
+                const publishedArticles = JSON.parse(localStorage.getItem('publishedArticles') || '[]');
+                if (publishedArticles.length > 0) {
+                    articlesToLoad = publishedArticles;
+                    console.log('Loaded articles from admin published list:', articlesToLoad.length);
+                }
+            }
+            
+            // Priority 4: Load default sample articles if nothing else found
+            if (articlesToLoad.length === 0) {
+                articlesToLoad = getDefaultArticles();
+                console.log('Loaded default sample articles:', articlesToLoad.length);
+            }
+            
+            allArticles = articlesToLoad;
             
             if (allArticles.length === 0) {
                 articlesGrid.innerHTML = `
@@ -357,6 +381,7 @@
             };
         }
     </script>
+    <script src="articles-data.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

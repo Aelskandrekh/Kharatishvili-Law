@@ -299,43 +299,12 @@
                 <h2>Recent Developments in Law</h2>
                 <p>Stay informed about important legal developments, regulatory changes, and insights that may impact your business and personal interests.</p>
             </div>
-            <div class="news-grid">
-                <article class="news-item">
-                    <div class="news-date">
-                        <span class="date-day">15</span>
-                        <span class="date-month">Aug</span>
-                        <span class="date-year">2025</span>
-                    </div>
-                    <div class="news-content">
-                        <h3>New Corporate Compliance Requirements in Georgia</h3>
-                        <p>Recent regulatory updates affecting business operations and compliance obligations for Georgian corporations.</p>
-                        <a href="#" class="news-link">Read More →</a>
-                    </div>
-                </article>
-                <article class="news-item">
-                    <div class="news-date">
-                        <span class="date-day">08</span>
-                        <span class="date-month">Aug</span>
-                        <span class="date-year">2025</span>
-                    </div>
-                    <div class="news-content">
-                        <h3>Immigration Policy Updates for 2025</h3>
-                        <p>Key changes in U.S. immigration procedures and their implications for visa applicants and permanent residents.</p>
-                        <a href="#" class="news-link">Read More →</a>
-                    </div>
-                </article>
-                <article class="news-item">
-                    <div class="news-date">
-                        <span class="date-day">02</span>
-                        <span class="date-month">Aug</span>
-                        <span class="date-year">2025</span>
-                    </div>
-                    <div class="news-content">
-                        <h3>International Trade Law Developments</h3>
-                        <p>Analysis of recent changes in international trade regulations affecting cross-border business transactions.</p>
-                        <a href="#" class="news-link">Read More →</a>
-                    </div>
-                </article>
+            <div class="news-grid" id="homeNewsGrid">
+                <!-- Articles will be loaded dynamically -->
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Loading latest articles...</p>
+                </div>
             </div>
             <div class="news-cta">
                 <a href="resources.html" class="btn btn-outline">View All Updates</a>
@@ -417,6 +386,119 @@
           }
         });
       }
+    </script>
+    <script src="articles-data.js"></script>
+    <script>
+        // Load latest articles for home page
+        document.addEventListener('DOMContentLoaded', function() {
+            loadHomePageArticles();
+        });
+
+        function loadHomePageArticles() {
+            const newsGrid = document.getElementById('homeNewsGrid');
+            if (!newsGrid) return;
+
+            let articles = [];
+
+            // Priority 1: Try to load from shared data file (for cross-browser sharing)
+            if (window.publishedArticlesData && window.publishedArticlesData.length > 0) {
+                articles = window.publishedArticlesData.filter(article => article.status === 'published');
+            }
+
+            // Priority 2: Fall back to localStorage
+            if (articles.length === 0) {
+                const localStorageArticles = JSON.parse(localStorage.getItem('kharatishviliLawArticles') || '[]')
+                    .filter(article => article.status === 'published');
+                if (localStorageArticles.length > 0) {
+                    articles = localStorageArticles;
+                }
+            }
+
+            // Priority 3: Fall back to published articles from admin
+            if (articles.length === 0) {
+                const publishedArticles = JSON.parse(localStorage.getItem('publishedArticles') || '[]');
+                if (publishedArticles.length > 0) {
+                    articles = publishedArticles;
+                }
+            }
+
+            // Priority 4: Load default sample articles
+            if (articles.length === 0) {
+                articles = getDefaultHomeArticles();
+            }
+
+            // Sort by date and take first 3 for home page
+            articles = articles
+                .sort((a, b) => new Date(b.date) - new Date(a.date))
+                .slice(0, 3);
+
+            // Generate HTML
+            if (articles.length > 0) {
+                newsGrid.innerHTML = articles.map(article => {
+                    const articleDate = formatDateForDisplay(article.date);
+                    const readMoreLink = article.id.startsWith('default-') ? '#' : `article.html?id=${article.id}`;
+                    
+                    return `
+                        <article class="news-item">
+                            <div class="news-date">
+                                <span class="date-day">${articleDate.day}</span>
+                                <span class="date-month">${articleDate.month}</span>
+                                <span class="date-year">${articleDate.year}</span>
+                            </div>
+                            <div class="news-content">
+                                <h3>${article.title}</h3>
+                                <p>${article.summary}</p>
+                                <a href="${readMoreLink}" class="news-link">Read More →</a>
+                            </div>
+                        </article>
+                    `;
+                }).join('');
+            } else {
+                newsGrid.innerHTML = `
+                    <div class="empty-articles">
+                        <h3>No Articles Available</h3>
+                        <p>Check back soon for legal updates and insights.</p>
+                    </div>
+                `;
+            }
+        }
+
+        function getDefaultHomeArticles() {
+            return [
+                {
+                    id: 'default-1',
+                    title: 'New Corporate Compliance Requirements in Georgia',
+                    summary: 'Recent regulatory updates affecting business operations and compliance obligations for Georgian corporations.',
+                    date: '2025-08-15',
+                    status: 'published'
+                },
+                {
+                    id: 'default-2', 
+                    title: 'Immigration Policy Updates for 2025',
+                    summary: 'Key changes in U.S. immigration procedures and their implications for visa applicants and permanent residents.',
+                    date: '2025-08-08',
+                    status: 'published'
+                },
+                {
+                    id: 'default-3',
+                    title: 'International Trade Law Developments',
+                    summary: 'Analysis of recent changes in international trade regulations affecting cross-border business transactions.',
+                    date: '2025-08-02',
+                    status: 'published'
+                }
+            ];
+        }
+
+        function formatDateForDisplay(dateString) {
+            const date = new Date(dateString);
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            
+            return {
+                day: date.getDate().toString().padStart(2, '0'),
+                month: months[date.getMonth()],
+                year: date.getFullYear()
+            };
+        }
     </script>
     <script defer src="script.js"></script>
 </body>
