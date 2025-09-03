@@ -4,28 +4,15 @@
 
 window.publishedArticlesData = [
     {
-        "id": "mf47ean6491p8zml9co",
-        "title": "baodsaodas",
+        "id": "test1",
+        "title": "Test Article",
         "date": "2025-09-03",
-        "summary": "sadabasd",
-        "content": "vsdadas",
+        "summary": "Test summary",
+        "content": "Test content",
         "status": "published",
-        "practiceArea": "real-estate",
-        "createdAt": "2025-09-03T16:40:34.146Z",
-        "updatedAt": "2025-09-03T16:40:34.146Z"
-    },
-    {
-        "id": "mf47b8enzdvvblv75s",
-        "title": "sadas",
-        "date": "2025-09-03",
-        "summary": "sadas",
-        "content": "sadas",
-        "status": "published",
-        "practiceArea": "litigation",
-        "createdAt": "2025-09-03T16:38:11.279Z",
-        "updatedAt": "2025-09-03T16:38:11.279Z"
+        "practiceArea": "immigration"
     }
 ];
 
 // Last updated timestamp
-window.articlesLastUpdated = 1756917634696;
+window.articlesLastUpdated = 1756917857941;
