@@ -115,6 +115,22 @@ class AdminConsole {
         if (clearData) {
             clearData.addEventListener('click', () => this.clearAllData());
         }
+
+        // Auto-Publishing Settings
+        const setupAutoPublish = document.getElementById('setupAutoPublish');
+        if (setupAutoPublish) {
+            setupAutoPublish.addEventListener('click', () => this.showGitHubSetupInstructions());
+        }
+
+        const testPublish = document.getElementById('testPublish');
+        if (testPublish) {
+            testPublish.addEventListener('click', () => this.testGitHubConnection());
+        }
+
+        const removeToken = document.getElementById('removeToken');
+        if (removeToken) {
+            removeToken.addEventListener('click', () => this.removeGitHubToken());
+        }
     }
 
     // Authentication
@@ -182,6 +198,7 @@ class AdminConsole {
         document.getElementById('loginScreen').style.display = 'none';
         document.getElementById('adminDashboard').style.display = 'block';
         this.loadArticlesList();
+        this.updateAutoPublishStatus();
         this.showPanel('articles');
     }
 
@@ -680,8 +697,8 @@ class AdminConsole {
             // Store in localStorage (for current browser)
             localStorage.setItem('publishedArticles', JSON.stringify(publishedArticles));
             
-            // Generate downloadable data file for cross-browser sharing
-            this.generateDataFile(publishedArticles);
+            // Try automatic GitHub publishing first
+            this.publishToGitHub(publishedArticles);
             
             console.log('Published articles updated:', publishedArticles);
             
@@ -691,6 +708,282 @@ class AdminConsole {
             }
         } catch (error) {
             console.error('Error updating main website:', error);
+        }
+    }
+
+    async publishToGitHub(publishedArticles) {
+        const githubToken = localStorage.getItem('githubAccessToken');
+        
+        if (!githubToken) {
+            this.showGitHubSetupInstructions();
+            return;
+        }
+
+        try {
+            this.showPublishingStatus('Publishing to website...', 'info');
+            
+            // Create the articles data file content
+            const articlesDataContent = `// Published Articles Data
+// This file is automatically updated when articles are published via admin console
+// DO NOT EDIT MANUALLY - Use admin.html to manage articles
+
+window.publishedArticlesData = ${JSON.stringify(publishedArticles, null, 4)};
+
+// Last updated timestamp
+window.articlesLastUpdated = ${Date.now()};`;
+
+            // GitHub API configuration
+            const repoOwner = 'Aelskandrekh';
+            const repoName = 'Kharatishvili-Law';
+            const filePath = 'articles-data.js';
+            const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}`;
+
+            // Get current file SHA (required for updates)
+            const getCurrentFile = await fetch(apiUrl, {
+                headers: {
+                    'Authorization': `token ${githubToken}`,
+                    'Accept': 'application/vnd.github.v3+json',
+                }
+            });
+
+            let sha = null;
+            if (getCurrentFile.ok) {
+                const currentFileData = await getCurrentFile.json();
+                sha = currentFileData.sha;
+            }
+
+            // Prepare commit data
+            const commitData = {
+                message: `Auto-update articles: ${publishedArticles.length} published articles`,
+                content: btoa(unescape(encodeURIComponent(articlesDataContent))), // Base64 encode
+                ...(sha && { sha }) // Include SHA if file exists
+            };
+
+            // Commit to GitHub
+            const response = await fetch(apiUrl, {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `token ${githubToken}`,
+                    'Accept': 'application/vnd.github.v3+json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(commitData)
+            });
+
+            if (response.ok) {
+                this.showPublishingStatus('Articles published! Website will update in 1-2 minutes.', 'success');
+                this.showDeploymentStatus();
+            } else {
+                throw new Error(`GitHub API error: ${response.status}`);
+            }
+
+        } catch (error) {
+            console.error('GitHub publishing error:', error);
+            this.showPublishingStatus('Auto-publish failed. Using manual backup...', 'warning');
+            
+            // Fall back to manual download method
+            this.generateDataFile(publishedArticles);
+        }
+    }
+
+    showGitHubSetupInstructions() {
+        const setupHTML = `
+            <div class="github-setup-modal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; display: flex; align-items: center; justify-content: center;">
+                <div style="background: white; padding: 30px; border-radius: 10px; max-width: 600px; max-height: 80vh; overflow-y: auto;">
+                    <h2>🚀 Enable Automatic Publishing</h2>
+                    <p>Set up automatic publishing to make your articles go live instantly without manual steps!</p>
+                    
+                    <h3>Quick Setup (2 minutes):</h3>
+                    <ol>
+                        <li>Go to <a href="https://github.com/settings/tokens" target="_blank">GitHub → Settings → Developer Settings → Personal Access Tokens → Tokens (classic)</a></li>
+                        <li>Click <strong>"Generate new token (classic)"</strong></li>
+                        <li>Name it: <strong>"Kharatishvili Law Admin"</strong></li>
+                        <li>Select scopes: <strong>☑ repo</strong> (full repository access)</li>
+                        <li>Click <strong>"Generate token"</strong></li>
+                        <li>Copy the token and paste it below:</li>
+                    </ol>
+                    
+                    <div style="margin: 20px 0;">
+                        <label for="tokenInput" style="display: block; margin-bottom: 10px;"><strong>GitHub Access Token:</strong></label>
+                        <input type="password" id="tokenInput" placeholder="ghp_xxxxxxxxxxxx" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-family: monospace;">
+                        <small style="color: #666; display: block; margin-top: 5px;">This token is stored securely in your browser and never sent anywhere except GitHub.</small>
+                    </div>
+                    
+                    <div style="text-align: right; margin-top: 20px;">
+                        <button onclick="closeGitHubSetup()" style="margin-right: 10px; padding: 10px 20px; background: #ccc; border: none; border-radius: 5px; cursor: pointer;">Skip for Now</button>
+                        <button onclick="saveGitHubToken()" style="padding: 10px 20px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer;">Enable Auto-Publishing</button>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        document.body.insertAdjacentHTML('beforeend', setupHTML);
+        
+        // Add global functions for the modal
+        window.closeGitHubSetup = () => {
+            document.querySelector('.github-setup-modal').remove();
+            // Still generate download file as fallback
+            const publishedArticles = this.articles.filter(article => article.status === 'published');
+            this.generateDataFile(publishedArticles);
+        };
+        
+        window.saveGitHubToken = () => {
+            const token = document.getElementById('tokenInput').value.trim();
+            if (token) {
+                localStorage.setItem('githubAccessToken', token);
+                document.querySelector('.github-setup-modal').remove();
+                
+                // Retry publishing
+                const publishedArticles = this.articles.filter(article => article.status === 'published');
+                this.publishToGitHub(publishedArticles);
+            } else {
+                alert('Please enter a valid GitHub token');
+            }
+        };
+    }
+
+    showPublishingStatus(message, type = 'info') {
+        const statusColors = {
+            info: '#17a2b8',
+            success: '#28a745', 
+            warning: '#ffc107',
+            error: '#dc3545'
+        };
+        
+        const statusIcons = {
+            info: '⏳',
+            success: '✅',
+            warning: '⚠️', 
+            error: '❌'
+        };
+        
+        // Remove existing status
+        const existingStatus = document.querySelector('.publishing-status');
+        if (existingStatus) existingStatus.remove();
+        
+        const statusHTML = `
+            <div class="publishing-status" style="background: ${statusColors[type]}; color: white; padding: 15px; border-radius: 5px; margin: 10px 0; animation: fadeIn 0.3s;">
+                <strong>${statusIcons[type]} ${message}</strong>
+            </div>
+        `;
+        
+        const articlesList = document.getElementById('articlesList');
+        if (articlesList && articlesList.parentNode) {
+            articlesList.parentNode.insertBefore(
+                document.createRange().createContextualFragment(statusHTML).firstElementChild,
+                articlesList.nextSibling
+            );
+        }
+        
+        // Auto-remove after delay for non-error messages
+        if (type !== 'error') {
+            setTimeout(() => {
+                const status = document.querySelector('.publishing-status');
+                if (status && status.textContent.includes(message)) {
+                    status.style.opacity = '0';
+                    setTimeout(() => status.remove(), 300);
+                }
+            }, type === 'success' ? 5000 : 3000);
+        }
+    }
+
+    showDeploymentStatus() {
+        let countdown = 120; // 2 minutes
+        const updateCountdown = () => {
+            const minutes = Math.floor(countdown / 60);
+            const seconds = countdown % 60;
+            const timeString = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+            
+            this.showPublishingStatus(`🚀 Deploying... Articles will be live in ~${timeString}`, 'info');
+            
+            countdown--;
+            if (countdown >= 0) {
+                setTimeout(updateCountdown, 1000);
+            } else {
+                this.showPublishingStatus('🎉 Articles should now be live! Check your website.', 'success');
+            }
+        };
+        
+        setTimeout(updateCountdown, 3000); // Start countdown after initial success message
+    }
+
+    // Auto-Publishing Settings Management
+    updateAutoPublishStatus() {
+        const statusContainer = document.getElementById('autoPublishStatus');
+        const statusIndicator = document.getElementById('statusIndicator');
+        const statusDot = statusIndicator.querySelector('.status-dot');
+        const statusText = statusIndicator.querySelector('.status-text');
+        const setupBtn = document.getElementById('setupAutoPublish');
+        const testBtn = document.getElementById('testPublish');
+        const removeBtn = document.getElementById('removeToken');
+
+        const githubToken = localStorage.getItem('githubAccessToken');
+
+        if (githubToken) {
+            // Token exists, check if it's valid
+            this.testGitHubConnection(true).then(isValid => {
+                if (isValid) {
+                    statusContainer.className = 'auto-publish-status enabled';
+                    statusDot.className = 'status-dot enabled';
+                    statusText.textContent = 'Auto-publishing is enabled and working';
+                    setupBtn.style.display = 'none';
+                    testBtn.style.display = 'inline-block';
+                    removeBtn.style.display = 'inline-block';
+                } else {
+                    statusContainer.className = 'auto-publish-status disabled';
+                    statusDot.className = 'status-dot disabled';
+                    statusText.textContent = 'Auto-publishing token is invalid';
+                    setupBtn.style.display = 'inline-block';
+                    testBtn.style.display = 'none';
+                    removeBtn.style.display = 'inline-block';
+                }
+            });
+        } else {
+            statusContainer.className = 'auto-publish-status disabled';
+            statusDot.className = 'status-dot disabled';
+            statusText.textContent = 'Auto-publishing is not set up';
+            setupBtn.style.display = 'inline-block';
+            testBtn.style.display = 'none';
+            removeBtn.style.display = 'none';
+        }
+    }
+
+    async testGitHubConnection(silent = false) {
+        const githubToken = localStorage.getItem('githubAccessToken');
+        
+        if (!githubToken) {
+            if (!silent) this.showPublishingStatus('No GitHub token found', 'error');
+            return false;
+        }
+
+        try {
+            if (!silent) this.showPublishingStatus('Testing GitHub connection...', 'info');
+
+            const response = await fetch('https://api.github.com/user', {
+                headers: {
+                    'Authorization': `token ${githubToken}`,
+                    'Accept': 'application/vnd.github.v3+json',
+                }
+            });
+
+            if (response.ok) {
+                if (!silent) this.showPublishingStatus('✅ GitHub connection successful!', 'success');
+                return true;
+            } else {
+                if (!silent) this.showPublishingStatus('❌ GitHub token is invalid', 'error');
+                return false;
+            }
+        } catch (error) {
+            if (!silent) this.showPublishingStatus('❌ Failed to connect to GitHub', 'error');
+            return false;
+        }
+    }
+
+    removeGitHubToken() {
+        if (confirm('Are you sure you want to disable auto-publishing? You will need to set up a new token to re-enable it.')) {
+            localStorage.removeItem('githubAccessToken');
+            this.updateAutoPublishStatus();
+            this.showPublishingStatus('Auto-publishing has been disabled', 'warning');
         }
     }
 

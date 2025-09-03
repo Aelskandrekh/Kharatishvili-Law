@@ -197,6 +197,22 @@
                     </div>
                     <div class="settings-content">
                         <div class="setting-item">
+                            <h4>🚀 Auto-Publishing</h4>
+                            <p>Automatically publish articles to your website without manual steps</p>
+                            <div class="auto-publish-status" id="autoPublishStatus">
+                                <div class="status-indicator" id="statusIndicator">
+                                    <span class="status-dot"></span>
+                                    <span class="status-text">Checking...</span>
+                                </div>
+                            </div>
+                            <div class="setting-actions">
+                                <button id="setupAutoPublish" class="btn btn-primary">Setup Auto-Publishing</button>
+                                <button id="testPublish" class="btn btn-outline" style="display: none;">Test Publishing</button>
+                                <button id="removeToken" class="btn btn-danger" style="display: none;">Disable Auto-Publishing</button>
+                            </div>
+                        </div>
+                        
+                        <div class="setting-item">
                             <h4>Data Management</h4>
                             <p>Backup and restore your articles</p>
                             <div class="setting-actions">
@@ -205,6 +221,7 @@
                                 <button id="importData" class="btn btn-outline">Import Articles</button>
                             </div>
                         </div>
+                        
                         <div class="setting-item">
                             <h4>Clear All Data</h4>
                             <p>Remove all articles from local storage</p>

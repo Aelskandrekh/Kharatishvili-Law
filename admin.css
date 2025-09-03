@@ -1,4 +1,80 @@
 /* Admin Console Styles */
+
+/* Auto-Publishing Status */
+.auto-publish-status {
+    margin: 15px 0;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #6c757d;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.status-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #6c757d;
+    animation: pulse 2s infinite;
+}
+
+.status-dot.enabled {
+    background: #28a745;
+    border-left-color: #28a745;
+}
+
+.status-dot.disabled {
+    background: #dc3545;
+    border-left-color: #dc3545;
+    animation: none;
+}
+
+.status-dot.checking {
+    background: #ffc107;
+    border-left-color: #ffc107;
+}
+
+.status-text {
+    font-weight: 500;
+    color: #495057;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.auto-publish-status.enabled {
+    background: #d4edda;
+    border-left-color: #28a745;
+}
+
+.auto-publish-status.disabled {
+    background: #f8d7da;
+    border-left-color: #dc3545;
+}
+
+.auto-publish-status.checking {
+    background: #fff3cd;
+    border-left-color: #ffc107;
+}
+
+/* Publishing Status Messages */
+.publishing-status {
+    border-radius: 8px;
+    font-size: 14px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 .admin-body {
     background: #f5f7fa;
     font-family: 'Inter', sans-serif;
