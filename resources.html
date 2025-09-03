@@ -215,9 +215,13 @@
             let articlesToLoad = [];
             
             // Priority 1: Try to load from shared data file (for cross-browser sharing)
+            console.log('Checking window.publishedArticlesData:', window.publishedArticlesData);
             if (window.publishedArticlesData && window.publishedArticlesData.length > 0) {
                 articlesToLoad = window.publishedArticlesData.filter(article => article.status === 'published');
                 console.log('Loaded articles from shared data file:', articlesToLoad.length);
+                console.log('First article:', articlesToLoad[0] ? articlesToLoad[0].title : 'none');
+            } else {
+                console.log('No publishedArticlesData found or empty array');
             }
             
             // Priority 2: Fall back to localStorage (for same browser)

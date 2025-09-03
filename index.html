@@ -401,8 +401,12 @@
             let articles = [];
 
             // Priority 1: Try to load from shared data file (for cross-browser sharing)
+            console.log('Homepage checking window.publishedArticlesData:', window.publishedArticlesData);
             if (window.publishedArticlesData && window.publishedArticlesData.length > 0) {
                 articles = window.publishedArticlesData.filter(article => article.status === 'published');
+                console.log('Homepage loaded articles from shared data:', articles.length);
+            } else {
+                console.log('Homepage: No publishedArticlesData found');
             }
 
             // Priority 2: Fall back to localStorage
