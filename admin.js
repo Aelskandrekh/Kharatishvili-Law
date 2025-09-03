@@ -119,7 +119,18 @@ class AdminConsole {
         // Auto-Publishing Settings
         const setupAutoPublish = document.getElementById('setupAutoPublish');
         if (setupAutoPublish) {
-            setupAutoPublish.addEventListener('click', () => this.showGitHubSetupInstructions());
+            setupAutoPublish.addEventListener('click', (e) => {
+                e.preventDefault();
+                console.log('Setup auto-publish button clicked');
+                try {
+                    this.showGitHubSetupInstructions();
+                } catch (error) {
+                    console.error('Error showing GitHub setup:', error);
+                    alert('Error opening setup. Please refresh the page and try again.');
+                }
+            });
+        } else {
+            console.warn('Setup auto-publish button not found');
         }
 
         const testPublish = document.getElementById('testPublish');
@@ -787,31 +798,63 @@ window.articlesLastUpdated = ${Date.now()};`;
     }
 
     showGitHubSetupInstructions() {
+        console.log('Showing GitHub setup instructions');
+        
         const setupHTML = `
-            <div class="github-setup-modal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; display: flex; align-items: center; justify-content: center;">
-                <div style="background: white; padding: 30px; border-radius: 10px; max-width: 600px; max-height: 80vh; overflow-y: auto;">
-                    <h2>🚀 Enable Automatic Publishing</h2>
-                    <p>Set up automatic publishing to make your articles go live instantly without manual steps!</p>
-                    
-                    <h3>Quick Setup (2 minutes):</h3>
-                    <ol>
-                        <li>Go to <a href="https://github.com/settings/tokens" target="_blank">GitHub → Settings → Developer Settings → Personal Access Tokens → Tokens (classic)</a></li>
-                        <li>Click <strong>"Generate new token (classic)"</strong></li>
-                        <li>Name it: <strong>"Kharatishvili Law Admin"</strong></li>
-                        <li>Select scopes: <strong>☑ repo</strong> (full repository access)</li>
-                        <li>Click <strong>"Generate token"</strong></li>
-                        <li>Copy the token and paste it below:</li>
-                    </ol>
-                    
-                    <div style="margin: 20px 0;">
-                        <label for="tokenInput" style="display: block; margin-bottom: 10px;"><strong>GitHub Access Token:</strong></label>
-                        <input type="password" id="tokenInput" placeholder="ghp_xxxxxxxxxxxx" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-family: monospace;">
-                        <small style="color: #666; display: block; margin-top: 5px;">This token is stored securely in your browser and never sent anywhere except GitHub.</small>
+            <div class="github-setup-modal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; display: flex; align-items: center; justify-content: center; font-family: Inter, sans-serif;">
+                <div style="background: white; padding: 30px; border-radius: 15px; max-width: 650px; max-height: 85vh; overflow-y: auto; box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
+                    <div style="text-align: center; margin-bottom: 25px;">
+                        <h2 style="color: #1a2332; margin: 0 0 10px 0;">🚀 Enable Instant Article Publishing</h2>
+                        <p style="color: #666; margin: 0;">Set up one-click publishing to make your articles go live automatically!</p>
                     </div>
                     
-                    <div style="text-align: right; margin-top: 20px;">
-                        <button onclick="closeGitHubSetup()" style="margin-right: 10px; padding: 10px 20px; background: #ccc; border: none; border-radius: 5px; cursor: pointer;">Skip for Now</button>
-                        <button onclick="saveGitHubToken()" style="padding: 10px 20px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer;">Enable Auto-Publishing</button>
+                    <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+                        <h3 style="color: #28a745; margin: 0 0 15px 0;">✨ What You'll Get:</h3>
+                        <ul style="margin: 0; padding-left: 20px; color: #495057;">
+                            <li>Click "Save Article" → Automatically live in 1-2 minutes</li>
+                            <li>No more downloading/uploading files</li>
+                            <li>Articles visible on ALL browsers instantly</li>
+                            <li>Professional publishing workflow</li>
+                        </ul>
+                    </div>
+                    
+                    <h3 style="color: #1a2332; margin: 0 0 15px 0;">📋 Quick Setup (2 minutes):</h3>
+                    <ol style="color: #495057; line-height: 1.6;">
+                        <li><strong>Open GitHub Settings:</strong><br>
+                            <a href="https://github.com/settings/tokens" target="_blank" style="color: #007bff; text-decoration: none;">Click here to open GitHub Token Settings →</a></li>
+                        <li><strong>Generate Token:</strong> Click "Generate new token (classic)"</li>
+                        <li><strong>Token Name:</strong> Enter "Kharatishvili Law Admin"</li>
+                        <li><strong>Select Permissions:</strong> Check the ☑ <strong>repo</strong> box (full repository access)</li>
+                        <li><strong>Create Token:</strong> Click "Generate token" at bottom</li>
+                        <li><strong>Copy & Paste:</strong> Copy the token (starts with "ghp_") and paste below</li>
+                    </ol>
+                    
+                    <div style="margin: 25px 0; padding: 20px; background: #fff3cd; border-left: 4px solid #ffc107; border-radius: 5px;">
+                        <strong style="color: #856404;">⚠️ Important:</strong>
+                        <p style="margin: 5px 0 0 0; color: #856404;">Copy the token immediately after generating - GitHub only shows it once!</p>
+                    </div>
+                    
+                    <div style="margin: 20px 0;">
+                        <label for="tokenInput" style="display: block; margin-bottom: 10px; font-weight: 600; color: #1a2332;">GitHub Access Token:</label>
+                        <input type="password" id="tokenInput" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" 
+                               style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-family: 'Courier New', monospace; font-size: 14px; transition: border-color 0.3s;" 
+                               onfocus="this.style.borderColor='#007bff'" onblur="this.style.borderColor='#ddd'">
+                        <small style="color: #6c757d; display: block; margin-top: 8px;">
+                            🔒 Secure: Token is stored locally in your browser and only used for GitHub
+                        </small>
+                    </div>
+                    
+                    <div style="text-align: right; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
+                        <button onclick="closeGitHubSetup()" 
+                                style="margin-right: 15px; padding: 12px 24px; background: #6c757d; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 500; transition: background-color 0.3s;"
+                                onmouseover="this.style.backgroundColor='#545b62'" onmouseout="this.style.backgroundColor='#6c757d'">
+                            Skip for Now
+                        </button>
+                        <button onclick="saveGitHubToken()" 
+                                style="padding: 12px 24px; background: #28a745; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 500; transition: background-color 0.3s;"
+                                onmouseover="this.style.backgroundColor='#218838'" onmouseout="this.style.backgroundColor='#28a745'">
+                            🚀 Enable Auto-Publishing
+                        </button>
                     </div>
                 </div>
             </div>
@@ -819,25 +862,43 @@ window.articlesLastUpdated = ${Date.now()};`;
         
         document.body.insertAdjacentHTML('beforeend', setupHTML);
         
-        // Add global functions for the modal
+        // Add global functions for the modal (preserve 'this' context)
+        const self = this;
         window.closeGitHubSetup = () => {
-            document.querySelector('.github-setup-modal').remove();
+            const modal = document.querySelector('.github-setup-modal');
+            if (modal) modal.remove();
+            
             // Still generate download file as fallback
-            const publishedArticles = this.articles.filter(article => article.status === 'published');
-            this.generateDataFile(publishedArticles);
+            const publishedArticles = self.articles.filter(article => article.status === 'published');
+            if (publishedArticles.length > 0) {
+                self.generateDataFile(publishedArticles);
+            }
         };
         
         window.saveGitHubToken = () => {
-            const token = document.getElementById('tokenInput').value.trim();
-            if (token) {
+            const tokenInput = document.getElementById('tokenInput');
+            if (!tokenInput) {
+                alert('Token input not found');
+                return;
+            }
+            
+            const token = tokenInput.value.trim();
+            if (token && token.startsWith('ghp_')) {
                 localStorage.setItem('githubAccessToken', token);
-                document.querySelector('.github-setup-modal').remove();
+                const modal = document.querySelector('.github-setup-modal');
+                if (modal) modal.remove();
                 
-                // Retry publishing
-                const publishedArticles = this.articles.filter(article => article.status === 'published');
-                this.publishToGitHub(publishedArticles);
+                // Update status and test connection
+                self.updateAutoPublishStatus();
+                self.showPublishingStatus('Auto-publishing enabled! You can now publish articles automatically.', 'success');
+                
+                // If there are published articles, try to sync them
+                const publishedArticles = self.articles.filter(article => article.status === 'published');
+                if (publishedArticles.length > 0) {
+                    self.publishToGitHub(publishedArticles);
+                }
             } else {
-                alert('Please enter a valid GitHub token');
+                alert('Please enter a valid GitHub token (should start with "ghp_")');
             }
         };
     }
