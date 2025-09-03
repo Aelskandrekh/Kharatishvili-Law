@@ -116,10 +116,9 @@ class AdminConsole {
             clearData.addEventListener('click', () => this.clearAllData());
         }
 
-        // Auto-Publishing Settings
-        const setupAutoPublish = document.getElementById('setupAutoPublish');
-        if (setupAutoPublish) {
-            setupAutoPublish.addEventListener('click', (e) => {
+        // Auto-Publishing Settings - use delegation for reliability
+        document.addEventListener('click', (e) => {
+            if (e.target && e.target.id === 'setupAutoPublish') {
                 e.preventDefault();
                 console.log('Setup auto-publish button clicked');
                 try {
@@ -128,10 +127,8 @@ class AdminConsole {
                     console.error('Error showing GitHub setup:', error);
                     alert('Error opening setup. Please refresh the page and try again.');
                 }
-            });
-        } else {
-            console.warn('Setup auto-publish button not found');
-        }
+            }
+        });
 
         const testPublish = document.getElementById('testPublish');
         if (testPublish) {
@@ -733,64 +730,38 @@ class AdminConsole {
         try {
             this.showPublishingStatus('Publishing to website...', 'info');
             
-            // Create the articles data file content
-            const articlesDataContent = `// Published Articles Data
-// This file is automatically updated when articles are published via admin console
-// DO NOT EDIT MANUALLY - Use admin.html to manage articles
-
-window.publishedArticlesData = ${JSON.stringify(publishedArticles, null, 4)};
-
-// Last updated timestamp
-window.articlesLastUpdated = ${Date.now()};`;
-
-            // GitHub API configuration
-            const repoOwner = 'Aelskandrekh';
-            const repoName = 'Kharatishvili-Law';
-            const filePath = 'articles-data.js';
-            const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}`;
-
-            // Get current file SHA (required for updates)
-            const getCurrentFile = await fetch(apiUrl, {
+            // Use the serverless API function instead of direct GitHub API calls
+            const response = await fetch('/api/update-articles', {
+                method: 'POST',
                 headers: {
-                    'Authorization': `token ${githubToken}`,
-                    'Accept': 'application/vnd.github.v3+json',
-                }
-            });
-
-            let sha = null;
-            if (getCurrentFile.ok) {
-                const currentFileData = await getCurrentFile.json();
-                sha = currentFileData.sha;
-            }
-
-            // Prepare commit data
-            const commitData = {
-                message: `Auto-update articles: ${publishedArticles.length} published articles`,
-                content: btoa(unescape(encodeURIComponent(articlesDataContent))), // Base64 encode
-                ...(sha && { sha }) // Include SHA if file exists
-            };
-
-            // Commit to GitHub
-            const response = await fetch(apiUrl, {
-                method: 'PUT',
-                headers: {
-                    'Authorization': `token ${githubToken}`,
-                    'Accept': 'application/vnd.github.v3+json',
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(commitData)
+                body: JSON.stringify({
+                    articles: publishedArticles,
+                    githubToken: githubToken
+                })
             });
 
-            if (response.ok) {
-                this.showPublishingStatus('Articles published! Website will update in 1-2 minutes.', 'success');
+            const result = await response.json();
+
+            if (result.success) {
+                this.showPublishingStatus(
+                    `✅ Articles published successfully! ${result.articlesCount} articles are now live. Website will update in 1-2 minutes.`, 
+                    'success'
+                );
                 this.showDeploymentStatus();
+                
+                // Show commit link if available
+                if (result.commit) {
+                    console.log('View commit:', result.commit);
+                }
             } else {
-                throw new Error(`GitHub API error: ${response.status}`);
+                throw new Error(result.error || 'API request failed');
             }
 
         } catch (error) {
-            console.error('GitHub publishing error:', error);
-            this.showPublishingStatus('Auto-publish failed. Using manual backup...', 'warning');
+            console.error('Publishing error:', error);
+            this.showPublishingStatus('⚠️ Auto-publish failed. Using manual backup...', 'warning');
             
             // Fall back to manual download method
             this.generateDataFile(publishedArticles);
