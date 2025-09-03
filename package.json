@@ -4,6 +4,9 @@
   "description": "",
   "main": "script.js",
   "scripts": {
+    "build": "node build.js",
+    "dev": "python3 -m http.server 8000",
+    "deploy": "./deploy.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

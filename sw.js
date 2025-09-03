@@ -1,5 +1,6 @@
 // Service Worker for Kharatishvili Law
-const CACHE_NAME = 'kharatishvili-law-v1';
+const CACHE_VERSION = Date.now(); // Dynamic cache version
+const CACHE_NAME = `kharatishvili-law-v${CACHE_VERSION}`;
 const STATIC_ASSETS = [
   '/',
   '/index.html',
@@ -7,10 +8,14 @@ const STATIC_ASSETS = [
   '/services.html',
   '/contact.html',
   '/resources.html',
-  '/styles.css',
-  '/script.js',
   '/images/aleksandre-hero-photo.png',
   '/images/aleksandre-professional-photo.png'
+];
+
+// Assets that should always be fresh (never cached)
+const NEVER_CACHE = [
+  '/admin.html',
+  '/article.html'
 ];
 
 // Install event - cache static assets
@@ -41,7 +46,7 @@ self.addEventListener('activate', (event) => {
   self.clients.claim();
 });
 
-// Fetch event - serve from cache, fallback to network
+// Fetch event - smart caching strategy
 self.addEventListener('fetch', (event) => {
   // Only handle GET requests
   if (event.request.method !== 'GET') {
@@ -53,6 +58,37 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
+  const url = new URL(event.request.url);
+  const pathname = url.pathname;
+
+  // Never cache certain files
+  if (NEVER_CACHE.some(path => pathname.includes(path))) {
+    event.respondWith(fetch(event.request));
+    return;
+  }
+
+  // Network-first strategy for HTML files
+  if (pathname.endsWith('.html') || pathname === '/' || !pathname.includes('.')) {
+    event.respondWith(
+      fetch(event.request)
+        .then((response) => {
+          // If network request succeeds, update cache and return response
+          if (response && response.status === 200) {
+            const responseToCache = response.clone();
+            caches.open(CACHE_NAME)
+              .then((cache) => cache.put(event.request, responseToCache));
+          }
+          return response;
+        })
+        .catch(() => {
+          // If network fails, fallback to cache
+          return caches.match(event.request);
+        })
+    );
+    return;
+  }
+
+  // Cache-first strategy for static assets (CSS, JS, images)
   event.respondWith(
     caches.match(event.request)
       .then((response) => {
@@ -74,11 +110,11 @@ self.addEventListener('fetch', (event) => {
           const responseToCache = response.clone();
 
           // Cache successful responses for static assets
-          if (event.request.url.includes('.css') || 
-              event.request.url.includes('.js') || 
-              event.request.url.includes('.png') || 
-              event.request.url.includes('.jpg') ||
-              event.request.url.includes('.html')) {
+          if (pathname.includes('.css') || 
+              pathname.includes('.js') || 
+              pathname.includes('.png') || 
+              pathname.includes('.jpg') ||
+              pathname.includes('.svg')) {
             caches.open(CACHE_NAME)
               .then((cache) => {
                 cache.put(event.request, responseToCache);
