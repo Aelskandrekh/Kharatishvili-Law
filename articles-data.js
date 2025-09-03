@@ -4,15 +4,15 @@
 
 window.publishedArticlesData = [
     {
-        "id": "test1",
-        "title": "Test Article",
+        "id": "cache-test-1",
+        "title": "Cache Busting Test Article",
         "date": "2025-09-03",
-        "summary": "Test summary",
-        "content": "Test content",
+        "summary": "Testing immediate article visibility",
+        "content": "This tests our cache-busting system!",
         "status": "published",
-        "practiceArea": "immigration"
+        "practiceArea": "corporate"
     }
 ];
 
 // Last updated timestamp
-window.articlesLastUpdated = 1756917857941;
+window.articlesLastUpdated = 1756918199853;
