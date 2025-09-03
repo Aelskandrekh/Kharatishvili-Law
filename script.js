@@ -37,16 +37,21 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Smooth Page Transitions
     function fadeOutAndNavigate(url) {
-        const mainContent = document.querySelector('.main-content');
+        const mainContent = document.querySelector('.main-content') || document.body;
         
         // Fade out current content
-        mainContent.style.opacity = '0';
-        mainContent.style.transform = 'translateY(-20px)';
-        mainContent.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
-        
-        setTimeout(() => {
+        if (mainContent && mainContent !== document.body) {
+            mainContent.style.opacity = '0';
+            mainContent.style.transform = 'translateY(-20px)';
+            mainContent.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+            
+            setTimeout(() => {
+                window.location.href = url;
+            }, 400);
+        } else {
+            // Direct navigation if no main content found
             window.location.href = url;
-        }, 400);
+        }
     }
     
     // Enhanced Button Hover Effects
