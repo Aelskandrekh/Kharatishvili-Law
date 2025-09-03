@@ -21,7 +21,7 @@
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="dns-prefetch" href="https://formspree.io">
     
-    <link rel="stylesheet" href="styles.css?v=1756883042887">
+    <link rel="stylesheet" href="styles.css">
     
     <!-- Optimized fonts with display swap -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -407,20 +407,17 @@
         </div>
     </footer>
 
-    <!-- Service Worker Registration -->
+    <!-- Service Worker Disabled for Better Cache Control -->
     <script>
+      // Service worker disabled to allow HTTP cache headers to work properly
       if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js?v=1756883042887')
-            .then((registration) => {
-              console.log('SW registered: ', registration);
-            })
-            .catch((registrationError) => {
-              console.log('SW registration failed: ', registrationError);
-            });
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+          for(let registration of registrations) {
+            registration.unregister();
+          }
         });
       }
     </script>
-    <script defer src="script.js?v=1756883042887"></script>
+    <script defer src="script.js"></script>
 </body>
 </html>
