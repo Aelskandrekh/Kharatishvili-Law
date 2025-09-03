@@ -4,17 +4,6 @@
 
 window.publishedArticlesData = [
     {
-        "id": "mf47wfyltykz9m1p6ic",
-        "title": "modi",
-        "date": "2025-09-03",
-        "summary": "aka",
-        "content": "she bozo",
-        "status": "published",
-        "practiceArea": "litigation",
-        "createdAt": "2025-09-03T16:54:40.845Z",
-        "updatedAt": "2025-09-03T16:54:40.845Z"
-    },
-    {
         "id": "mf47ean6491p8zml9co",
         "title": "baodsaodas",
         "date": "2025-09-03",
@@ -39,4 +28,4 @@ window.publishedArticlesData = [
 ];
 
 // Last updated timestamp
-window.articlesLastUpdated = 1756918481611;
+window.articlesLastUpdated = 1756918536432;
