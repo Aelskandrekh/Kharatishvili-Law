@@ -4,6 +4,17 @@
 
 window.publishedArticlesData = [
     {
+        "id": "mf3wi3fsgus6ylf7ofh",
+        "title": "sad",
+        "date": "2025-09-03",
+        "summary": "asdas",
+        "content": "sadads",
+        "status": "published",
+        "practiceArea": "real-estate",
+        "createdAt": "2025-09-03T11:35:35.656Z",
+        "updatedAt": "2025-09-03T11:35:35.656Z"
+    },
+    {
         "id": "mf3sq68skeog3rlu8q",
         "title": "asd",
         "date": "2025-09-03",
@@ -39,4 +50,4 @@ window.publishedArticlesData = [
 ];
 
 // Last updated timestamp
-window.articlesLastUpdated = 1756899315270;
+window.articlesLastUpdated = 1756899336328;
